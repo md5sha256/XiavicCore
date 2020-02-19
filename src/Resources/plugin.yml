@@ -1,4 +1,4 @@
 name: XiavicCore
-main: xiavicMain.MainClass
+main: Main.mainClass
 authors: [Imhandmade, Kerlab]
 version: 2.0
