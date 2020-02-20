@@ -13,16 +13,15 @@ public class JoinQuit implements Listener {
     @EventHandler
     private void onJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
-
+        String name = p.getDisplayName();
         if (!(p.hasPlayedBefore())) {
-            String name = p.getName();
             event.setJoinMessage(ChatColor.DARK_PURPLE + "Welcome to the development server." + ChatColor.GREEN + " \nOnly those with authorized access may use this server.!");
             p.sendMessage(ChatColor.GOLD + "Welcome " + p.getName());
             Location spawn = new Location(p.getWorld(), 548.0f, 97.0f, -438.0f);
             p.teleport(spawn);
 
         } else {
-            p.sendMessage(ChatColor.GOLD + "+ " + p.getName());
+            event.setJoinMessage(ChatColor.GOLD + "+ " + name);
         }
 
     }
@@ -30,7 +29,7 @@ public class JoinQuit implements Listener {
     @EventHandler
     private void onQuit(PlayerQuitEvent event) {
         Player p = event.getPlayer();
-        event.setQuitMessage(ChatColor.DARK_RED + "- " + p.getName());
+        event.setQuitMessage(ChatColor.DARK_RED + "- " + p.getDisplayName());
 
     }
 }

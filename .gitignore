@@ -6,6 +6,7 @@
 .idea/
 *.iml
 *.iws
+XiavicCore.iml
 /out/
 # Mac
 .DS_Store
