@@ -29,7 +29,8 @@ public class JoinQuit implements Listener {
     @EventHandler
     private void onQuit(PlayerQuitEvent event) {
         Player p = event.getPlayer();
-        event.setQuitMessage(ChatColor.DARK_RED + "- " + p.getDisplayName());
+        String name = p.getDisplayName();
+        event.setQuitMessage(ChatColor.DARK_RED + "- " + name);
 
     }
 }
