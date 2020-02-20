@@ -2,3 +2,7 @@ name: XiavicCore
 main: Main.mainClass
 authors: [Imhandmade, Kerlab]
 version: 2.0
+commands:
+  clear:
+    usage:
+    description:

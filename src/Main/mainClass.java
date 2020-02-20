@@ -1,5 +1,6 @@
 package Main;
 
+import Commands.QOL.ClearCommand;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -18,10 +19,15 @@ public class mainClass extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(" ");
         registerListeners();
+        registerCommands();
     }
 
     public void onDisable() {
 
+    }
+
+    private void registerCommands() {
+        getCommand("clear").setExecutor(new ClearCommand());
     }
 
     private void registerListeners() {
