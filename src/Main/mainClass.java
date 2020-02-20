@@ -1,5 +1,6 @@
 package Main;
 
+import Commands.StaffCmds.SpawnSet;
 import Commands.QOL.ClearCommand;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
@@ -9,7 +10,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class mainClass extends JavaPlugin implements Listener {
 
-    public void onEnable(){
+    private Files cfmg;
+
+    public void onEnable() {
+        loadConfigManager();
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(" XIAVIC CORE IS ACTIVATED... ");
@@ -20,6 +24,8 @@ public class mainClass extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(" ");
         registerListeners();
         registerCommands();
+        registerStaffcmds();
+        loadconfig();
     }
 
     public void onDisable() {
@@ -33,6 +39,22 @@ public class mainClass extends JavaPlugin implements Listener {
     private void registerListeners() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinQuit(), this);
+    }
+
+    private void registerStaffcmds() {
+        getCommand("setspawn").setExecutor(new SpawnSet());
+    }
+
+    public void loadconfig() {
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+    }
+
+    public void loadConfigManager() {
+        cfmg = new Files();
+        cfmg.setup();
+        cfmg.savePlayers();
+        cfmg.reloadPlayers();
     }
 
 }
