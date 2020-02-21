@@ -1,7 +1,6 @@
 package Main;
 
-import Commands.StaffCmds.SpawnSet;
-import Commands.QOL.ClearCommand;
+import Commands.QOL.*;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -34,6 +33,10 @@ public class mainClass extends JavaPlugin implements Listener {
 
     private void registerCommands() {
         getCommand("clear").setExecutor(new ClearCommand());
+        getCommand("ec").setExecutor(new EnderChestCommand());
+        getCommand("feed").setExecutor(new FeedCommand());
+        getCommand("heal").setExecutor(new HealCommand());
+        getCommand("gamemode").setExecutor(new GamemodeCommand());
     }
 
     private void registerListeners() {
@@ -42,7 +45,7 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     private void registerStaffcmds() {
-        getCommand("setspawn").setExecutor(new SpawnSet());
+        //getCommand("setspawn").setExecutor(new SpawnSet());
     }
 
     public void loadconfig() {

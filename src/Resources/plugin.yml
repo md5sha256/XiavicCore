@@ -6,3 +6,19 @@ commands:
   clear:
     usage:
     description:
+  ec:
+    usage:
+    description:
+  feed:
+    usage:
+    description:
+  heal:
+    usage:
+    description:
+  gamemode:
+    usage:
+    description:
+    aliases: gm
+  setspawn:
+    usage:
+    description:
