@@ -1,6 +1,7 @@
 package Main;
 
-import Commands.QOL.*;
+import Commands.StaffCmds.*;
+import Commands.UserCmds.EnderChestCommand;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -45,7 +46,8 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     private void registerStaffcmds() {
-        //getCommand("setspawn").setExecutor(new SpawnSet());
+        getCommand("setspawn").setExecutor(new SpawnSet());
+        getCommand("tp").setExecutor(new Teleport());
     }
 
     public void loadconfig() {

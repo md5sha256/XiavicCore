@@ -1,4 +1,4 @@
-package Commands.QOL;
+package Commands.StaffCmds;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -68,7 +68,7 @@ public class FeedCommand implements CommandExecutor {
                     try {
                         Player player = Bukkit.getPlayer(who);
                         player.sendMessage("You have been fed");
-                        player.setFoodLevel(20);  
+                        player.setFoodLevel(20);
                         player.setSaturation(20f);
                         return true;
                     } catch (Exception e) {

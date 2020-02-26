@@ -1,4 +1,4 @@
-package Commands.QOL;
+package Commands.StaffCmds;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -17,7 +17,7 @@ public class GamemodeCommand implements CommandExecutor {
             if (commandSender instanceof Player) {
                 Player player = (Player) commandSender;
                 if (strings.length == 1) {
-                    if (player.hasPermission("Xiavic.gamemode") || player.isOp()) {
+                    if (player.hasPermission("Xiavic.staff.gamemode") || player.isOp()) {
                         String mode = strings[0];
                         if (mode.equalsIgnoreCase("creative") || mode.equalsIgnoreCase("1") || mode.equalsIgnoreCase("c")) {
                             player.setGameMode(GameMode.CREATIVE);
@@ -36,7 +36,7 @@ public class GamemodeCommand implements CommandExecutor {
                     }
                 }
                 if (strings.length == 2) {
-                    if (player.hasPermission("Xiavic.gamemode.others") || player.isOp()) {
+                    if (player.hasPermission("Xiavic.staff.gamemode.others") || player.isOp()) {
                         String mode = strings[0];
                         String who = strings[1];
                         try {

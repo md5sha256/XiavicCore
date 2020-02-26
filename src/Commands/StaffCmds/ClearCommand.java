@@ -1,4 +1,4 @@
-package Commands.QOL;
+package Commands.StaffCmds;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,7 +16,7 @@ public class ClearCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (player.hasPermission("Xiavic.clear")) {
+            if (player.hasPermission("Xiavic.clear") || player.isOp()) {
                 int total = 0;
                 for (ItemStack stack : player.getInventory().getContents()) {
                     if (stack != null) {
@@ -25,11 +25,10 @@ public class ClearCommand implements CommandExecutor {
                 }
                 player.getInventory().clear();
                 player.sendMessage(ChatColor.GOLD + String.valueOf(total) + " items cleared");
-                return true;
             } else {
                 player.sendMessage(ChatColor.RED + "No permissions fucker...");
-                return true;
             }
+            return true;
         } else {
             commandSender.sendMessage("Player only");
         }

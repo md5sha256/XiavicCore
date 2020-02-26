@@ -1,4 +1,4 @@
-package Commands.QOL;
+package Commands.UserCmds;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

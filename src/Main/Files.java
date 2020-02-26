@@ -1,9 +1,9 @@
 package Main;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import utils.utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,11 +25,11 @@ public class Files {
             try {
                 playersfile.createNewFile();
             } catch (IOException e) {
-                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "Could not create the players.yml file.... Uhh ohh...");
+                Bukkit.getServer().getConsoleSender().sendMessage(utils.chat("&cCould not create the players.yml file.... Uhh ohh..."));
             }
         }
         playercfg = YamlConfiguration.loadConfiguration(playersfile);
-        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Successfully created the players.yml file.");
+        Bukkit.getServer().getConsoleSender().sendMessage(utils.chat("&aSuccessfully created the players.yml file."));
     }
 
     public FileConfiguration getPlayers() {
@@ -39,9 +39,9 @@ public class Files {
     public void savePlayers() {
         try {
             playercfg.save(playersfile);
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Successfully saved the players.yml file!");
+            Bukkit.getServer().getConsoleSender().sendMessage(utils.chat("&aSuccessfully saved the players.yml file!"));
         } catch (IOException e) {
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "Could NOT save the players.yml file... Is it configured correctly?");
+            Bukkit.getServer().getConsoleSender().sendMessage(utils.chat("&cCould NOT save the players.yml file... Is it configured correctly?"));
         }
     }
 
