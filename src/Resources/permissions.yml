@@ -1,0 +1,14 @@
+# Player Commands
+EnderChest: "Xiavic.ec"
+EnderChest-Others: "Xiavic.ec.others"
+
+# Staff Commands
+Clear: "Xiavic.clear"
+Feed: "Xiavic.feed"
+FeedOthers: "Xiavic.feed.others"
+Gamemode: "Xiavic.gamemode"
+GamemodeOthers: "Xiavic.gamemode.others"
+Heal: "Xiavic.heal"
+HealOthers: "Xiavic.heal.others"
+SetSpawn: "Xiavic.staff.setspawn"
+TP: "Xiavic.staff.tp"
