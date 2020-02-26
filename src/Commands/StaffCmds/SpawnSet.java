@@ -14,7 +14,7 @@ public class SpawnSet implements CommandExecutor {
             if (player.hasPermission("xiavic.staff.setspawn")) {
                 if (cmd.getName().equalsIgnoreCase("setspawn")) {
                     player.getWorld().setSpawnLocation(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
-                    player.sendMessage();
+                    //player.sendMessage();
                 }
             }
 

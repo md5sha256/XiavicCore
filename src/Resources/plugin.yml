@@ -2,3 +2,23 @@ name: XiavicCore
 main: Main.mainClass
 authors: [Imhandmade, Kerlab]
 version: 2.0
+commands:
+  clear:
+    usage:
+    description:
+  ec:
+    usage:
+    description:
+  feed:
+    usage:
+    description:
+  heal:
+    usage:
+    description:
+  gamemode:
+    usage:
+    description:
+    aliases: gm
+  setspawn:
+    usage:
+    description:
