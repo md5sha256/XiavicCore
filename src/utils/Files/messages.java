@@ -7,13 +7,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class permissions {
+public class messages {
 
     private static File file;
-    private static FileConfiguration permissionsFile;
+    private static FileConfiguration messagesFile;
 
     public static void setup() {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("Xiavic").getDataFolder(), "permissions.yml");
+        file = new File(Bukkit.getServer().getPluginManager().getPlugin("Xiavic").getDataFolder(), "messages.yml");
 
         if (!file.exists()) {
             try {
@@ -21,22 +21,22 @@ public class permissions {
             } catch (IOException e) {
             }
         }
-        permissionsFile = YamlConfiguration.loadConfiguration(file);
+        messagesFile = YamlConfiguration.loadConfiguration(file);
     }
 
     public static FileConfiguration get() {
-        return permissionsFile;
+        return messagesFile;
     }
 
     public static void save() {
         try {
-            permissionsFile.save(file);
+            messagesFile.save(file);
         } catch (IOException e) {
-            System.out.println("The permissions.yml File could NOT be saved.");
+            System.out.println("The messages.yml File could NOT be saved.");
         }
     }
 
     public static void reload() {
-        permissionsFile = YamlConfiguration.loadConfiguration(file);
+        messagesFile = YamlConfiguration.loadConfiguration(file);
     }
 }

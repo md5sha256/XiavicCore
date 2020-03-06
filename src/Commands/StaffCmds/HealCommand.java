@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import utils.Files.permissions;
 
 public class HealCommand implements CommandExecutor {
 
@@ -15,7 +16,7 @@ public class HealCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1) {
-                if (player.hasPermission("Xiavic.heal.others") || player.isOp()) {
+                if (player.hasPermission(permissions.get().getString("HealOthers")) || player.isOp()) {
                     String who = strings[0];
                     if (who.equalsIgnoreCase("all")) {
                         for (Player target : Bukkit.getOnlinePlayers()) {
@@ -41,7 +42,7 @@ public class HealCommand implements CommandExecutor {
                     return true;
                 }
             } else {
-                if (player.hasPermission("Xiavic.heal") || player.isOp()) {
+                if (player.hasPermission(permissions.get().getString("Heal")) || player.isOp()) {
                     player.sendMessage("You have been healed!");
                     player.setHealth(20);
                     return true;

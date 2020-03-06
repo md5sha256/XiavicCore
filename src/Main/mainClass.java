@@ -2,20 +2,22 @@ package Main;
 
 import Commands.StaffCmds.*;
 import Commands.UserCmds.EnderChestCommand;
+import Commands.UserCmds.Spawn;
 import Listeners.JoinQuit;
-import utils.Files.permissions;
-import utils.Files.players;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import utils.Files.messages;
+import utils.Files.permissions;
+import utils.Files.players;
 
 public class mainClass extends JavaPlugin implements Listener {
 
     private players cfmg;
 
     public void onEnable() {
-        loadPlayerManager();
+        loadshit();
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(" XIAVIC CORE IS ACTIVATED... ");
         Bukkit.getConsoleSender().sendMessage(" ");
@@ -25,8 +27,6 @@ public class mainClass extends JavaPlugin implements Listener {
         registerListeners();
         registerCommands();
         registerStaffcmds();
-        loadconfig();
-        loadmessages();
     }
 
     public void onDisable() {
@@ -39,6 +39,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("feed").setExecutor(new FeedCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
+        getCommand("spawn").setExecutor(new Spawn());
     }
 
     private void registerListeners() {
@@ -51,24 +52,24 @@ public class mainClass extends JavaPlugin implements Listener {
         //getCommand("tp").setExecutor(new Teleport());
     }
 
-    public void loadconfig() {
+    public void loadshit() {
         getConfig().options().copyDefaults(true);
         saveConfig();
-    }
-
-    public void loadPlayerManager() {
+        permissions.setup();
+        permissions.get();
+        permissions.get().options().copyDefaults(true);
+        permissions.save();
+        permissions.reload();
         cfmg = new players();
         cfmg.setup();
         cfmg.savePlayers();
         cfmg.reloadPlayers();
         cfmg.getPlayers();
-    }
-
-    public void loadmessages() {
-        permissions.setup();
-        permissions.get();
-        permissions.get().options().copyDefaults(true);
-        permissions.save();
+        messages.setup();
+        messages.get();
+        messages.get().options().copyDefaults(true);
+        messages.save();
+        messages.reload();
     }
 
 }

@@ -1,11 +1,11 @@
 package Commands.StaffCmds;
 
-import utils.Files.permissions;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import utils.Files.permissions;
 
 public class FeedCommand implements CommandExecutor {
 
@@ -16,7 +16,7 @@ public class FeedCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1) {
-                if (player.hasPermission(permissions.get().getString("Feed")) || player.isOp()) {
+                if (player.hasPermission(permissions.get().getString("FeedAll")) || player.isOp()) {
                     String who = strings[0];
                     if (who.equalsIgnoreCase("all")) {
                         for (Player target : Bukkit.getOnlinePlayers()) {
@@ -44,7 +44,7 @@ public class FeedCommand implements CommandExecutor {
                     return true;
                 }
             } else {
-                if (player.hasPermission("Xiavic.feed") || player.isOp()) {
+                if (player.hasPermission(permissions.get().getString("Feed")) || player.isOp()) {
                     player.sendMessage("You have been fed!");
                     player.setFoodLevel(20);
                     player.setSaturation(20f);

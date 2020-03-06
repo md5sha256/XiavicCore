@@ -1,6 +1,6 @@
 name: XiavicCore
 main: Main.mainClass
-authors: [Imhandmade, Kerlab]
+authors: [Imhandmade, Kerlab, VottusCode]
 version: 2.0
 commands:
   clear:

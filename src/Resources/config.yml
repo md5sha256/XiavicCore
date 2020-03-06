@@ -14,38 +14,6 @@
 
 
 ##############################
-####### !! MESSAGES !! #######
-##############################
-
-#Economy
-Account: "&2Your account balance is currently &e%money%."
-Annoy: "&4&l&oNGKBRNGSERBGSERGSKRENGRKNJGVKNVKDJNGFKERNGFJKNBGJZDRNBGKJHZBDVFJYeFOLAEWFPAEWIQOEUYRIUQWEYRDFDLASJFV,ZNMXBNM,BZMCXBVKZDSHGIAHGFUIAGF"
-
-#Listeners
-FirstJoin_Message: "&eWelcome to the development server, %player% &aonly those with authorized access may use this server.!"
-ReJoin_Message: "&6+ %player%"
-Quit_Message: "&c- %player%"
-Argh: "&bArghhh, Piratey treasure awaits at yee spawn!"
-Argh_CD: "&bBarnacles, yee treasure seems to be stolen!"
-ClearInventory: "&7Your inventory has just been cleared. Hopefully you didn't have any God-like items on you!"
-Discord: "&bCome &3join &bour &3discord &bat &3https://discordapp.com/invite/nY5yFhs"
-Feed: "Your hunger seems to have subsided for now..."
-Heal: "You have been successfully healed."
-Ignore: "You are now ignoring %target%"
-Pony: "Pickle has spoken, your pony is %Random_Pony%" #Sorry not sorry pickle, but i'm bringing it back, just for you, <3
-Private Warps: "Here are a list of your private warps..."
-SetSpawn: "&eSpawn has been successfully set."
-Spawn: "You have been successfully teleported to spawn."
-Tpa: "You have sent a teleport request to %target%"
-Tpa_Request: "%sender% has requested to teleport to you"
-Tpa_Accept: "%target% has accepted your teleport request. You will be teleported in %time% seconds."
-Tpa_Deny: "%target% has denied your teleport request. You fucking suck."
-TpToggleOff: "You have DISABLED teleport requests to you. Pathetic..."
-TpToggleOn: "You have ENABLED teleport requests to you."
-Whatsthis: "What a terrible night for a curse..."
-Whatsthis_AtTarget: "You have cursed %target%."
-
-##############################
 ######## !! CONFIG !! ########
 ##############################
 #Economy
