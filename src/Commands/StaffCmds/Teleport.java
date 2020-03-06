@@ -1,14 +1,10 @@
-package Commands.StaffCmds;
+//package Commands.StaffCmds;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-
-public class Teleport implements CommandExecutor {
-    @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+//public class Teleport implements CommandExecutor {
+// @Override
+// public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
 
-        return false;
+// return false;
     }
-}
+            }

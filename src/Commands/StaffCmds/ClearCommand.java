@@ -1,5 +1,6 @@
 package Commands.StaffCmds;
 
+import Main.Files.permissions;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +17,7 @@ public class ClearCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (player.hasPermission("Xiavic.clear") || player.isOp()) {
+            if (player.hasPermission(permissions.get().getString("Clear")) || player.isOp()) {
                 int total = 0;
                 for (ItemStack stack : player.getInventory().getContents()) {
                     if (stack != null) {

@@ -1,5 +1,6 @@
 package Commands.StaffCmds;
 
+import Main.Files.permissions;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +16,7 @@ public class FeedCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1) {
-                if (player.hasPermission("Xiavic.feed.others") || player.isOp()) {
+                if (player.hasPermission(permissions.get().getString("Feed")) || player.isOp()) {
                     String who = strings[0];
                     if (who.equalsIgnoreCase("all")) {
                         for (Player target : Bukkit.getOnlinePlayers()) {

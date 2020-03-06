@@ -1,5 +1,6 @@
-package Main;
+package Main.Files;
 
+import Main.mainClass;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -8,7 +9,7 @@ import utils.utils;
 import java.io.File;
 import java.io.IOException;
 
-public class Files {
+public class players {
 
     public FileConfiguration playercfg;
     public File playersfile;
