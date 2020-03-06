@@ -1,6 +1,6 @@
 package Commands.StaffCmds;
 
-import Main.Files.permissions;
+import utils.Files.permissions;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

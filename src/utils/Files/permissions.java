@@ -1,4 +1,4 @@
-package Main.Files;
+package utils.Files;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;

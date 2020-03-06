@@ -1,6 +1,6 @@
 package Commands.StaffCmds;
 
-import Main.Files.permissions;
+import utils.Files.permissions;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
