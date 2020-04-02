@@ -53,6 +53,8 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     public void loadshit() {
+        saveResource("Resources/permissions.yml", true);
+        saveResource("Resources/messages.yml", true);
         getConfig().options().copyDefaults(true);
         saveConfig();
         permissions.setup();

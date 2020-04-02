@@ -1,5 +1,6 @@
 package Commands.StaffCmds;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,21 +23,40 @@ public class ClearCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (player.hasPermission(p.getString("Clear")) || player.isOp()) {
-                int total = 0;
-                for (ItemStack stack : player.getInventory().getContents()) {
-                    if (stack != null) {
-                        total += stack.getAmount();
-                    }
+            if (strings.length == 1) {
+                try {
+                    Player target = Bukkit.getPlayer(strings[0]);
+                    target.getInventory().clear();
+                    target.sendMessage(utils.chat(m.getString("ClearInventory")));
+                    player.sendMessage(utils.chat(m.getString("ClearInventoryOther").replace("%target%", target.getDisplayName())));
+                    return true;
+                } catch (Exception e) {
+                    player.sendMessage(utils.chat(m.getString("PlayerNotFound")));
+                    return true;
                 }
-                player.getInventory().clear();
-                player.sendMessage(ChatColor.GOLD + String.valueOf(total) + " items cleared");
             } else {
-                player.sendMessage(utils.chat(m.getString("NoPerms")));
+                if (player.hasPermission(p.getString("Clear")) || player.isOp()) {
+                    player.sendMessage(utils.chat(m.getString("ClearInventory")));
+                } else {
+                    player.sendMessage(utils.chat(m.getString("NoPerms")));
+                }
+                return true;
             }
-            return true;
         } else {
-            commandSender.sendMessage(utils.chat(m.getString("SenderNotPlayer")));
+            if (strings.length == 1) {
+                try {
+                    Player target = Bukkit.getPlayer(strings[0]);
+                    target.getInventory().clear();
+                    target.sendMessage(utils.chat(m.getString("ClearInventory")));
+                    commandSender.sendMessage(utils.chat(m.getString("ClearInventoryOther").replace("%target%", target.getDisplayName())));
+                    return true;
+                } catch (Exception e) {
+                    commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
+                    return true;
+                }
+            } else {
+                commandSender.sendMessage("You need to specify a player to clear their inventory!");
+            }
         }
         return false;
     }

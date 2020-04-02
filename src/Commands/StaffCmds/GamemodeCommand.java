@@ -55,7 +55,7 @@ public class GamemodeCommand implements CommandExecutor {
                                 target.setGameMode(GameMode.SPECTATOR);
                             }
                             target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
-                            commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", who) + mode));
+                            commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
                             return true;
                         } catch (Exception e) {
                             commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
@@ -66,32 +66,32 @@ public class GamemodeCommand implements CommandExecutor {
                         return true;
                     }
                 }
-            }
-        } else {
-            if (strings.length == 2) {
-                String mode = strings[0];
-                String who = strings[1];
-                try {
-                    Player target = Bukkit.getPlayer(who);
-                    if (mode.equalsIgnoreCase("creative") || mode.equalsIgnoreCase("1") || mode.equalsIgnoreCase("c")) {
-                        target.setGameMode(GameMode.CREATIVE);
-                    } else if (mode.equalsIgnoreCase("survival") || mode.equalsIgnoreCase("0") || mode.equalsIgnoreCase("su")) {
-                        target.setGameMode(GameMode.SURVIVAL);
-                    } else if (mode.equalsIgnoreCase("adventure") || mode.equalsIgnoreCase("2") || mode.equalsIgnoreCase("a")) {
-                        target.setGameMode(GameMode.ADVENTURE);
-                    } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
-                        target.setGameMode(GameMode.SPECTATOR);
+            } else {
+                if (strings.length == 2) {
+                    String mode = strings[0];
+                    String who = strings[1];
+                    try {
+                        Player target = Bukkit.getPlayer(who);
+                        if (mode.equalsIgnoreCase("creative") || mode.equalsIgnoreCase("1") || mode.equalsIgnoreCase("c")) {
+                            target.setGameMode(GameMode.CREATIVE);
+                        } else if (mode.equalsIgnoreCase("survival") || mode.equalsIgnoreCase("0") || mode.equalsIgnoreCase("su")) {
+                            target.setGameMode(GameMode.SURVIVAL);
+                        } else if (mode.equalsIgnoreCase("adventure") || mode.equalsIgnoreCase("2") || mode.equalsIgnoreCase("a")) {
+                            target.setGameMode(GameMode.ADVENTURE);
+                        } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
+                            target.setGameMode(GameMode.SPECTATOR);
+                        }
+                        target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                        commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
+                        return true;
+                    } catch (Exception e) {
+                        commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
+                        return true;
                     }
-                    target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
-                    commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", who) + mode));
-                    return true;
-                } catch (Exception e) {
-                    commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
+                } else {
+                    commandSender.sendMessage("You need to specify a target and gamemode!");
                     return true;
                 }
-            } else {
-                commandSender.sendMessage("You need to specify a target and gamemode!");
-                return true;
             }
         }
         return false;

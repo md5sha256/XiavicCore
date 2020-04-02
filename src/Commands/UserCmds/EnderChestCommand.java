@@ -25,7 +25,7 @@ public class EnderChestCommand implements CommandExecutor {
                     try {
                         Player target = Bukkit.getPlayer(strings[0]);
                         player.openInventory(target.getEnderChest());
-                        player.sendMessage(utils.chat(m.getString("EnderChestOthers").replace("%target", target.getDisplayName())));
+                        player.sendMessage(utils.chat(m.getString("EnderChestOthers").replace("%target%", target.getDisplayName())));
                         return true;
                     } catch (Exception e) {
                         player.sendMessage(utils.chat(m.getString("PlayerNotFound")));

@@ -13,7 +13,7 @@ public class permissions {
     private static FileConfiguration permissionsFile;
 
     public static void setup() {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("Xiavic").getDataFolder(), "permissions.yml");
+        file = new File(Bukkit.getServer().getPluginManager().getPlugin("XiavicCore").getDataFolder(), "/Resources/permissions.yml");
 
         if (!file.exists()) {
             try {

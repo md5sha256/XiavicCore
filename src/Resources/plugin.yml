@@ -22,3 +22,6 @@ commands:
   setspawn:
     usage:
     description:
+  spawn:
+    usage:
+    description:

@@ -13,7 +13,7 @@ public class messages {
     private static FileConfiguration messagesFile;
 
     public static void setup() {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("Xiavic").getDataFolder(), "messages.yml");
+        file = new File(Bukkit.getServer().getPluginManager().getPlugin("XiavicCore").getDataFolder(), "Resources/messages.yml");
 
         if (!file.exists()) {
             try {

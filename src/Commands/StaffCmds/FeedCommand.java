@@ -52,11 +52,10 @@ public class FeedCommand implements CommandExecutor {
                     player.sendMessage(utils.chat(m.getString("Feed")));
                     player.setFoodLevel(20);
                     player.setSaturation(20f);
-                    return true;
                 } else {
                     player.sendMessage(utils.chat(m.getString("NoPerms")));
-                    return true;
                 }
+                return true;
             }
         } else {
             if (strings.length == 1) {
@@ -75,6 +74,7 @@ public class FeedCommand implements CommandExecutor {
                         player.sendMessage(utils.chat(m.getString("Feed")));
                         player.setFoodLevel(20);
                         player.setSaturation(20f);
+                        commandSender.sendMessage(player.getDisplayName() + " has been fed!");
                         return true;
                     } catch (Exception e) {
                         commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
