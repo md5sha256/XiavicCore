@@ -4,20 +4,25 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import utils.Files.messages;
 import utils.Files.permissions;
+import utils.utils;
 
 public class ClearCommand implements CommandExecutor {
 
-    //TODO redo the strings when mike adds the utils file
-    //TODO permission nodes too
+    //TODO add the ability to clear others inventories and execute from console
+
+    FileConfiguration m = messages.get();
+    FileConfiguration p = permissions.get();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (player.hasPermission(permissions.get().getString("Clear")) || player.isOp()) {
+            if (player.hasPermission(p.getString("Clear")) || player.isOp()) {
                 int total = 0;
                 for (ItemStack stack : player.getInventory().getContents()) {
                     if (stack != null) {
@@ -27,11 +32,11 @@ public class ClearCommand implements CommandExecutor {
                 player.getInventory().clear();
                 player.sendMessage(ChatColor.GOLD + String.valueOf(total) + " items cleared");
             } else {
-                player.sendMessage(ChatColor.RED + "No permissions fucker...");
+                player.sendMessage(utils.chat(m.getString("NoPerms")));
             }
             return true;
         } else {
-            commandSender.sendMessage("Player only");
+            commandSender.sendMessage(utils.chat(m.getString("SenderNotPlayer")));
         }
         return false;
     }

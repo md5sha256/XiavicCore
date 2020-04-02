@@ -1,15 +1,18 @@
 # Player Commands
 EnderChest: "Xiavic.ec"
-EnderChest-Others: "Xiavic.ec.others"
+EnderChestOthers: "Xiavic.ec.others"
 
 # Staff Commands
 Clear: "Xiavic.clear"
+ClearOthers: "Xiavic.clear.others"
 Feed: "Xiavic.feed"
 FeedOthers: "Xiavic.feed.others"
-Gamemode: "Xiavic.gamemode"
-GamemodeOthers: "Xiavic.gamemode.others"
 Heal: "Xiavic.heal"
 HealOthers: "Xiavic.heal.others"
-SetSpawn: "Xiavic.staff.setspawn"
 Spawn: "Xiavic.spawn"
+
+# Proper Staff Commands
+SetSpawn: "Xiavic.staff.setspawn"
+Gamemode: "Xiavic.staff.gamemode"
+GamemodeOthers: "Xiavic.staff.gamemode.others"
 TP: "Xiavic.staff.tp"

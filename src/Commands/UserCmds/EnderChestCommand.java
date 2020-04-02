@@ -5,37 +5,42 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import utils.Files.messages;
+import utils.Files.permissions;
+import utils.utils;
 
 public class EnderChestCommand implements CommandExecutor {
 
-    //TODO fix string shit later
+    FileConfiguration m = messages.get();
+    FileConfiguration p = permissions.get();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length >= 1) {
-                if (player.hasPermission("Xiavic.ec.others") || player.isOp()) {
+                if (player.hasPermission(p.getString("EnderChestOthers")) || player.isOp()) {
                     try {
                         Player target = Bukkit.getPlayer(strings[0]);
                         player.openInventory(target.getEnderChest());
-                        player.sendMessage(ChatColor.GOLD + "Opening " + target.getName() + "'s enderchest!");
+                        player.sendMessage(utils.chat(m.getString("EnderChestOthers").replace("%target", target.getDisplayName())));
                         return true;
                     } catch (Exception e) {
-                        player.sendMessage("That player is not found!");
+                        player.sendMessage(utils.chat(m.getString("PlayerNotFound")));
                         return true;
                     }
                 }
             } else {
-                if (player.hasPermission("Xiavic.ec") || player.isOp()) {
+                if (player.hasPermission(p.getString("EnderChest")) || player.isOp()) {
                     player.openInventory(player.getEnderChest());
-                    player.sendMessage(ChatColor.GOLD + "Opening enderchest!");
+                    player.sendMessage(utils.chat(m.getString("EnderChest")));
                     return true;
                 }
             }
         } else {
-            commandSender.sendMessage("You are not a fucking player!");
+            commandSender.sendMessage(utils.chat(m.getString("SenderNotPlayer")));
             return true;
         }
         return false;

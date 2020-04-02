@@ -4,53 +4,57 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import utils.Files.messages;
 import utils.Files.permissions;
+import utils.utils;
 
 public class FeedCommand implements CommandExecutor {
 
-    //TODO String fix
+    FileConfiguration m = messages.get();
+    FileConfiguration p = permissions.get();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1) {
-                if (player.hasPermission(permissions.get().getString("FeedAll")) || player.isOp()) {
+                if (player.hasPermission(p.getString("FeedOthers")) || player.isOp()) {
                     String who = strings[0];
                     if (who.equalsIgnoreCase("all")) {
                         for (Player target : Bukkit.getOnlinePlayers()) {
-                            target.sendMessage("You have been fed!");
+                            target.sendMessage(utils.chat(m.getString("Feed")));
                             target.setFoodLevel(20);
                             target.setSaturation(20f);
                         }
-                        player.sendMessage("All players have been fed!");
+                        player.sendMessage(utils.chat(m.getString("FeedAll")));
                         return true;
                     } else {
                         try {
                             Player target = Bukkit.getPlayer(who);
-                            target.sendMessage("You have been fed!");
+                            target.sendMessage(utils.chat(m.getString("Feed")));
                             target.setFoodLevel(20);
                             target.setSaturation(20f);
                             player.sendMessage(who + " has been fed!");
                             return true;
                         } catch (Exception e) {
-                            player.sendMessage("That player is not online!");
+                            player.sendMessage(utils.chat(m.getString("PlayerNotFound")));
                             return true;
                         }
                     }
                 } else {
-                    player.sendMessage("You do not have permission!");
+                    player.sendMessage(utils.chat(m.getString("NoPerms")));
                     return true;
                 }
             } else {
-                if (player.hasPermission(permissions.get().getString("Feed")) || player.isOp()) {
-                    player.sendMessage("You have been fed!");
+                if (player.hasPermission(p.getString("Feed")) || player.isOp()) {
+                    player.sendMessage(utils.chat(m.getString("Feed")));
                     player.setFoodLevel(20);
                     player.setSaturation(20f);
                     return true;
                 } else {
-                    player.sendMessage("You do not have permission!");
+                    player.sendMessage(utils.chat(m.getString("NoPerms")));
                     return true;
                 }
             }
@@ -59,21 +63,21 @@ public class FeedCommand implements CommandExecutor {
                 String who = strings[0];
                 if (who.equalsIgnoreCase("all")) {
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        player.sendMessage("You have been fed");
+                        player.sendMessage(utils.chat(m.getString("Feed")));
                         player.setFoodLevel(20);
                         player.setSaturation(20f);
                     }
-                    commandSender.sendMessage("All players have been fed");
+                    commandSender.sendMessage(utils.chat(m.getString("FeedAll")));
                     return true;
                 } else {
                     try {
                         Player player = Bukkit.getPlayer(who);
-                        player.sendMessage("You have been fed");
+                        player.sendMessage(utils.chat(m.getString("Feed")));
                         player.setFoodLevel(20);
                         player.setSaturation(20f);
                         return true;
                     } catch (Exception e) {
-                        commandSender.sendMessage("That player is not online!");
+                        commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
                         return true;
                     }
                 }

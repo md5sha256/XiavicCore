@@ -5,11 +5,16 @@ import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import utils.Files.messages;
+import utils.Files.permissions;
+import utils.utils;
 
 public class GamemodeCommand implements CommandExecutor {
 
-    //TODO fix the strings
+    FileConfiguration m = messages.get();
+    FileConfiguration p = permissions.get();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -17,7 +22,7 @@ public class GamemodeCommand implements CommandExecutor {
             if (commandSender instanceof Player) {
                 Player player = (Player) commandSender;
                 if (strings.length == 1) {
-                    if (player.hasPermission("Xiavic.staff.gamemode") || player.isOp()) {
+                    if (player.hasPermission(p.getString("Gamemode")) || player.isOp()) {
                         String mode = strings[0];
                         if (mode.equalsIgnoreCase("creative") || mode.equalsIgnoreCase("1") || mode.equalsIgnoreCase("c")) {
                             player.setGameMode(GameMode.CREATIVE);
@@ -28,15 +33,14 @@ public class GamemodeCommand implements CommandExecutor {
                         } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                             player.setGameMode(GameMode.SPECTATOR);
                         }
-                        player.sendMessage("Your gamemode has been updated!");
-                        return true;
+                        player.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", player.getGameMode().name())));
                     } else {
-                        player.sendMessage("You do not have permission!");
-                        return true;
+                        player.sendMessage(utils.chat(m.getString("NoPerms")));
                     }
+                    return true;
                 }
                 if (strings.length == 2) {
-                    if (player.hasPermission("Xiavic.staff.gamemode.others") || player.isOp()) {
+                    if (player.hasPermission(p.getString("GamemodeOthers")) || player.isOp()) {
                         String mode = strings[0];
                         String who = strings[1];
                         try {
@@ -50,15 +54,15 @@ public class GamemodeCommand implements CommandExecutor {
                             } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                                 target.setGameMode(GameMode.SPECTATOR);
                             }
-                            target.sendMessage("Your gamemode has been updated!");
-                            player.sendMessage(who + "'s gamemode has been set to " + mode);
+                            target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                            commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", who) + mode));
                             return true;
                         } catch (Exception e) {
-                            player.sendMessage("That player is not online!");
+                            commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
                             return true;
                         }
                     } else {
-                        player.sendMessage("You do not have permission!");
+                        player.sendMessage(utils.chat(m.getString("NoPerms")));
                         return true;
                     }
                 }
@@ -78,11 +82,11 @@ public class GamemodeCommand implements CommandExecutor {
                     } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                         target.setGameMode(GameMode.SPECTATOR);
                     }
-                    target.sendMessage("Your gamemode has been updated!");
-                    commandSender.sendMessage(who + "'s gamemode has been set to " + mode);
+                    target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                    commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", who) + mode));
                     return true;
                 } catch (Exception e) {
-                    commandSender.sendMessage("That player is not online!");
+                    commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
                     return true;
                 }
             } else {
