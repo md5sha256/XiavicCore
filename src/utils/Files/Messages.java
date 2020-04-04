@@ -7,7 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class messages {
+public class Messages {
 
     private static File file;
     private static FileConfiguration messagesFile;

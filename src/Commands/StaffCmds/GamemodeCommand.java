@@ -7,14 +7,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import utils.Files.messages;
-import utils.Files.permissions;
-import utils.utils;
+import utils.Files.Messages;
+import utils.Files.Permissions;
+import utils.Utils;
 
 public class GamemodeCommand implements CommandExecutor {
 
-    FileConfiguration m = messages.get();
-    FileConfiguration p = permissions.get();
+    FileConfiguration m = Messages.get();
+    FileConfiguration p = Permissions.get();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -33,9 +33,9 @@ public class GamemodeCommand implements CommandExecutor {
                         } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                             player.setGameMode(GameMode.SPECTATOR);
                         }
-                        player.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", player.getGameMode().name())));
+                        player.sendMessage(Utils.chat(m.getString("Gamemode").replace("%mode%", player.getGameMode().name())));
                     } else {
-                        player.sendMessage(utils.chat(m.getString("NoPerms")));
+                        player.sendMessage(Utils.chat(m.getString("NoPerms")));
                     }
                     return true;
                 }
@@ -54,15 +54,15 @@ public class GamemodeCommand implements CommandExecutor {
                             } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                                 target.setGameMode(GameMode.SPECTATOR);
                             }
-                            target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
-                            commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
+                            target.sendMessage(Utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                            commandSender.sendMessage(Utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
                             return true;
                         } catch (Exception e) {
-                            commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
+                            commandSender.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
                             return true;
                         }
                     } else {
-                        player.sendMessage(utils.chat(m.getString("NoPerms")));
+                        player.sendMessage(Utils.chat(m.getString("NoPerms")));
                         return true;
                     }
                 }
@@ -81,11 +81,11 @@ public class GamemodeCommand implements CommandExecutor {
                         } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                             target.setGameMode(GameMode.SPECTATOR);
                         }
-                        target.sendMessage(utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
-                        commandSender.sendMessage(utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
+                        target.sendMessage(Utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                        commandSender.sendMessage(Utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
                         return true;
                     } catch (Exception e) {
-                        commandSender.sendMessage(utils.chat(m.getString("PlayerNotFound")));
+                        commandSender.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
                         return true;
                     }
                 } else {

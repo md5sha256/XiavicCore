@@ -8,13 +8,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import utils.Files.messages;
-import utils.Files.permissions;
-import utils.Files.players;
+import utils.Files.Messages;
+import utils.Files.Permissions;
+import utils.Files.Players;
 
 public class mainClass extends JavaPlugin implements Listener {
 
-    private players cfmg;
+    private Players cfmg;
 
     public void onEnable() {
         loadshit();
@@ -57,21 +57,21 @@ public class mainClass extends JavaPlugin implements Listener {
         saveResource("Resources/messages.yml", true);
         getConfig().options().copyDefaults(true);
         saveConfig();
-        permissions.setup();
-        permissions.get();
-        permissions.get().options().copyDefaults(true);
-        permissions.save();
-        permissions.reload();
-        cfmg = new players();
+        Permissions.setup();
+        Permissions.get();
+        Permissions.get().options().copyDefaults(true);
+        Permissions.save();
+        Permissions.reload();
+        cfmg = new Players();
         cfmg.setup();
         cfmg.savePlayers();
         cfmg.reloadPlayers();
         cfmg.getPlayers();
-        messages.setup();
-        messages.get();
-        messages.get().options().copyDefaults(true);
-        messages.save();
-        messages.reload();
+        Messages.setup();
+        Messages.get();
+        Messages.get().options().copyDefaults(true);
+        Messages.save();
+        Messages.reload();
     }
 
 }

@@ -5,8 +5,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Files.permissions;
-import utils.utils;
+import utils.Files.Permissions;
+import utils.Utils;
 
 public class SpawnSet implements CommandExecutor {
 
@@ -17,10 +17,10 @@ public class SpawnSet implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(permissions.get().getString("SetSpawn")) || player.isOp()) {
+            if (player.hasPermission(Permissions.get().getString("SetSpawn")) || player.isOp()) {
                 if (cmd.getName().equalsIgnoreCase("setspawn")) {
                     player.getWorld().setSpawnLocation(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
-                    player.sendMessage(utils.chat(plugin.getConfig().getString("SetSpawn")));
+                    player.sendMessage(Utils.chat(plugin.getConfig().getString("SetSpawn")));
                 }
             }
 

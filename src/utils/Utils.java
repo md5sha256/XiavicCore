@@ -2,7 +2,7 @@ package utils;
 
 import org.bukkit.ChatColor;
 
-public class utils {
+public class Utils {
 
     //EZ Chat Colors
 

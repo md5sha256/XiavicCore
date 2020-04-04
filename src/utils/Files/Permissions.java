@@ -7,7 +7,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public class permissions {
+public class Permissions {
 
     private static File file;
     private static FileConfiguration permissionsFile;
