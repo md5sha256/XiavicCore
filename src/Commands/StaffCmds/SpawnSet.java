@@ -24,7 +24,7 @@ public class SpawnSet implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission(p.getString("SetSpawn")) || player.isOp()) {
                 if (cmd.getName().equalsIgnoreCase("setspawn")) {
-                    player.getWorld().setSpawnLocation(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
+                    player.getWorld().setSpawnLocation(player.getLocation());
                     player.sendMessage(Utils.chat(m.getString("SetSpawn")));
                 }
                 return true;

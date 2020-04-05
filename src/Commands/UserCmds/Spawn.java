@@ -11,6 +11,8 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.mainConfig;
+
 public class Spawn implements CommandExecutor {
 
     FileConfiguration m = Messages.get();
@@ -25,15 +27,15 @@ public class Spawn implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission(p.getString("Spawn")) || player.isOp()) {
                 if (cmd.getName().equalsIgnoreCase("spawn")) {
-                    player.teleport(Bukkit.getWorld(plugin.getConfig().getString("Spawn_World_Name")).getSpawnLocation());
+                    player.teleport(Bukkit.getWorld(mainConfig.getString("Spawn_World_Name")).getSpawnLocation());
                     player.sendMessage(Utils.chat(m.getString("Spawn")));
                 } else {
                     player.sendMessage(Utils.chat(m.getString("NoPerms")));
                 }
+                return true;
             }
-            return false;
         }
-        return true;
+        return false;
     }
 
 }

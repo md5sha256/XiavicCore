@@ -17,8 +17,8 @@
 ######## !! CONFIG !! ########
 ##############################
 
-#Spawn
-Spawn_World_Name: world
+#Spawn | world name, X, Y, Z, Yaw, Pitch
+Spawn_World_Name: world, 100, 100, 100, 100, 100
 
 #Economy
 Balance_Check: 60
@@ -35,18 +35,6 @@ Tpa_Timeout: 60
 #Fun
 PonyCooldown: 60
 AnnoyCooldown: 600
-
-#Life
-HealCooldown: 600
-FeedCooldown: 600
-
-#Life
-HealCooldown: 600
-FeedCooldown: 600
-
-#Life
-HealCooldown: 600
-FeedCooldown: 600
 
 #Life
 HealCooldown: 600
