@@ -17,10 +17,10 @@ public class TpaRequest {
         this.origin = origin;
         this.target = target;
         this.requestTime = System.currentTimeMillis();
-        sendMessages();
+        sendRequest();
     }
 
-    public void sendMessages() {
+    public void sendRequest() {
         this.origin.sendMessage(Utils.chat(m.getString("Tpa").replace("%target%", target.getDisplayName())));
         this.target.sendMessage(Utils.chat(m.getString("Tpa_Request").replace("%sender%", origin.getDisplayName())));
     }

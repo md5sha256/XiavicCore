@@ -55,7 +55,7 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     private void registerStaffcmds() {
-        getCommand("setspawn").setExecutor(new SpawnSet());
+        getCommand("setspawn").setExecutor(new SpawnSet(this));
         //getCommand("tp").setExecutor(new Teleport());
     }
 
