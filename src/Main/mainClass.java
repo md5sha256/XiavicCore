@@ -3,8 +3,10 @@ package Main;
 import Commands.StaffCmds.*;
 import Commands.UserCmds.EnderChestCommand;
 import Commands.UserCmds.Spawn;
+import Commands.UserCmds.TpaCommand;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +17,8 @@ import utils.Files.Players;
 public class mainClass extends JavaPlugin implements Listener {
 
     private Players cfmg;
+
+    public static FileConfiguration mainConfig;
 
     public void onEnable() {
         loadshit();
@@ -27,6 +31,8 @@ public class mainClass extends JavaPlugin implements Listener {
         registerListeners();
         registerCommands();
         registerStaffcmds();
+
+        mainConfig = getConfig();
     }
 
     public void onDisable() {
@@ -40,6 +46,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new Spawn());
+        getCommand("tpa").setExecutor(new TpaCommand());
     }
 
     private void registerListeners() {
@@ -55,23 +62,8 @@ public class mainClass extends JavaPlugin implements Listener {
     public void loadshit() {
         saveResource("Resources/permissions.yml", true);
         saveResource("Resources/messages.yml", true);
-        getConfig().options().copyDefaults(true);
-        saveConfig();
         Permissions.setup();
-        Permissions.get();
-        Permissions.get().options().copyDefaults(true);
-        Permissions.save();
-        Permissions.reload();
-        cfmg = new Players();
-        cfmg.setup();
-        cfmg.savePlayers();
-        cfmg.reloadPlayers();
-        cfmg.getPlayers();
         Messages.setup();
-        Messages.get();
-        Messages.get().options().copyDefaults(true);
-        Messages.save();
-        Messages.reload();
     }
 
 }

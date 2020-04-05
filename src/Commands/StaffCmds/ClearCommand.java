@@ -12,8 +12,6 @@ import utils.Utils;
 
 public class ClearCommand implements CommandExecutor {
 
-    //TODO add the ability to clear others inventories and execute from console
-
     FileConfiguration m = Messages.get();
     FileConfiguration p = Permissions.get();
 
@@ -22,15 +20,17 @@ public class ClearCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1) {
-                try {
-                    Player target = Bukkit.getPlayer(strings[0]);
-                    target.getInventory().clear();
-                    target.sendMessage(Utils.chat(m.getString("ClearInventory")));
-                    player.sendMessage(Utils.chat(m.getString("ClearInventoryOther").replace("%target%", target.getDisplayName())));
-                    return true;
-                } catch (Exception e) {
-                    player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
-                    return true;
+                if (player.hasPermission(p.getString("ClearOthers")) || player.isOp()) {
+                    try {
+                        Player target = Bukkit.getPlayer(strings[0]);
+                        target.getInventory().clear();
+                        target.sendMessage(Utils.chat(m.getString("ClearInventory")));
+                        player.sendMessage(Utils.chat(m.getString("ClearInventoryOther").replace("%target%", target.getDisplayName())));
+                        return true;
+                    } catch (Exception e) {
+                        player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                        return true;
+                    }
                 }
             } else {
                 if (player.hasPermission(p.getString("Clear")) || player.isOp()) {
