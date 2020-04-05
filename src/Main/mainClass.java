@@ -60,9 +60,9 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     public void loadshit() {
-        saveResource("Resources/permissions.yml", true);
-        saveResource("Resources/messages.yml", true);
-        saveResource("config.yml", true);
+        saveResource("Resources/permissions.yml", false);
+        saveResource("Resources/messages.yml", false);
+        saveResource("config.yml", false);
         Permissions.setup();
         Messages.setup();
     }

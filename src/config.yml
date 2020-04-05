@@ -18,7 +18,8 @@
 ##############################
 
 #Spawn | world name, X, Y, Z, Yaw, Pitch
-Spawn_World_Name: world, 100, 100, 100, 100, 100
+Spawn_World_Name: world,100,100,100,100,100
+
 
 #Economy
 Balance_Check: 60
