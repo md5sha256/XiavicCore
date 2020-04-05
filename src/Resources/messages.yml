@@ -23,7 +23,7 @@ Discord: "&bCome &3join &bour &3discord &bat &3https://discordapp.com/invite/nY5
 Feed: "Your hunger seems to have subsided for now..."
 FeedOther: "%target% has been fed"
 FeedAll: "Everyone has been fed..."
-Heal: "You have been healed."
+Heal: "&eYou have been healed."
 HealAll: "You have healed everyone!"
 HealOther: "%target% has been healed!"
 Ignore: "You are now ignoring %target%"

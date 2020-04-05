@@ -46,7 +46,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new Spawn());
-        getCommand("tpa").setExecutor(new TpaCommand());
+        //getCommand("tpa").setExecutor(new TpaCommand());
     }
 
     private void registerListeners() {
@@ -62,6 +62,7 @@ public class mainClass extends JavaPlugin implements Listener {
     public void loadshit() {
         saveResource("Resources/permissions.yml", true);
         saveResource("Resources/messages.yml", true);
+        saveResource("config.yml", true);
         Permissions.setup();
         Messages.setup();
     }
