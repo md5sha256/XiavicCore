@@ -2,6 +2,7 @@ package Main;
 
 import Commands.StaffCmds.*;
 import Commands.UserCmds.EnderChestCommand;
+import Commands.UserCmds.RandomTP;
 import Commands.UserCmds.Spawn;
 import Commands.UserCmds.TpaCommand;
 import Listeners.JoinQuit;
@@ -52,6 +53,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new Spawn());
+        getCommand("rtp").setExecutor(new RandomTP());
         getCommand("tpa").setExecutor(new TpaCommand());
     }
 

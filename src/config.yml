@@ -31,7 +31,14 @@ CanShare: false
 
 #Teleport
 TpaCooldown: 5
+Tpa_Delay: 3
 Tpa_Timeout: 60
+
+#RTP
+RTPCooldown: 600
+RTPWorld: world
+RTPxDistance: 50000
+RTPzDistance: 50000
 
 #Fun
 PonyCooldown: 60
