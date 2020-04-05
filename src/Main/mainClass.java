@@ -13,12 +13,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
+import utils.Tpa.TpaHandler;
 
 public class mainClass extends JavaPlugin implements Listener {
 
     private Players cfmg;
 
     public static FileConfiguration mainConfig;
+    public static FileConfiguration messages;
+    public static FileConfiguration permissions;
+
+    public static TpaHandler tpaHandler;
 
     public void onEnable() {
         loadshit();
@@ -32,7 +37,8 @@ public class mainClass extends JavaPlugin implements Listener {
         registerCommands();
         registerStaffcmds();
 
-        mainConfig = getConfig();
+        tpaHandler = new TpaHandler();
+        Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
     public void onDisable() {
@@ -46,7 +52,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new Spawn());
-        //getCommand("tpa").setExecutor(new TpaCommand());
+        getCommand("tpa").setExecutor(new TpaCommand());
     }
 
     private void registerListeners() {
@@ -65,6 +71,9 @@ public class mainClass extends JavaPlugin implements Listener {
         saveResource("config.yml", false);
         Permissions.setup();
         Messages.setup();
+        mainConfig = getConfig();
+        permissions = Permissions.get();
+        messages = Messages.get();
     }
 
 }

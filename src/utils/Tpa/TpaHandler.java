@@ -1,8 +1,5 @@
 package utils.Tpa;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import utils.Files.Messages;
@@ -21,6 +18,10 @@ public class TpaHandler implements Runnable {
 
     private int requestTimeout = 3;
     private int teleportTime = 3;
+
+
+    private ArrayList<TpaRequest> deadTeleports = new ArrayList<>();
+    private ArrayList<TpaRequest> deadRequests = new ArrayList<>();
 
     public TpaHandler() {
         this.requests = new ArrayList<>();
@@ -42,6 +43,10 @@ public class TpaHandler implements Runnable {
         player.sendMessage(Utils.chat(m.getString("NoRequest")));
     }
 
+    public void addRequest(TpaRequest request) {
+        this.requests.add(request);
+    }
+
     @Override
     public void run() {
         checkRequests();
@@ -49,17 +54,25 @@ public class TpaHandler implements Runnable {
     }
 
     private void checkRequests() {
-        ArrayList<TpaRequest> deadRequests = new ArrayList<>();
         for (TpaRequest request : requests) {
             if (request.isDead(requestTimeout)) {
-                deadRequests.add(request);
+                this.deadRequests.add(request);
             }
         }
-        this.requests.removeAll(deadRequests);
+        this.requests.removeAll(this.deadRequests);
+        this.deadRequests.clear();
     }
 
     private void checkTeleports() {
-        //for (Map.Entry<TpaRequest, Long> teleport : )
+        for (Map.Entry<TpaRequest, Long> teleport : teleports.entrySet()) {
+            if ((teleport.getValue() - System.currentTimeMillis())/1000 > this.teleportTime) {
+                TpaRequest request = teleport.getKey();
+                request.getOrigin().teleport(request.getTarget().getLocation());
+                this.deadTeleports.add(request);
+            }
+        }
+        this.requests.removeAll(this.deadRequests);
+        this.deadRequests.clear();
     }
 
 }
