@@ -1,6 +1,5 @@
-package Commands.UserCmds;
+package Commands.UserCmds.Tpa;
 
-import Main.mainClass;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,13 +17,16 @@ public class TpaCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if (player.hasPermission(permissions.getString("Tpa")) || player.isOp()) {
                 if (strings.length == 1) {
-                    try {
-                        Player target = Bukkit.getPlayer(strings[0]);
-                        TpaRequest request = new TpaRequest(player, target);
-                        tpaHandler.addRequest(request);
-                    } catch (Exception e) {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                    if (tpaHandler.canTpa(player)) {
+                        try {
+                            Player target = Bukkit.getPlayer(strings[0]);
+                            tpaHandler.addRequest(player, target);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                        }
                     }
+                    return true;
                 } else {
                     player.sendMessage(Utils.chat("You must specify a target!"));
                 }

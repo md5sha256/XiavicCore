@@ -3,6 +3,8 @@ EnderChest: "Xiavic.ec"
 EnderChestOthers: "Xiavic.ec.others"
 RandomTP: "Xiavic.rtp"
 Tpa: "Xiavic.tpa"
+TpAccept: "Xiavic.tpa.accept"
+TpDeny: "Xiavic.tpa.deny"
 
 # Staff Commands
 Clear: "Xiavic.clear"

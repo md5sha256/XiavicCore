@@ -35,7 +35,7 @@ public class TpaRequest {
 
     public boolean isDead(int duration) {
         long currentTime = System.currentTimeMillis();
-        return (currentTime-requestTime)/1000 > duration;
+        return (currentTime-requestTime) / 1000 > duration;
     }
 
 }

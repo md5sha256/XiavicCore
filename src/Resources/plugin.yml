@@ -25,3 +25,15 @@ commands:
   spawn:
     usage:
     description:
+  tpa:
+    usage:
+    description:
+  tpaccept:
+    usage:
+    description:
+  tpdeny:
+    usage:
+    description:
+  rtp:
+    usage:
+    description:

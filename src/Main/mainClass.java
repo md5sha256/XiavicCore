@@ -4,7 +4,9 @@ import Commands.StaffCmds.*;
 import Commands.UserCmds.EnderChestCommand;
 import Commands.UserCmds.RandomTP;
 import Commands.UserCmds.Spawn;
-import Commands.UserCmds.TpaCommand;
+import Commands.UserCmds.Tpa.TpaCommand;
+import Commands.UserCmds.Tpa.TpacceptCommand;
+import Commands.UserCmds.Tpa.TpdenyCommand;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -55,6 +57,8 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("spawn").setExecutor(new Spawn());
         getCommand("rtp").setExecutor(new RandomTP());
         getCommand("tpa").setExecutor(new TpaCommand());
+        getCommand("tpaccept").setExecutor(new TpacceptCommand());
+        getCommand("tpdeny").setExecutor(new TpdenyCommand());
     }
 
     private void registerListeners() {
