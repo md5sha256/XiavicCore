@@ -1,4 +1,4 @@
-package Commands.StaffCmds;
+package Commands.StaffCmds.noncheat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;

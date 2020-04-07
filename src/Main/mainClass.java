@@ -1,6 +1,7 @@
 package Main;
 
-import Commands.StaffCmds.*;
+import Commands.StaffCmds.Cheats.CheatEXP;
+import Commands.StaffCmds.noncheat.*;
 import Commands.UserCmds.Essential.EnderChestCommand;
 import Commands.UserCmds.Essential.Spawn;
 import Commands.UserCmds.Essential.Tpa.TpaCommand;
@@ -38,7 +39,6 @@ public class mainClass extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(" ");
         registerListeners();
         registerCommands();
-        registerStaffcmds();
 
         tpaHandler = new TpaHandler();
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
@@ -61,16 +61,14 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
         getCommand("argh").setExecutor(new Argh());
+        getCommand("setspawn").setExecutor(new SpawnSet(this));
+        getCommand("cheatexp").setExecutor(new CheatEXP());
+        //getCommand("tp").setExecutor(new Teleport());
     }
 
     private void registerListeners() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinQuit(), this);
-    }
-
-    private void registerStaffcmds() {
-        getCommand("setspawn").setExecutor(new SpawnSet(this));
-        //getCommand("tp").setExecutor(new Teleport());
     }
 
     public void loadshit() {

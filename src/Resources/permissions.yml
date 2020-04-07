@@ -2,6 +2,7 @@
 EnderChest: "Xiavic.ec"
 EnderChestOthers: "Xiavic.ec.others"
 RandomTP: "Xiavic.rtp"
+Spawn: "Xiavic.spawn"
 Tpa: "Xiavic.tpa"
 TpAccept: "Xiavic.tpa.accept"
 TpDeny: "Xiavic.tpa.deny"
@@ -13,7 +14,6 @@ Feed: "Xiavic.feed"
 FeedOthers: "Xiavic.feed.others"
 Heal: "Xiavic.heal"
 HealOthers: "Xiavic.heal.others"
-Spawn: "Xiavic.spawn"
 
 # Proper Staff Commands
 SetSpawn: "Xiavic.staff.setspawn"
@@ -23,3 +23,6 @@ TP: "Xiavic.staff.tp"
 
 # Fun
 Argh: "Xiavic.fun.argh"
+
+# Cheats
+CheatExp: "Xiavic.cheat.exp"

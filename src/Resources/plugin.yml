@@ -40,3 +40,6 @@ commands:
   argh:
     usage:
     description:
+  cheatexp:
+    usage:
+    description:

@@ -1,4 +1,4 @@
-package Commands.StaffCmds;
+package Commands.StaffCmds.noncheat;
 
 import Main.mainClass;
 import org.bukkit.Location;
