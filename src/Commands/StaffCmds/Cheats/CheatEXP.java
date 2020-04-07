@@ -20,7 +20,7 @@ public class CheatEXP implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission(p.getString("CheatExp")) || player.isOp()) {
                 if (command.getName().equalsIgnoreCase("cheatexp")) {
-                    player.giveExp(497473863);
+                    player.setLevel(9999);
                     player.sendMessage(Utils.chat(m.getString("CheatExp")));
                 }
                 return true;
