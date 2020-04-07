@@ -6,6 +6,9 @@ commands:
   clear:
     usage:
     description:
+  clearall:
+    usage:
+    description:
   ec:
     usage:
     description:

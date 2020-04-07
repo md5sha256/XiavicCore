@@ -46,11 +46,11 @@ public class mainClass extends JavaPlugin implements Listener {
 
     public void onDisable() {
 
-
     }
 
     private void registerCommands() {
         getCommand("clear").setExecutor(new ClearCommand());
+        getCommand("clearall").setExecutor(new ClearAllCommand());
         getCommand("ec").setExecutor(new EnderChestCommand());
         getCommand("feed").setExecutor(new FeedCommand());
         getCommand("heal").setExecutor(new HealCommand());

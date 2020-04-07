@@ -12,7 +12,7 @@ import utils.Utils;
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
 
-public class ClearCommand implements CommandExecutor {
+public class ClearAllCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -57,10 +57,7 @@ public class ClearCommand implements CommandExecutor {
     }
 
     private void clear(Player player) {
-        Inventory pInventory = player.getInventory();
-        for (ItemStack item : pInventory.getStorageContents()) {
-            pInventory.remove(item);
-        }
+        player.getInventory().clear();
         player.sendMessage(Utils.chat(messages.getString("ClearInventory")));
     }
 
