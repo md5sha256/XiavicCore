@@ -37,3 +37,6 @@ commands:
   rtp:
     usage:
     description:
+  argh:
+    usage:
+    description:

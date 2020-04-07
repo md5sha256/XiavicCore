@@ -43,7 +43,7 @@ public class TpaHandler implements Runnable {
 
     public boolean canTpa(Player player) {
         if (this.cooldowns.containsKey(player)) {
-            int remaining = (int) (this.tpaCooldown -((System.currentTimeMillis() - cooldowns.get(player)) / 1000));
+            int remaining = (int) (this.tpaCooldown - ((System.currentTimeMillis() - cooldowns.get(player)) / 1000));
             player.sendMessage(Utils.chat(messages.getString("TpaCooldown").replace("%time%", String.valueOf(remaining))));
             return false;
         }

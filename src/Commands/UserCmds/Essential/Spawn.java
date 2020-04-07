@@ -1,4 +1,4 @@
-package Commands.UserCmds;
+package Commands.UserCmds.Essential;
 
 import Main.mainClass;
 import org.bukkit.Bukkit;
@@ -17,10 +17,9 @@ import static Main.mainClass.mainConfig;
 
 public class Spawn implements CommandExecutor {
 
+    private static mainClass plugin;
     FileConfiguration m = Messages.get();
     FileConfiguration p = Permissions.get();
-
-    private static mainClass plugin;
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

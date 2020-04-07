@@ -1,12 +1,12 @@
 package Main;
 
 import Commands.StaffCmds.*;
-import Commands.UserCmds.EnderChestCommand;
-import Commands.UserCmds.RandomTP;
-import Commands.UserCmds.Spawn;
-import Commands.UserCmds.Tpa.TpaCommand;
-import Commands.UserCmds.Tpa.TpacceptCommand;
-import Commands.UserCmds.Tpa.TpdenyCommand;
+import Commands.UserCmds.Essential.EnderChestCommand;
+import Commands.UserCmds.Essential.Spawn;
+import Commands.UserCmds.Essential.Tpa.TpaCommand;
+import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
+import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
+import Commands.UserCmds.Fun.Argh;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -18,15 +18,15 @@ import utils.Files.Permissions;
 import utils.Files.Players;
 import utils.Tpa.TpaHandler;
 
-public class mainClass extends JavaPlugin implements Listener {
+//import Commands.UserCmds.Essential.RandomTP;
 
-    private Players cfmg;
+public class mainClass extends JavaPlugin implements Listener {
 
     public static FileConfiguration mainConfig;
     public static FileConfiguration messages;
     public static FileConfiguration permissions;
-
     public static TpaHandler tpaHandler;
+    private Players cfmg;
 
     public void onEnable() {
         loadshit();
@@ -46,6 +46,7 @@ public class mainClass extends JavaPlugin implements Listener {
 
     public void onDisable() {
 
+
     }
 
     private void registerCommands() {
@@ -55,10 +56,11 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new Spawn());
-        getCommand("rtp").setExecutor(new RandomTP());
+        //getCommand("rtp").setExecutor(new RandomTP());
         getCommand("tpa").setExecutor(new TpaCommand());
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
+        getCommand("argh").setExecutor(new Argh());
     }
 
     private void registerListeners() {

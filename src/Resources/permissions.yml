@@ -20,3 +20,6 @@ SetSpawn: "Xiavic.staff.setspawn"
 Gamemode: "Xiavic.staff.gamemode"
 GamemodeOthers: "Xiavic.staff.gamemode.others"
 TP: "Xiavic.staff.tp"
+
+# Fun
+Argh: "Xiavic.fun.argh"

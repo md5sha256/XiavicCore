@@ -1,4 +1,4 @@
-package Commands.UserCmds;
+package Commands.UserCmds.Essential;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

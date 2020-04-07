@@ -1,11 +1,10 @@
-package Commands.UserCmds.Tpa;
+package Commands.UserCmds.Essential.Tpa;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Tpa.TpaRequest;
 import utils.Utils;
 
 import static Main.mainClass.*;
