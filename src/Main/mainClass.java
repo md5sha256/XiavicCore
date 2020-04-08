@@ -1,5 +1,6 @@
 package Main;
 
+import Commands.StaffCmds.Teleport;
 import Commands.StaffCmds.cheats.CheatEXP;
 import Commands.StaffCmds.noncheat.*;
 import Commands.UserCmds.Essential.EnderChestCommand;
@@ -14,7 +15,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-//import utils.EquipAnything.EquipEvents;
+import utils.EquipAnything.EquipEvents;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
@@ -26,8 +27,8 @@ public class mainClass extends JavaPlugin implements Listener {
     public static FileConfiguration messages;
     public static FileConfiguration permissions;
     public static TpaHandler tpaHandler;
-    //public static mainClass plugin;
-    //public static EquipEvents EquipEvents;
+    public static mainClass plugin;
+    public static EquipEvents EquipEvents;
     private Players cfmg;
 
     public void onEnable() {
@@ -64,20 +65,22 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("argh").setExecutor(new Argh());
         getCommand("setspawn").setExecutor(new SpawnSet(this));
         getCommand("cheatexp").setExecutor(new CheatEXP());
-        getCommand("weather").setExecutor(new WeatherCommand());
+       // getCommand("weather").setExecutor(new WeatherCommand());
         //getCommand("tp").setExecutor(new Teleport());
     }
 
     private void registerListeners() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinQuit(), this);
+        pm.registerEvents(new EquipEvents(this), this);
     }
 
     public void loadshit() {
         saveResource("Resources/permissions.yml", false);
         saveResource("Resources/messages.yml", false);
         saveResource("config.yml", false);
-        //EquipEvents = new EquipEvents(plugin);
+        EquipEvents = new EquipEvents(plugin);
+
         Permissions.setup();
         Messages.setup();
         mainConfig = getConfig();

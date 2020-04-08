@@ -25,7 +25,7 @@ public class WeatherCommand implements CommandExecutor {
                 if (args.length == 0) {
                     if (player.hasPermission(p.getString("Weather"))  || player.isOp()) {
                         if (player.getWorld().getWeatherDuration() == 0) {
-                            player.sendMessage(Utils.chat(m.getString("Weather").replace("%weather%", cw)));
+                           // player.sendMessage(Utils.chat(m.getString("Weather").replace("%weather%", cw)));
                         }
                     }
                 }
