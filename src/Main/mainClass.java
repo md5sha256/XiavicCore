@@ -65,7 +65,9 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("argh").setExecutor(new Argh());
         getCommand("setspawn").setExecutor(new SpawnSet(this));
         getCommand("cheatexp").setExecutor(new CheatEXP());
-       // getCommand("weather").setExecutor(new WeatherCommand());
+        getCommand("flyspeed").setExecutor(new FlySpeed());
+        getCommand("walkspeed").setExecutor(new WalkSpeed());
+        // getCommand("weather").setExecutor(new WeatherCommand());
         //getCommand("tp").setExecutor(new Teleport());
     }
 

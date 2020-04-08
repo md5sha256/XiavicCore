@@ -46,3 +46,9 @@ commands:
   cheatexp:
     usage:
     description:
+  walkspeed:
+    usage:
+    description:
+  flyspeed:
+    usage:
+    description:
