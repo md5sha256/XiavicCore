@@ -1,6 +1,6 @@
 package Main;
 
-import Commands.StaffCmds.Cheats.CheatEXP;
+import Commands.StaffCmds.cheats.CheatEXP;
 import Commands.StaffCmds.noncheat.*;
 import Commands.UserCmds.Essential.EnderChestCommand;
 import Commands.UserCmds.Essential.Spawn;
@@ -14,12 +14,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+//import utils.EquipAnything.EquipEvents;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
 import utils.Tpa.TpaHandler;
-
-//import Commands.UserCmds.Essential.RandomTP;
 
 public class mainClass extends JavaPlugin implements Listener {
 
@@ -27,6 +26,8 @@ public class mainClass extends JavaPlugin implements Listener {
     public static FileConfiguration messages;
     public static FileConfiguration permissions;
     public static TpaHandler tpaHandler;
+    //public static mainClass plugin;
+    //public static EquipEvents EquipEvents;
     private Players cfmg;
 
     public void onEnable() {
@@ -63,6 +64,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("argh").setExecutor(new Argh());
         getCommand("setspawn").setExecutor(new SpawnSet(this));
         getCommand("cheatexp").setExecutor(new CheatEXP());
+        getCommand("weather").setExecutor(new WeatherCommand());
         //getCommand("tp").setExecutor(new Teleport());
     }
 
@@ -75,6 +77,7 @@ public class mainClass extends JavaPlugin implements Listener {
         saveResource("Resources/permissions.yml", false);
         saveResource("Resources/messages.yml", false);
         saveResource("config.yml", false);
+        //EquipEvents = new EquipEvents(plugin);
         Permissions.setup();
         Messages.setup();
         mainConfig = getConfig();

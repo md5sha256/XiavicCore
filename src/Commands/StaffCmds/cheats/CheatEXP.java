@@ -1,4 +1,4 @@
-package Commands.StaffCmds.Cheats;
+package Commands.StaffCmds.cheats;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

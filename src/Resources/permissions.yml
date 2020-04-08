@@ -14,6 +14,11 @@ Feed: "Xiavic.feed"
 FeedOthers: "Xiavic.feed.others"
 Heal: "Xiavic.heal"
 HealOthers: "Xiavic.heal.others"
+Weather: "Xiavic.weather"
+WeatherClear: "Xiavic.weather.clear"
+WeatherRain: "Xiavic.weather.rain"
+WeatherStorm: "Xiavic.weather.storm"
+
 
 # Proper Staff Commands
 SetSpawn: "Xiavic.staff.setspawn"
