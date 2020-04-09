@@ -6,6 +6,8 @@ Spawn: "Xiavic.spawn"
 Tpa: "Xiavic.tpa"
 TpAccept: "Xiavic.tpa.accept"
 TpDeny: "Xiavic.tpa.deny"
+Extinguish: "Xiavic.extinguish"
+Dispose: "Xiavic.dispose"
 
 # Staff Commands
 Clear: "Xiavic.clear"
@@ -18,9 +20,7 @@ Weather: "Xiavic.weather"
 WeatherClear: "Xiavic.weather.clear"
 WeatherRain: "Xiavic.weather.rain"
 WeatherStorm: "Xiavic.weather.storm"
-
-
-# Proper Staff Commands
+Whois: "Xiavic.staff.whois"
 SetSpawn: "Xiavic.staff.setspawn"
 Gamemode: "Xiavic.staff.gamemode"
 GamemodeOthers: "Xiavic.staff.gamemode.others"

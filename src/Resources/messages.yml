@@ -35,7 +35,6 @@ FeedAll: "Everyone has been fed..."
 Heal: "&eYou have been healed."
 HealAll: "You have healed everyone!"
 HealOther: "%target% has been healed!"
-Ignore: "You are now ignoring %target%"
 Private Warps: "Here are a list of your private warps..."
 SetSpawn: "&eSpawn has been successfully set."
 Spawn: "You have been successfully teleported to spawn."
@@ -54,6 +53,8 @@ Pony: "Pickle has spoken, your pony is %Random_Pony%" #Sorry not sorry pickle, b
 Discord: "&bCome &3join &bour &3discord &bat &3https://discordapp.com/invite/nY5yFhs"
 WalkSpeed: "Your walkspeed has been set to, %amount%"
 FlySpeed: "Your flyspeed has been set to, %amount%"
+Hat: "You have equipped %item% to your head area"
+Extinguish: "&cYour inner demon has calmed down"
 
 # Cheat
 CheatExp: "&8[&cDebug&8] &7Your Exp has been set to 9999 levels."

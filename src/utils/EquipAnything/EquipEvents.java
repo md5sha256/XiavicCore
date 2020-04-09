@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class EquipEvents implements Listener {
 
     public mainClass main;
+
     public EquipEvents(mainClass plugin) {
         this.main = plugin;
     }
@@ -19,9 +20,8 @@ public class EquipEvents implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         Player player;
-        if ((event.getWhoClicked() instanceof Player))
-        {
-            player = (Player)event.getWhoClicked();
+        if ((event.getWhoClicked() instanceof Player)) {
+            player = (Player) event.getWhoClicked();
             if (player.getItemOnCursor().getType() != Material.AIR) {
                 ItemStack item = player.getItemOnCursor();
                 if (item.hasItemMeta()) {

@@ -52,3 +52,10 @@ commands:
   flyspeed:
     usage:
     description:
+  dispose:
+    usage:
+    description:
+    aliases: trash
+  whois:
+    usage:
+    description:

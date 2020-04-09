@@ -1,8 +1,8 @@
 package Main;
 
-import Commands.StaffCmds.Teleport;
 import Commands.StaffCmds.cheats.CheatEXP;
 import Commands.StaffCmds.noncheat.*;
+import Commands.UserCmds.Essential.Dispose;
 import Commands.UserCmds.Essential.EnderChestCommand;
 import Commands.UserCmds.Essential.Spawn;
 import Commands.UserCmds.Essential.Tpa.TpaCommand;
@@ -58,7 +58,6 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new Spawn());
-        //getCommand("rtp").setExecutor(new RandomTP());
         getCommand("tpa").setExecutor(new TpaCommand());
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
@@ -67,6 +66,9 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("cheatexp").setExecutor(new CheatEXP());
         getCommand("flyspeed").setExecutor(new FlySpeed());
         getCommand("walkspeed").setExecutor(new WalkSpeed());
+        getCommand("dispose").setExecutor(new Dispose());
+        getCommand("whois").setExecutor(new Whois());
+        //getCommand("rtp").setExecutor(new RandomTP());
         // getCommand("weather").setExecutor(new WeatherCommand());
         //getCommand("tp").setExecutor(new Teleport());
     }
