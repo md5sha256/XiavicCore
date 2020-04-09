@@ -88,6 +88,7 @@ public class TpaHandler implements Runnable {
     private void checkRequests() {
         for (TpaRequest request : this.requests) {
             if (request.isDead(this.requestTimeout)) {
+                System.out.println("Teleport request timed out");
                 this.deadRequests.add(request);
             }
         }
@@ -98,6 +99,7 @@ public class TpaHandler implements Runnable {
     private void checkTeleports() {
         for (Map.Entry<TpaRequest, Long> teleport : this.teleports.entrySet()) {
             if ((System.currentTimeMillis() - teleport.getValue()) / 1000 > this.teleportTime) {
+                System.out.println("Teleport request fulfilled");
                 TpaRequest request = teleport.getKey();
                 request.getOrigin().teleport(request.getTarget().getLocation());
                 this.deadTeleports.add(request);
@@ -105,12 +107,14 @@ public class TpaHandler implements Runnable {
         }
         for (TpaRequest tpr : this.deadTeleports) {
             this.teleports.remove(tpr);
+            this.requests.remove(tpr);
         }
     }
 
     private void checkCooldowns() {
         for (Map.Entry<Player, Long> cooldown : this.cooldowns.entrySet()) {
             if ((System.currentTimeMillis() - cooldown.getValue()) / 1000 > this.tpaCooldown) {
+                System.out.println("Cooldown Expired");
                 this.deadCooldowns.add(cooldown.getKey());
             }
         }

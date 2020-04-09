@@ -12,6 +12,7 @@ Dispose: "Xiavic.dispose"
 # Staff Commands
 Clear: "Xiavic.clear"
 ClearOthers: "Xiavic.clear.others"
+ConfigUpdate: "Xiavic.config.update"
 Feed: "Xiavic.feed"
 FeedOthers: "Xiavic.feed.others"
 Heal: "Xiavic.heal"

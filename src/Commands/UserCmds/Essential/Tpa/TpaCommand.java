@@ -16,14 +16,18 @@ public class TpaCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if (player.hasPermission(permissions.getString("Tpa")) || player.isOp()) {
                 if (strings.length == 1) {
-                    if (tpaHandler.canTpa(player)) {
-                        try {
-                            Player target = Bukkit.getPlayer(strings[0]);
-                            tpaHandler.addRequest(player, target);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                    if (!strings[0].equalsIgnoreCase(player.getName())) {
+                        if (tpaHandler.canTpa(player)) {
+                            try {
+                                Player target = Bukkit.getPlayer(strings[0]);
+                                tpaHandler.addRequest(player, target);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                            }
                         }
+                    } else {
+                        player.sendMessage(Utils.chat(messages.getString("TpSelf")));
                     }
                     return true;
                 } else {

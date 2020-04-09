@@ -29,7 +29,7 @@ public class mainClass extends JavaPlugin implements Listener {
     public static FileConfiguration permissions;
     public static TpaHandler tpaHandler;
     public static mainClass plugin;
-    public static EquipEvents EquipEvents;
+    //public static EquipEvents EquipEvents;
     private Players cfmg;
 
     public void onEnable() {
@@ -42,8 +42,8 @@ public class mainClass extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage(" ");
         registerListeners();
         registerCommands();
+        registerShit();
 
-        tpaHandler = new TpaHandler();
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
@@ -70,6 +70,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("walkspeed").setExecutor(new WalkSpeed());
         getCommand("dispose").setExecutor(new Dispose());
         getCommand("whois").setExecutor(new Whois());
+        getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
         //getCommand("rtp").setExecutor(new RandomTP());
         // getCommand("weather").setExecutor(new WeatherCommand());
         //getCommand("tp").setExecutor(new Teleport());
@@ -81,12 +82,29 @@ public class mainClass extends JavaPlugin implements Listener {
         pm.registerEvents(new EquipEvents(this), this);
     }
 
-    public void loadshit() {
+    // Use this function for creating new shit
+    private void registerShit() {
+        tpaHandler = new TpaHandler();
+        //EquipEvents = new EquipEvents(plugin);
+    }
+
+    private void loadshit() {
         saveResource("Resources/permissions.yml", false);
         saveResource("Resources/messages.yml", false);
         saveResource("config.yml", false);
-        EquipEvents = new EquipEvents(plugin);
+        Permissions.setup();
+        Messages.setup();
+        mainConfig = getConfig();
+        permissions = Permissions.get();
+        messages = Messages.get();
+    }
 
+    // I am using this function for updating the configs from the files inside the current
+    // build of the plugin
+    public void updateShit() {
+        saveResource("Resources/permissions.yml", true);
+        saveResource("Resources/messages.yml", true);
+        saveResource("config.yml", true);
         Permissions.setup();
         Messages.setup();
         mainConfig = getConfig();

@@ -13,6 +13,7 @@ NoPerms: "&4You have no power here..."
 
 # TP
 Tpa: "You have sent a teleport request to %target%"
+TpSelf: "You cannot teleport to yourself."
 Tpa_Request: "%sender% has requested to teleport to you"
 Tpa_Accept: "%target% has accepted your teleport request. You will be teleported in %time% seconds."
 Tpa_Accept1: "You have accepted %sender%'s request"
@@ -59,3 +60,6 @@ Extinguish: "&cYour inner demon has calmed down"
 # Cheat
 CheatExp: "&8[&cDebug&8] &7Your Exp has been set to 9999 levels."
 CheatArmor: "&8[&cDebug&8] &7You have been given the CheatArmor set!"
+
+# High Staff
+ConfigUpdate: "The config files have been updated!"

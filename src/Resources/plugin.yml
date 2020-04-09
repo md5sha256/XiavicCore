@@ -62,3 +62,6 @@ commands:
   cheatarmor:
     usage:
     description:
+  coreconfigupdate:
+    usage:
+    description:
