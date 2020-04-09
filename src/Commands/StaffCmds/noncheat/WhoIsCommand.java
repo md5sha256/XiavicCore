@@ -13,7 +13,7 @@ import static org.bukkit.Bukkit.getPlayer;
 
 //This command cannot be edited @ Files.
 
-public class Whois implements CommandExecutor {
+public class WhoIsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 

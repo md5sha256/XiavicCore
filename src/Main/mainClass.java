@@ -28,8 +28,6 @@ public class mainClass extends JavaPlugin implements Listener {
     public static FileConfiguration messages;
     public static FileConfiguration permissions;
     public static TpaHandler tpaHandler;
-    public static mainClass plugin;
-    //public static EquipEvents EquipEvents;
     private Players cfmg;
 
     public void onEnable() {
@@ -63,13 +61,13 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
         getCommand("argh").setExecutor(new Argh());
-        getCommand("setspawn").setExecutor(new SpawnSet(this));
+        getCommand("setspawn").setExecutor(new SpawnSetCommand(this));
         getCommand("cheatexp").setExecutor(new CheatEXP());
         getCommand("cheatarmor").setExecutor(new CheatArmor());
-        getCommand("flyspeed").setExecutor(new FlySpeed());
-        getCommand("walkspeed").setExecutor(new WalkSpeed());
+        getCommand("flyspeed").setExecutor(new FlySpeedCommand());
+        getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
         getCommand("dispose").setExecutor(new Dispose());
-        getCommand("whois").setExecutor(new Whois());
+        getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
         //getCommand("rtp").setExecutor(new RandomTP());
         // getCommand("weather").setExecutor(new WeatherCommand());
@@ -85,7 +83,6 @@ public class mainClass extends JavaPlugin implements Listener {
     // Use this function for creating new shit
     private void registerShit() {
         tpaHandler = new TpaHandler();
-        //EquipEvents = new EquipEvents(plugin);
     }
 
     private void loadshit() {

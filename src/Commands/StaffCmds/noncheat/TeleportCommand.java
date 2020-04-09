@@ -1,4 +1,4 @@
-package Commands.StaffCmds;
+package Commands.StaffCmds.noncheat;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,7 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 
-public class Teleport implements CommandExecutor {
+public class TeleportCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 

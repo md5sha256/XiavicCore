@@ -14,14 +14,14 @@ import utils.Utils;
 
 import static Main.mainClass.mainConfig;
 
-public class SpawnSet implements CommandExecutor {
+public class SpawnSetCommand implements CommandExecutor {
 
     FileConfiguration m = Messages.get();
     FileConfiguration p = Permissions.get();
 
     private mainClass plugin;
 
-    public SpawnSet(mainClass plugin) {
+    public SpawnSetCommand(mainClass plugin) {
         this.plugin = plugin;
     }
 

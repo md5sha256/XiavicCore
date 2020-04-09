@@ -9,7 +9,7 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
-public class FlySpeed implements CommandExecutor {
+public class FlySpeedCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 

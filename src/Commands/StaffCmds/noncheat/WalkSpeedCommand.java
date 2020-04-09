@@ -9,7 +9,7 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
-public class WalkSpeed implements CommandExecutor {
+public class WalkSpeedCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
