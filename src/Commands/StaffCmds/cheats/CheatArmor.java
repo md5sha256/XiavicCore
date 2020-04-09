@@ -7,8 +7,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryAction;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import utils.Files.Messages;
 import utils.Files.Permissions;
