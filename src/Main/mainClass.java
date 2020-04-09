@@ -1,5 +1,6 @@
 package Main;
 
+import Commands.StaffCmds.cheats.CheatArmor;
 import Commands.StaffCmds.cheats.CheatEXP;
 import Commands.StaffCmds.noncheat.*;
 import Commands.UserCmds.Essential.Dispose;
@@ -64,6 +65,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("argh").setExecutor(new Argh());
         getCommand("setspawn").setExecutor(new SpawnSet(this));
         getCommand("cheatexp").setExecutor(new CheatEXP());
+        getCommand("cheatarmor").setExecutor(new CheatArmor());
         getCommand("flyspeed").setExecutor(new FlySpeed());
         getCommand("walkspeed").setExecutor(new WalkSpeed());
         getCommand("dispose").setExecutor(new Dispose());

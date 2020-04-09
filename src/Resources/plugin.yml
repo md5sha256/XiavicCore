@@ -59,3 +59,6 @@ commands:
   whois:
     usage:
     description:
+  cheatarmor:
+    usage:
+    description:
