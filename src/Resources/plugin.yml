@@ -68,3 +68,6 @@ commands:
   tp:
     usage:
     description:
+  discord:
+    usage:
+    description:

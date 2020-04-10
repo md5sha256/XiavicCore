@@ -10,6 +10,7 @@ import Commands.UserCmds.Essential.Tpa.TpaCommand;
 import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
+import Commands.UserCmds.Fun.DiscordCommand;
 import Listeners.JoinQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -68,6 +69,8 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
         getCommand("dispose").setExecutor(new Dispose());
         getCommand("whois").setExecutor(new WhoIsCommand());
+        getCommand("discord").setExecutor(new DiscordCommand());
+        //getCommand("fly").setExecutor(new FlyCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
         //getCommand("rtp").setExecutor(new RandomTP());
         //getCommand("weather").setExecutor(new WeatherCommand());
