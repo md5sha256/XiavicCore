@@ -65,3 +65,6 @@ commands:
   coreconfigupdate:
     usage:
     description:
+  tp:
+    usage:
+    description:

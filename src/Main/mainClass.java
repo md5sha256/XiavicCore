@@ -70,8 +70,8 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
         //getCommand("rtp").setExecutor(new RandomTP());
-        // getCommand("weather").setExecutor(new WeatherCommand());
-        //getCommand("tp").setExecutor(new Teleport());
+        //getCommand("weather").setExecutor(new WeatherCommand());
+        getCommand("tp").setExecutor(new TeleportCommand());
     }
 
     private void registerListeners() {

@@ -8,6 +8,7 @@ Annoy: "&4&l&oANNOYANCE"
 
 # Common
 PlayerNotFound: "&cThat Player is not found or is not online!"
+PlayerNotFound2: "&cOne of the players are not online!"
 SenderNotPlayer: "You are not a fucking player!"
 NoPerms: "&4You have no power here..."
 
