@@ -75,6 +75,7 @@ public class mainClass extends JavaPlugin implements Listener {
         //getCommand("rtp").setExecutor(new RandomTP());
         //getCommand("weather").setExecutor(new WeatherCommand());
         getCommand("tp").setExecutor(new TeleportCommand());
+        getCommand("tphere").setExecutor(new TPhereCommand());
     }
 
     private void registerListeners() {
