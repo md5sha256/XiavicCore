@@ -59,6 +59,7 @@ WalkSpeed: "Your walkspeed has been set to, %amount%"
 FlySpeed: "Your flyspeed has been set to, %amount%"
 Hat: "You have equipped %item% to your head area"
 Extinguish: "&cYour inner demon has calmed down"
+ExtinguishTarget: "You have been extinguished by, %sender%"
 
 # Cheat
 CheatExp: "&8[&cDebug&8] &7Your Exp has been set to 9999 levels."

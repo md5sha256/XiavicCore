@@ -1,12 +1,13 @@
 # Player Commands
 EnderChest: "Xiavic.ec"
 EnderChestOthers: "Xiavic.ec.others"
+Extinguish: "Xiavic.extinguish"
+Info: "Xiavic.info"
 RandomTP: "Xiavic.rtp"
 Spawn: "Xiavic.spawn"
 Tpa: "Xiavic.tpa"
 TpAccept: "Xiavic.tpa.accept"
 TpDeny: "Xiavic.tpa.deny"
-Extinguish: "Xiavic.extinguish"
 Dispose: "Xiavic.dispose"
 
 # Staff Commands

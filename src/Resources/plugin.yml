@@ -74,3 +74,11 @@ commands:
   tphere:
     usage:
     description:
+  ext:
+    usage:
+    description:
+    aliases: extinguish
+  info:
+    usage:
+    description:
+    aliases: iteminfo
