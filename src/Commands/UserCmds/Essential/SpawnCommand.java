@@ -15,7 +15,7 @@ import utils.Utils;
 
 import static Main.mainClass.mainConfig;
 
-public class Spawn implements CommandExecutor {
+public class SpawnCommand implements CommandExecutor {
 
     private static mainClass plugin;
     FileConfiguration m = Messages.get();

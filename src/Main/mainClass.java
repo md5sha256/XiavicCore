@@ -55,7 +55,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("feed").setExecutor(new FeedCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
-        getCommand("spawn").setExecutor(new Spawn());
+        getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("tpa").setExecutor(new TpaCommand());
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
@@ -70,9 +70,10 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("ext").setExecutor(new ExtinguishCommand());
         getCommand("info").setExecutor(new InfoCommand());
+        //getCommand("near").setExecutor(new NearCommand());
         //getCommand("fly").setExecutor(new FlyCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
-        //getCommand("rtp").setExecutor(new RandomTP());
+        getCommand("rtp").setExecutor(new RandomTP());
         //getCommand("weather").setExecutor(new WeatherCommand());
         getCommand("tp").setExecutor(new TeleportCommand());
         getCommand("tphere").setExecutor(new TPhereCommand());
