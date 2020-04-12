@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import utils.Files.Messages;
+import utils.LocationUtils;
 import utils.Utils;
 
 public class JoinQuit implements Listener {
@@ -24,8 +25,7 @@ public class JoinQuit implements Listener {
         if (!(p.hasPlayedBefore())) {
             event.setJoinMessage(Utils.chat(m.getString("FirstJoin_Message").replace("%player%", name)));
             p.sendMessage(Utils.chat("&6Welcome " + p.getName()));
-            Location spawn = new Location(p.getWorld(), 548.0f, 97.0f, -438.0f);
-            p.teleport(spawn);
+            p.teleport(LocationUtils.getLocation("Spawn_World_Name"));
         } else {
             event.setJoinMessage(Utils.chat(m.getString("ReJoin_Message").replace("%player%", name)));
         }

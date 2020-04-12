@@ -10,6 +10,7 @@ import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
 import Commands.UserCmds.Fun.DiscordCommand;
 import Listeners.JoinQuit;
+import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -65,7 +66,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("cheatarmor").setExecutor(new CheatArmor());
         getCommand("flyspeed").setExecutor(new FlySpeedCommand());
         getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
-        getCommand("dispose").setExecutor(new Dispose());
+        getCommand("dispose").setExecutor(new DisposeCommand());
         getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("ext").setExecutor(new ExtinguishCommand());
@@ -84,6 +85,7 @@ public class mainClass extends JavaPlugin implements Listener {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinQuit(), this);
         pm.registerEvents(new EquipEvents(this), this);
+        pm.registerEvents(new RespawnEvent(), this);
     }
 
     // Use this function for creating new shit
@@ -103,8 +105,9 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     // I am using this function for updating the configs from the files inside the current
-    // build of the plugin
+    // build of the plugin and preserves the spawn location in the mainConfig
     public void updateShit() {
+        String spawnLocation = mainConfig.getString("Spawn_World_Name");
         saveResource("Resources/permissions.yml", true);
         saveResource("Resources/messages.yml", true);
         saveResource("config.yml", true);
@@ -113,6 +116,7 @@ public class mainClass extends JavaPlugin implements Listener {
         mainConfig = getConfig();
         permissions = Permissions.get();
         messages = Messages.get();
+        mainConfig.set("Spawn_World_Name", spawnLocation);
     }
 
 }
