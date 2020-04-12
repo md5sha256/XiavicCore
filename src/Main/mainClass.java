@@ -70,6 +70,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("ext").setExecutor(new ExtinguishCommand());
         getCommand("info").setExecutor(new InfoCommand());
+        getCommand("serverinfo").setExecutor(new ServerInfoCommand());
         //getCommand("near").setExecutor(new NearCommand());
         //getCommand("fly").setExecutor(new FlyCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));

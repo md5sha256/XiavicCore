@@ -32,6 +32,7 @@ Tphere: "Xiavic.staff.tphere"
 Fly: "Xiavic.fly"
 FlySpeed: "Xiavic.staff.flyspeed"
 Walkspeed: "Xiavic.staff.walkspeed"
+Serverinfo: "Xiavic.staff.serverinfo"
 
 # Fun
 Argh: "Xiavic.fun.argh"
