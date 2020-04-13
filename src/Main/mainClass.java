@@ -75,10 +75,11 @@ public class mainClass extends JavaPlugin implements Listener {
         //getCommand("near").setExecutor(new NearCommand());
         //getCommand("fly").setExecutor(new FlyCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
-        getCommand("rtp").setExecutor(new RandomTP());
+        getCommand("rtp").setExecutor(new RandomTPCommand(this));
         //getCommand("weather").setExecutor(new WeatherCommand());
         getCommand("tp").setExecutor(new TeleportCommand());
         getCommand("tphere").setExecutor(new TPhereCommand());
+        getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
     }
 
     private void registerListeners() {

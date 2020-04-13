@@ -68,3 +68,4 @@ CheatArmor: "&8[&cDebug&8] &7You have been given the CheatArmor set!"
 
 # High Staff
 ConfigUpdate: "The config files have been updated!"
+Version: "The current running version is %version%..."
