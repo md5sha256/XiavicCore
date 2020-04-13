@@ -9,18 +9,17 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class WalkSpeedCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration m = Messages.get();
-        FileConfiguration p = Permissions.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (label.equalsIgnoreCase("walkspeed")) {
                 if (args.length == 1) {
-                    if (player.hasPermission(p.getString("Walkspeed")) || player.isOp()) {
+                    if (player.hasPermission(permissions.getString("Walkspeed")) || player.isOp()) {
                         String speed = args[0];
                         if (speed.equalsIgnoreCase("1")) {
                             player.setWalkSpeed((float) 0.2);
@@ -43,7 +42,7 @@ public class WalkSpeedCommand implements CommandExecutor {
                         } else if (speed.equalsIgnoreCase("10")) {
                             player.setWalkSpeed(1);
                         }
-                        player.sendMessage(Utils.chat(m.getString("WalkSpeed").replace("%amount%", speed)));
+                        player.sendMessage(Utils.chat(messages.getString("WalkSpeed").replace("%amount%", speed)));
                     }
                     return true;
                 }

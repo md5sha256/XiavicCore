@@ -10,30 +10,29 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class ExtinguishCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration p = Permissions.get();
-        FileConfiguration m = Messages.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("Extinguish")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("Extinguish")) || player.isOp()) {
                 if (label.equalsIgnoreCase("ext")) {
                     player.setFireTicks(0);
-                    player.sendMessage(Utils.chat(m.getString("Extinguish")));
+                    player.sendMessage(Utils.chat(messages.getString("Extinguish")));
                 } else if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
                     target.setFireTicks(0);
-                    target.sendMessage(Utils.chat(m.getString("ExtinguishTarget").replace("%sender%", player.getDisplayName())));
+                    target.sendMessage(Utils.chat(messages.getString("ExtinguishTarget").replace("%sender%", player.getDisplayName())));
                 } else {
-                    player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                    player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                 }
                 return true;
             }
         } else {
-            sender.sendMessage(Utils.chat(m.getString("NoPerms")));
+            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
         }
         return false;
     }

@@ -10,36 +10,35 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class EnderChestCommand implements CommandExecutor {
-
-    FileConfiguration m = Messages.get();
-    FileConfiguration p = Permissions.get();
-
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length >= 1) {
-                if (player.hasPermission(p.getString("EnderChestOthers")) || player.isOp()) {
+                if (player.hasPermission(permissions.getString("EnderChestOthers")) || player.isOp()) {
                     try {
                         Player target = Bukkit.getPlayer(strings[0]);
                         player.openInventory(target.getEnderChest());
-                        player.sendMessage(Utils.chat(m.getString("EnderChestOthers").replace("%target%", target.getDisplayName())));
+                        player.sendMessage(Utils.chat(messages.getString("EnderChestOthers").replace("%target%", target.getDisplayName())));
                         return true;
                     } catch (Exception e) {
-                        player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                         return true;
                     }
                 }
             } else {
-                if (player.hasPermission(p.getString("EnderChest")) || player.isOp()) {
+                if (player.hasPermission(permissions.getString("EnderChest")) || player.isOp()) {
                     player.openInventory(player.getEnderChest());
-                    player.sendMessage(Utils.chat(m.getString("EnderChest")));
+                    player.sendMessage(Utils.chat(messages.getString("EnderChest")));
                     return true;
                 }
             }
         } else {
-            commandSender.sendMessage(Utils.chat(m.getString("SenderNotPlayer")));
+            commandSender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
             return true;
         }
         return false;

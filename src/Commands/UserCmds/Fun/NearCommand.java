@@ -12,6 +12,7 @@
 //import utils.Utils;
 //
 //public class NearCommand implements CommandExecutor {
+//    // TODO clean this up once mike is done with it...
 //    @Override
 //    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 //

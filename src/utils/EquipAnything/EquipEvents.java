@@ -1,6 +1,5 @@
 package utils.EquipAnything;
 
-import Main.mainClass;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,12 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class EquipEvents implements Listener {
-
-    public mainClass main;
-
-    public EquipEvents(mainClass plugin) {
-        this.main = plugin;
-    }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {

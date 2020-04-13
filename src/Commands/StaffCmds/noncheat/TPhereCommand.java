@@ -10,29 +10,28 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class TPhereCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration m = Messages.get();
-        FileConfiguration p = Permissions.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("Tphere")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("Tphere")) || player.isOp()) {
                 if (label.equalsIgnoreCase("tphere")) {
                     if (args.length == 1) {
                         Player target = Bukkit.getPlayer(args[0]);
                         target.teleport(player);
                     } else {
-                        player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                     }
                     return true;
                 }
                 return true;
             }
         } else {
-            sender.sendMessage(Utils.chat(m.getString("NoPerms")));
+            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
         }
         return false;
     }

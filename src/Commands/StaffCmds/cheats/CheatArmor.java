@@ -12,16 +12,15 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class CheatArmor implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration p = Permissions.get();
-        FileConfiguration m = Messages.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("CheatArmor")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("CheatArmor")) || player.isOp()) {
                 if (command.getName().equalsIgnoreCase("cheatarmor")) {
                     ItemStack helmet = new ItemStack(Material.DIAMOND_HELMET);
                     helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
@@ -57,7 +56,7 @@ public class CheatArmor implements CommandExecutor {
                     player.getInventory().addItem(chestplate);
                     player.getInventory().addItem(legs);
                     player.getInventory().addItem(boots);
-                    player.sendMessage(Utils.chat(m.getString("CheatArmor")));
+                    player.sendMessage(Utils.chat(messages.getString("CheatArmor")));
 
                 }
             }

@@ -8,10 +8,12 @@ import org.bukkit.entity.Player;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class WeatherCommand implements CommandExecutor {
 
-    FileConfiguration m = Messages.get();
-    FileConfiguration p = Permissions.get();
+    // Use messages.getString() and permissions.getString() please
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,7 +21,7 @@ public class WeatherCommand implements CommandExecutor {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (args.length == 0) {
-                    if (player.hasPermission(p.getString("Weather")) || player.isOp()) {
+                    if (player.hasPermission(permissions.getString("Weather")) || player.isOp()) {
                         if (player.getWorld().getWeatherDuration() == 0) {
                             // player.sendMessage(Utils.chat(m.getString("Weather").replace("%weather%", cw)));
                         }

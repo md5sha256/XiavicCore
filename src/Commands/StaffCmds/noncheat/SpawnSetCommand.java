@@ -12,12 +12,9 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
-import static Main.mainClass.mainConfig;
+import static Main.mainClass.*;
 
 public class SpawnSetCommand implements CommandExecutor {
-
-    FileConfiguration m = Messages.get();
-    FileConfiguration p = Permissions.get();
 
     private mainClass plugin;
 
@@ -30,7 +27,7 @@ public class SpawnSetCommand implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("SetSpawn")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("SetSpawn")) || player.isOp()) {
                 if (cmd.getName().equalsIgnoreCase("setspawn")) {
                     Location loc = player.getLocation();
 
@@ -52,7 +49,7 @@ public class SpawnSetCommand implements CommandExecutor {
                     this.plugin.saveConfig();
 
                     player.getWorld().setSpawnLocation(new Location(player.getLocation().getWorld(), player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch()));
-                    player.sendMessage(Utils.chat(m.getString("SetSpawn")));
+                    player.sendMessage(Utils.chat(messages.getString("SetSpawn")));
                 }
                 return true;
             }

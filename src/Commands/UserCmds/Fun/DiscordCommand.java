@@ -8,15 +8,14 @@ import org.bukkit.entity.Player;
 import utils.Files.Messages;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+
 public class DiscordCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration m = Messages.get();
-
         if (command.getName().equalsIgnoreCase("discord")) {
             Player player = (Player) sender;
-            player.sendMessage(Utils.chat(m.getString("Discord")));
+            player.sendMessage(Utils.chat(messages.getString("Discord")));
         }
         return false;
     }

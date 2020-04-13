@@ -9,17 +9,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import utils.Files.Permissions;
 
+import static Main.mainClass.permissions;
+
 public class DisposeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration p = Permissions.get();
-
         if (sender instanceof Player) {
             if (label.equalsIgnoreCase("dispose") || label.equalsIgnoreCase("trash")) {
                 Player player = (Player) sender;
                 Inventory inventory = Bukkit.createInventory(null, 54, "Chest");
-                if (player.hasPermission(p.getString("Dispose")) || player.isOp()) {
+                if (player.hasPermission(permissions.getString("Dispose")) || player.isOp()) {
                     player.openInventory(inventory);
                 }
             }

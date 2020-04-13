@@ -12,22 +12,20 @@ import utils.Files.Messages;
 import utils.LocationUtils;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+
 public class JoinQuit implements Listener {
-
-    private static mainClass plugin;
-
-    FileConfiguration m = Messages.get();
 
     @EventHandler
     private void onJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         String name = p.getDisplayName();
         if (!(p.hasPlayedBefore())) {
-            event.setJoinMessage(Utils.chat(m.getString("FirstJoin_Message").replace("%player%", name)));
+            event.setJoinMessage(Utils.chat(messages.getString("FirstJoin_Message").replace("%player%", name)));
             p.sendMessage(Utils.chat("&6Welcome " + p.getName()));
             p.teleport(LocationUtils.getLocation("Spawn_World_Name"));
         } else {
-            event.setJoinMessage(Utils.chat(m.getString("ReJoin_Message").replace("%player%", name)));
+            event.setJoinMessage(Utils.chat(messages.getString("ReJoin_Message").replace("%player%", name)));
         }
 
     }
@@ -36,6 +34,6 @@ public class JoinQuit implements Listener {
     private void onQuit(PlayerQuitEvent event) {
         Player p = event.getPlayer();
         String name = p.getDisplayName();
-        event.setQuitMessage(Utils.chat(m.getString("Quit_Message").replace("%player%", name)));
+        event.setQuitMessage(Utils.chat(messages.getString("Quit_Message").replace("%player%", name)));
     }
 }

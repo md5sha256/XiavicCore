@@ -10,22 +10,21 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class TeleportCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-
-        FileConfiguration m = Messages.get();
-        FileConfiguration p = Permissions.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("TP")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("TP")) || player.isOp()) {
                 if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
                     if (target != null) {
                         player.teleport(target);
                     } else {
-                        player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                     }
                 } else if (args.length == 2) {
                     Player target = Bukkit.getPlayer(args[0]);
@@ -33,7 +32,7 @@ public class TeleportCommand implements CommandExecutor {
                     if (target != null && target2 != null) {
                         target.teleport(target2);
                     } else {
-                        player.sendMessage(Utils.chat(m.getString("PlayerNotFound2")));
+                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound2")));
                     }
                 } else {
                     player.sendMessage(Utils.chat("You must specify a target!"));
@@ -42,9 +41,9 @@ public class TeleportCommand implements CommandExecutor {
             }
             return true;
         } else {
-            sender.sendMessage(Utils.chat(m.getString("NoPerms")));
+            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
         }
-        sender.sendMessage(Utils.chat(m.getString("SenderNotPlayer")));
+        sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
         return false;
     }
 }

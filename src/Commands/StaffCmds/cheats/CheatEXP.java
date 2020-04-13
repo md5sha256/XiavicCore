@@ -9,19 +9,18 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class CheatEXP implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration m = Messages.get();
-        FileConfiguration p = Permissions.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("CheatExp")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("CheatExp")) || player.isOp()) {
                 if (command.getName().equalsIgnoreCase("cheatexp")) {
                     player.setLevel(9999);
-                    player.sendMessage(Utils.chat(m.getString("CheatExp")));
+                    player.sendMessage(Utils.chat(messages.getString("CheatExp")));
                 }
                 return true;
             }

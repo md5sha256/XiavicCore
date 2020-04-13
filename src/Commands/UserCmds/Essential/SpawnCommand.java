@@ -13,20 +13,15 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
-import static Main.mainClass.mainConfig;
+import static Main.mainClass.*;
 
 public class SpawnCommand implements CommandExecutor {
-
-    private static mainClass plugin;
-    FileConfiguration m = Messages.get();
-    FileConfiguration p = Permissions.get();
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("Spawn")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("Spawn")) || player.isOp()) {
                 if (cmd.getName().equalsIgnoreCase("spawn")) {
 
                     String test = mainConfig.getString("Spawn_World_Name");
@@ -42,9 +37,9 @@ public class SpawnCommand implements CommandExecutor {
                     Location location = new Location(world, x, y, z, yaw, pitch);
 
                     player.teleport(location);
-                    player.sendMessage(Utils.chat(m.getString("Spawn")));
+                    player.sendMessage(Utils.chat(messages.getString("Spawn")));
                 } else {
-                    player.sendMessage(Utils.chat(m.getString("NoPerms")));
+                    player.sendMessage(Utils.chat(messages.getString("NoPerms")));
                 }
                 return true;
             }

@@ -85,7 +85,7 @@ public class mainClass extends JavaPlugin implements Listener {
     private void registerListeners() {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinQuit(), this);
-        pm.registerEvents(new EquipEvents(this), this);
+        pm.registerEvents(new EquipEvents(), this);
         pm.registerEvents(new RespawnEvent(), this);
     }
 

@@ -10,18 +10,16 @@ import utils.Files.Permissions;
 import utils.Utils;
 
 import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
 
 //This command cannot be edited @ Files.
 
 public class WhoIsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-        FileConfiguration p = Permissions.get();
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("Whois")) || player.isOp()) {
+            if (player.hasPermission(permissions.getString("Whois")) || player.isOp()) {
                 if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
                     if (target != null) {

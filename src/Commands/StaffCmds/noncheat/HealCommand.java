@@ -10,47 +10,46 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class HealCommand implements CommandExecutor {
-
-    FileConfiguration m = Messages.get();
-    FileConfiguration p = Permissions.get();
-
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (strings.length == 1) {
-                if (player.hasPermission(p.getString("HealOthers")) || player.isOp()) {
+                if (player.hasPermission(permissions.getString("HealOthers")) || player.isOp()) {
                     String who = strings[0];
                     if (who.equalsIgnoreCase("all")) {
                         for (Player target : Bukkit.getOnlinePlayers()) {
-                            target.sendMessage(Utils.chat(m.getString("Heal")));
+                            target.sendMessage(Utils.chat(messages.getString("Heal")));
                             target.setHealth(20.0);
                         }
-                        player.sendMessage(Utils.chat(m.getString("HealAll")));
+                        player.sendMessage(Utils.chat(messages.getString("HealAll")));
                         return true;
                     } else {
                         try {
                             Player target = Bukkit.getPlayer(who);
-                            target.sendMessage(Utils.chat(m.getString("Heal")));
+                            target.sendMessage(Utils.chat(messages.getString("Heal")));
                             target.setHealth(20.0);
-                            player.sendMessage(Utils.chat(m.getString("HealOther").replace("%target%", target.getDisplayName())));
+                            player.sendMessage(Utils.chat(messages.getString("HealOther").replace("%target%", target.getDisplayName())));
                             return true;
                         } catch (Exception e) {
-                            player.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                            player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                             return true;
                         }
                     }
                 } else {
-                    player.sendMessage(Utils.chat(m.getString("NoPerms")));
+                    player.sendMessage(Utils.chat(messages.getString("NoPerms")));
                     return true;
                 }
             } else {
-                if (player.hasPermission(p.getString("Heal")) || player.isOp()) {
-                    player.sendMessage(Utils.chat(m.getString("Heal")));
+                if (player.hasPermission(permissions.getString("Heal")) || player.isOp()) {
+                    player.sendMessage(Utils.chat(messages.getString("Heal")));
                     player.setHealth(20.0);
                 } else {
-                    player.sendMessage(Utils.chat(m.getString("NoPerms")));
+                    player.sendMessage(Utils.chat(messages.getString("NoPerms")));
                 }
                 return true;
             }
@@ -59,20 +58,20 @@ public class HealCommand implements CommandExecutor {
                 String who = strings[0];
                 if (who.equalsIgnoreCase("all")) {
                     for (Player target : Bukkit.getOnlinePlayers()) {
-                        target.sendMessage(Utils.chat(m.getString("Heal")));
+                        target.sendMessage(Utils.chat(messages.getString("Heal")));
                         target.setHealth(20.0);
                     }
-                    commandSender.sendMessage(Utils.chat(m.getString("HealAll")));
+                    commandSender.sendMessage(Utils.chat(messages.getString("HealAll")));
                     return true;
                 } else {
                     try {
                         Player target = Bukkit.getPlayer(who);
-                        target.sendMessage(Utils.chat(m.getString("Heal")));
+                        target.sendMessage(Utils.chat(messages.getString("Heal")));
                         target.setHealth(20.0);
-                        commandSender.sendMessage(Utils.chat(m.getString("HealOther").replace("%target%", target.getDisplayName())));
+                        commandSender.sendMessage(Utils.chat(messages.getString("HealOther").replace("%target%", target.getDisplayName())));
                         return true;
                     } catch (Exception e) {
-                        commandSender.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                        commandSender.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                         return true;
                     }
                 }

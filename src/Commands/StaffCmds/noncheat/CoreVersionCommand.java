@@ -4,15 +4,14 @@ import Main.mainClass;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import utils.Utils;
-
-import java.io.File;
 
 import static Main.mainClass.messages;
 
 public class CoreVersionCommand implements CommandExecutor {
+
+    // TODO fix permission in here so its not randomPerm
 
     private mainClass plugin;
 

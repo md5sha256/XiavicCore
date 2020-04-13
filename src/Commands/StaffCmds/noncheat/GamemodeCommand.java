@@ -11,18 +11,17 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import static Main.mainClass.messages;
+import static Main.mainClass.permissions;
+
 public class GamemodeCommand implements CommandExecutor {
-
-    FileConfiguration m = Messages.get();
-    FileConfiguration p = Permissions.get();
-
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (s.equalsIgnoreCase("gamemode") || s.equalsIgnoreCase("gm")) {
             if (commandSender instanceof Player) {
                 Player player = (Player) commandSender;
                 if (strings.length == 1) {
-                    if (player.hasPermission(p.getString("Gamemode")) || player.isOp()) {
+                    if (player.hasPermission(permissions.getString("Gamemode")) || player.isOp()) {
                         String mode = strings[0];
                         if (mode.equalsIgnoreCase("creative") || mode.equalsIgnoreCase("1") || mode.equalsIgnoreCase("c")) {
                             player.setGameMode(GameMode.CREATIVE);
@@ -33,14 +32,14 @@ public class GamemodeCommand implements CommandExecutor {
                         } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                             player.setGameMode(GameMode.SPECTATOR);
                         }
-                        player.sendMessage(Utils.chat(m.getString("Gamemode").replace("%mode%", player.getGameMode().name())));
+                        player.sendMessage(Utils.chat(messages.getString("Gamemode").replace("%mode%", player.getGameMode().name())));
                     } else {
-                        player.sendMessage(Utils.chat(m.getString("NoPerms")));
+                        player.sendMessage(Utils.chat(messages.getString("NoPerms")));
                     }
                     return true;
                 }
                 if (strings.length == 2) {
-                    if (player.hasPermission(p.getString("GamemodeOthers")) || player.isOp()) {
+                    if (player.hasPermission(permissions.getString("GamemodeOthers")) || player.isOp()) {
                         String mode = strings[0];
                         String who = strings[1];
                         try {
@@ -54,15 +53,15 @@ public class GamemodeCommand implements CommandExecutor {
                             } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                                 target.setGameMode(GameMode.SPECTATOR);
                             }
-                            target.sendMessage(Utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
-                            commandSender.sendMessage(Utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
+                            target.sendMessage(Utils.chat(messages.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                            commandSender.sendMessage(Utils.chat(messages.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
                             return true;
                         } catch (Exception e) {
-                            commandSender.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                            commandSender.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                             return true;
                         }
                     } else {
-                        player.sendMessage(Utils.chat(m.getString("NoPerms")));
+                        player.sendMessage(Utils.chat(messages.getString("NoPerms")));
                         return true;
                     }
                 }
@@ -81,11 +80,11 @@ public class GamemodeCommand implements CommandExecutor {
                         } else if (mode.equalsIgnoreCase("spectator") || mode.equalsIgnoreCase("3") || mode.equalsIgnoreCase("sp")) {
                             target.setGameMode(GameMode.SPECTATOR);
                         }
-                        target.sendMessage(Utils.chat(m.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
-                        commandSender.sendMessage(Utils.chat(m.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
+                        target.sendMessage(Utils.chat(messages.getString("Gamemode").replace("%mode%", target.getGameMode().name())));
+                        commandSender.sendMessage(Utils.chat(messages.getString("GamemodeOther").replace("%target%", target.getDisplayName()) + target.getGameMode().name()));
                         return true;
                     } catch (Exception e) {
-                        commandSender.sendMessage(Utils.chat(m.getString("PlayerNotFound")));
+                        commandSender.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                         return true;
                     }
                 } else {
