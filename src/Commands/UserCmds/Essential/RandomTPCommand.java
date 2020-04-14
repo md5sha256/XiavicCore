@@ -21,7 +21,7 @@ public class RandomTPCommand implements CommandExecutor {
     private static mainClass plugin;
 
     public RandomTPCommand(mainClass plugin) {
-        this.plugin = plugin;
+        RandomTPCommand.plugin = plugin;
     }
 
     @Override
@@ -29,9 +29,8 @@ public class RandomTPCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("RandomTP")) || player.isOp()) {
-
-                double randomX = (Math.random() * this.plugin.getConfig().getDouble("RTPxDistance")) + 0.5;
-                double randomZ = (Math.random() * this.plugin.getConfig().getDouble("RTPzDistance")) + 0.5;
+                double randomX = (Math.random() * plugin.getConfig().getDouble("RTPxDistance")) + 0.5;
+                double randomZ = (Math.random() * plugin.getConfig().getDouble("RTPzDistance")) + 0.5;
                 double randomY = player.getWorld().getHighestBlockYAt((int) randomX, (int) randomZ) + 1.5;
                 Location rtp = new Location(player.getWorld(), randomX, randomY, randomZ);
                 player.teleport(rtp);

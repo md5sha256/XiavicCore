@@ -47,8 +47,7 @@ public class SpawnSetCommand implements CommandExecutor {
 
                     mainConfig.set("Spawn_World_Name", output);
                     this.plugin.saveConfig();
-
-                    player.getWorld().setSpawnLocation(new Location(player.getLocation().getWorld(), player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch()));
+                    player.getWorld().setSpawnLocation(new Location(loc.getWorld(), loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch()));
                     player.sendMessage(Utils.chat(messages.getString("SetSpawn")));
                 }
                 return true;

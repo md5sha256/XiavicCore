@@ -1,41 +1,50 @@
-//package Commands.UserCmds.Fun;
-//
-//import org.bukkit.Bukkit;
-//import org.bukkit.World;
-//import org.bukkit.command.Command;
-//import org.bukkit.command.CommandExecutor;
-//import org.bukkit.command.CommandSender;
-//import org.bukkit.configuration.file.FileConfiguration;
-//import org.bukkit.entity.Player;
-//import utils.Files.Messages;
-//import utils.Files.Permissions;
-//import utils.Utils;
-//
-//public class NearCommand implements CommandExecutor {
-//    // TODO clean this up once mike is done with it...
-//    @Override
-//    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-//
-//        FileConfiguration p = Permissions.get();
-//        FileConfiguration m = Messages.get();
-//
-//        if (sender instanceof Player) {
-//            Player player = (Player) sender;
-//            Player target = Bukkit.getPlayer(args[0]);
-//            if (player.hasPermission(p.getString("Near")) || player.isOp()) {
-//
-//                int x = player.getLocation().getBlockX();
-//                int y = player.getLocation().getBlockY();
-//                int z = player.getLocation().getBlockZ();
-//                World w = player.getWorld();
-//
-//                player.sendMessage(Utils.chat(m.getString("Near").replace("%target%", target())));
-//
-//
-//            }
-//
-//        }
-//
-//        return false;
-//    }
-//}
+package Commands.UserCmds.Fun;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import utils.Utils;
+
+import java.util.ArrayList;
+
+import static Main.mainClass.messages;
+
+public class NearCommand implements CommandExecutor {
+
+    private double radius = 50;
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            if (player.hasPermission("Near") || player.isOp()) {
+                boolean found = false;
+                ArrayList<String> nearbyPlayers = new ArrayList<>();
+                for (Player target : Bukkit.getOnlinePlayers()) {
+                    double distance = player.getLocation().distance(target.getLocation());
+                    if (distance <= radius) {
+                        found = true;
+                        nearbyPlayers.add("    " + target.getName() + ": " + distance + "m");
+                    }
+                }
+                if (found) {
+                    player.sendMessage(Utils.chat("List of nearby players:"));
+                    for (String s : nearbyPlayers) {
+                        player.sendMessage(Utils.chat(s));
+                    }
+                } else {
+                    player.sendMessage("No players are nearby!");
+                }
+                return true;
+            } else {
+                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+            }
+            return true;
+        } else {
+            sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
+        }
+        return false;
+    }
+}

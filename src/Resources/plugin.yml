@@ -89,3 +89,6 @@ commands:
     usage:
     description:
     aliases: cv
+  fly:
+    usage:
+    description:
