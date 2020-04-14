@@ -4,10 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import utils.Files.Messages;
-import utils.Files.Permissions;
 import utils.Utils;
 
 import static Main.mainClass.messages;
@@ -35,7 +32,7 @@ public class TeleportCommand implements CommandExecutor {
                         player.sendMessage(Utils.chat(messages.getString("PlayerNotFound2")));
                     }
                 } else {
-                    player.sendMessage(Utils.chat("You must specify a target!"));
+                    player.sendMessage(Utils.chat(messages.getString("SpecifyTarget")));
                 }
                 return true;
             }

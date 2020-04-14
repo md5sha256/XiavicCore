@@ -9,7 +9,6 @@ import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
 import Commands.UserCmds.Fun.DiscordCommand;
-import Commands.UserCmds.Fun.NearCommand;
 import Listeners.JoinQuit;
 import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;

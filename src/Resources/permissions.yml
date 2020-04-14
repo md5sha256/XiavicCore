@@ -33,6 +33,7 @@ Fly: "Xiavic.fly"
 FlySpeed: "Xiavic.staff.flyspeed"
 Walkspeed: "Xiavic.staff.walkspeed"
 Serverinfo: "Xiavic.staff.serverinfo"
+SpawnOthers: "Xiavic.staff.spawnothers"
 
 # Fun
 Argh: "Xiavic.fun.argh"

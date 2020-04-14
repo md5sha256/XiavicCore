@@ -7,14 +7,8 @@ import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import utils.Files.Messages;
-import utils.Files.Permissions;
 import utils.Utils;
-
-import java.math.MathContext;
-import java.util.Random;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
@@ -24,7 +18,7 @@ public class RandomTPCommand implements CommandExecutor {
     private static mainClass plugin;
 
     public RandomTPCommand(mainClass plugin) {
-        this.plugin = plugin;
+        RandomTPCommand.plugin = plugin;
     }
 
     @Override
@@ -55,7 +49,7 @@ public class RandomTPCommand implements CommandExecutor {
     }
 
     public double getCoord() {
-        double distance = this.plugin.getConfig().getDouble("RTPDistance");
+        double distance = plugin.getConfig().getDouble("RTPDistance");
         return (Math.random() * (distance * 2)) - distance;
     }
 
