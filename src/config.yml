@@ -39,6 +39,7 @@ RTPCooldown: 600
 RTPWorld: world
 RTPxDistance: 50000
 RTPzDistance: 50000
+RTPDistance: 50000
 
 #Life
 HealCooldown: 600

@@ -13,6 +13,9 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Utils;
 
+import java.math.MathContext;
+import java.util.Random;
+
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
 
@@ -30,8 +33,10 @@ public class RandomTPCommand implements CommandExecutor {
             Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("RandomTP")) || player.isOp()) {
 
-                double randomX = (Math.random() * this.plugin.getConfig().getDouble("RTPxDistance")) + 0.5;
-                double randomZ = (Math.random() * this.plugin.getConfig().getDouble("RTPzDistance")) + 0.5;
+//                double randomX = (Math.random() * this.plugin.getConfig().getDouble("RTPxDistance")) + 0.5;
+//                double randomZ = (Math.random() * this.plugin.getConfig().getDouble("RTPzDistance")) + 0.5;
+                double randomX = getCoord();
+                double randomZ = getCoord();
                 double randomY = player.getWorld().getHighestBlockYAt((int) randomX, (int) randomZ) + 1.5;
                 Location rtp = new Location(player.getWorld(), randomX, randomY, randomZ);
                 player.teleport(rtp);
@@ -48,4 +53,10 @@ public class RandomTPCommand implements CommandExecutor {
         }
         return false;
     }
+
+    public double getCoord() {
+        double distance = this.plugin.getConfig().getDouble("RTPDistance");
+        return (Math.random() * (distance * 2)) - distance;
+    }
+
 }
