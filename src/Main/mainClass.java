@@ -22,6 +22,11 @@ import utils.Files.Permissions;
 import utils.Files.Players;
 import utils.Tpa.TpaHandler;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class mainClass extends JavaPlugin implements Listener {
 
     public static FileConfiguration mainConfig;
@@ -119,6 +124,7 @@ public class mainClass extends JavaPlugin implements Listener {
         permissions = Permissions.get();
         messages = Messages.get();
         mainConfig.set("Spawn_World_Name", spawnLocation);
+        saveConfig();
     }
 
 }

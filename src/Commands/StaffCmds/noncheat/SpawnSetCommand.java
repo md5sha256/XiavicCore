@@ -27,14 +27,12 @@ public class SpawnSetCommand implements CommandExecutor {
             if (player.hasPermission(permissions.getString("SetSpawn")) || player.isOp()) {
                 if (cmd.getName().equalsIgnoreCase("setspawn")) {
                     Location loc = player.getLocation();
-
                     World world = loc.getWorld();
                     double x = loc.getX();
                     double y = loc.getY();
                     double z = loc.getZ();
                     float yaw = loc.getYaw();
                     float pitch = loc.getPitch();
-
                     String output = world.getName() + ","
                             + x + ","
                             + y + ","
