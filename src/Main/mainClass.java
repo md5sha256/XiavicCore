@@ -58,7 +58,6 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
-        getCommand("spawn").setExecutor(new SpawnCommand2());
         getCommand("tpa").setExecutor(new TpaCommand());
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
@@ -73,7 +72,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("ext").setExecutor(new ExtinguishCommand());
         getCommand("info").setExecutor(new InfoCommand());
-        getCommand("fireball").setExecutor(new FireBallCommand());
+        //getCommand("fireball").setExecutor(new FireBallCommand());
         //getCommand("serverinfo").setExecutor(new ServerInfoCommand());
         ///getCommand("near").setExecutor(new NearCommand());
         getCommand("fly").setExecutor(new FlyCommand());
