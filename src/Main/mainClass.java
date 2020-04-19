@@ -81,6 +81,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("tp").setExecutor(new TeleportCommand());
         //getCommand("tppos").setExecutor(new TPPosCommand());
         getCommand("tphere").setExecutor(new TPhereCommand());
+        //getCommand("top").setExecutor(new TopCommand());
         getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
     }
 

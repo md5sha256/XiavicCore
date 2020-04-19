@@ -65,6 +65,7 @@ commands:
   coreconfigupdate:
     usage:
     description:
+    aliases: ccu
   tp:
     usage:
     description:
@@ -90,5 +91,8 @@ commands:
     description:
     aliases: cv
   fly:
+    usage:
+    description:
+  top:
     usage:
     description:

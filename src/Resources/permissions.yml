@@ -10,6 +10,7 @@ Tpa: "Xiavic.tpa"
 TpAccept: "Xiavic.tpa.accept"
 TpDeny: "Xiavic.tpa.deny"
 Dispose: "Xiavic.dispose"
+Top: "Xiavic.top"
 
 # Staff Commands
 Clear: "Xiavic.clear"
