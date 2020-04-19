@@ -16,8 +16,8 @@ public class InfoCommand implements CommandExecutor {
             Player pl = (Player) sender;
             if (pl.hasPermission(permissions.getString("Info")) || pl.isOp()) {
                 pl.sendMessage(Utils.chat(" "));
-                pl.sendMessage(Utils.chat("&eItem Name: &b" + pl.getInventory().getItemInMainHand().getType()));
-                pl.sendMessage(Utils.chat("&eItem Data: &b" + pl.getInventory().getItemInMainHand().getData()));
+                pl.sendMessage(Utils.chat("&eItem Name: &b" + pl.getInventory().getItemInMainHand().getType()).replace("LEGACY_", ""));
+                pl.sendMessage(Utils.chat("&eItem Data: &b" + pl.getInventory().getItemInMainHand().getData()).replace("(0)", ""));
                 pl.sendMessage(Utils.chat("&eMax Stack: &b" + pl.getInventory().getItemInMainHand().getMaxStackSize()));
                 if (!pl.getInventory().getItemInMainHand().getEnchantments().isEmpty()) {
                     pl.sendMessage(Utils.chat("&eItem Enchantments: &c ===================================="));

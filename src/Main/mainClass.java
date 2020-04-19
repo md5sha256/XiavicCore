@@ -9,6 +9,7 @@ import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
 import Commands.UserCmds.Fun.DiscordCommand;
+import Commands.UserCmds.Fun.FireBallCommand;
 import Listeners.JoinQuit;
 import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;
@@ -21,11 +22,6 @@ import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
 import utils.Tpa.TpaHandler;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class mainClass extends JavaPlugin implements Listener {
 
@@ -62,6 +58,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand2());
         getCommand("tpa").setExecutor(new TpaCommand());
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
@@ -76,6 +73,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("ext").setExecutor(new ExtinguishCommand());
         getCommand("info").setExecutor(new InfoCommand());
+        getCommand("fireball").setExecutor(new FireBallCommand());
         //getCommand("serverinfo").setExecutor(new ServerInfoCommand());
         ///getCommand("near").setExecutor(new NearCommand());
         getCommand("fly").setExecutor(new FlyCommand());
