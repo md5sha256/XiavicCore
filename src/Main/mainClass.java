@@ -9,6 +9,7 @@ import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
 import Commands.UserCmds.Fun.DiscordCommand;
+import Commands.UserCmds.Fun.TopCommand;
 import Listeners.JoinQuit;
 import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;
@@ -81,7 +82,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("tp").setExecutor(new TeleportCommand());
         //getCommand("tppos").setExecutor(new TPPosCommand());
         getCommand("tphere").setExecutor(new TPhereCommand());
-        //getCommand("top").setExecutor(new TopCommand());
+        getCommand("top").setExecutor(new TopCommand());
         getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
     }
 
