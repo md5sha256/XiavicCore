@@ -17,7 +17,7 @@ public class ServerInfoCommand implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(p.getString("Serverinfo")) || player.isOp()) {
+            if (player.hasPermission(p.getString("ServerInfo")) || player.isOp()) {
 
             }
         }

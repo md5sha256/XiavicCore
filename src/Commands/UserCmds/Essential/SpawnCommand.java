@@ -20,8 +20,12 @@ public class SpawnCommand implements CommandExecutor {
             if (player.hasPermission(permissions.getString("SpawnOthers")) || player.isOp()) {
                 Player target = Bukkit.getPlayer(args[0]);
                 Location l = LocationUtils.getLocation("Spawn_World_Name");
-                target.teleport(l);
-                return true;
+                if (target != null) {
+                    target.teleport(l);
+                    return true;
+                } else {
+                    player.sendMessage(messages.getString("PlayerNotFound"));
+                }
             }
             player.sendMessage(messages.getString("NoPerms"));
         } else {

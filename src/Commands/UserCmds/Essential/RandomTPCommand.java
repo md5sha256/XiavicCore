@@ -26,9 +26,6 @@ public class RandomTPCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("RandomTP")) || player.isOp()) {
-
-//                double randomX = (Math.random() * this.plugin.getConfig().getDouble("RTPxDistance")) + 0.5;
-//                double randomZ = (Math.random() * this.plugin.getConfig().getDouble("RTPzDistance")) + 0.5;
                 double randomX = getCoord();
                 double randomZ = getCoord();
                 double randomY = player.getWorld().getHighestBlockYAt((int) randomX, (int) randomZ) + 1.5;

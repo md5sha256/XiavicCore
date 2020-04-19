@@ -2,7 +2,7 @@
 EnderChest: "Xiavic.ec"
 EnderChestOthers: "Xiavic.ec.others"
 Extinguish: "Xiavic.extinguish"
-Info: "Xiavic.info"
+ItemInfo: "Xiavic.info"
 Near: "Xiavic.near"
 RandomTP: "Xiavic.rtp"
 Spawn: "Xiavic.spawn"
@@ -32,7 +32,7 @@ Tphere: "Xiavic.staff.tphere"
 Fly: "Xiavic.fly"
 FlySpeed: "Xiavic.staff.flyspeed"
 Walkspeed: "Xiavic.staff.walkspeed"
-Serverinfo: "Xiavic.staff.serverinfo"
+ServerInfo: "Xiavic.staff.serverinfo"
 SpawnOthers: "Xiavic.staff.spawnothers"
 
 # Fun

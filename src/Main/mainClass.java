@@ -9,7 +9,6 @@ import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
 import Commands.UserCmds.Fun.DiscordCommand;
-import Commands.UserCmds.Fun.FireBallCommand;
 import Listeners.JoinQuit;
 import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;
@@ -71,7 +70,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("ext").setExecutor(new ExtinguishCommand());
-        getCommand("info").setExecutor(new InfoCommand());
+        getCommand("info").setExecutor(new ItemInfoCommand());
         //getCommand("fireball").setExecutor(new FireBallCommand());
         //getCommand("serverinfo").setExecutor(new ServerInfoCommand());
         ///getCommand("near").setExecutor(new NearCommand());
