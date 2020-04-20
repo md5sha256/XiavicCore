@@ -9,6 +9,7 @@ import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.Argh;
 import Commands.UserCmds.Fun.DiscordCommand;
+import Commands.UserCmds.Fun.ItemInfoCommand;
 import Commands.UserCmds.Fun.TopCommand;
 import Listeners.JoinQuit;
 import Listeners.RespawnEvent;
@@ -78,7 +79,6 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
         getCommand("rtp").setExecutor(new RandomTPCommand(this));
-        //getCommand("weather").setExecutor(new WeatherCommand());
         getCommand("tp").setExecutor(new TeleportCommand());
         //getCommand("tppos").setExecutor(new TPPosCommand());
         getCommand("tphere").setExecutor(new TPhereCommand());

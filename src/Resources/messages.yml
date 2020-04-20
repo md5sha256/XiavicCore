@@ -56,6 +56,7 @@ EnderChest: "Opening your ender chest..."
 EnderChestOthers: "Opening %target%'s ender chest..."
 Gamemode: "Your gamemode has been updated to %mode%"
 GamemodeOther: "%target%'s gamemode has been updated to "
+ItemIsAir: "You are not holding an item"
 
 # Fun
 Argh: "&bArghhh, Piratey treasure awaits at yee spawn!"
