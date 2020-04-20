@@ -9,11 +9,12 @@ import utils.Utils;
 
 import java.util.ArrayList;
 
+import static Main.mainClass.mainConfig;
 import static Main.mainClass.messages;
 
 public class NearCommand implements CommandExecutor {
 
-    private double radius = 50;
+    private double radius = mainConfig.getDouble("NearRadius");
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

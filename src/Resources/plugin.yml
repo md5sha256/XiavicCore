@@ -96,3 +96,9 @@ commands:
   top:
     usage:
     description:
+  pony:
+    usage:
+    description:
+  near:
+    usage:
+    description:

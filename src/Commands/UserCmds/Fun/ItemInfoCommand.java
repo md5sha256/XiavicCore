@@ -23,7 +23,7 @@ public class ItemInfoCommand implements CommandExecutor {
                     if (pl.getInventory().getItemInMainHand().getItemMeta().hasDisplayName()) {
                         pl.sendMessage(Utils.chat("&eItem Meta: &b" + pl.getInventory().getItemInMainHand().getItemMeta().getDisplayName()));
                     }
-                    pl.sendMessage(Utils.chat("&eMinecraft Name: &b" + pl.getInventory().getItemInMainHand().getType().get));
+                    pl.sendMessage(Utils.chat("&eMinecraft Name: &b" + pl.getInventory().getItemInMainHand().getType().name()));
                     pl.sendMessage(Utils.chat("&eMax Stack: &b" + pl.getInventory().getItemInMainHand().getMaxStackSize()));
                     if (!pl.getInventory().getItemInMainHand().getEnchantments().isEmpty()) {
                         pl.sendMessage(Utils.chat("&eItem Enchantments: &c ===================================="));

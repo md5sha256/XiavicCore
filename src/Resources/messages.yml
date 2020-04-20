@@ -56,11 +56,11 @@ EnderChest: "Opening your ender chest..."
 EnderChestOthers: "Opening %target%'s ender chest..."
 Gamemode: "Your gamemode has been updated to %mode%"
 GamemodeOther: "%target%'s gamemode has been updated to "
-ItemIsAir: "You are not holding an item"
+ItemIsAir: "&cYou are holding air, not an item..."
 
 # Fun
 Argh: "&bArghhh, Piratey treasure awaits at yee spawn!"
-Pony: "Pickle has spoken, your pony is %Random_Pony%" #Sorry not sorry pickle, but i'm bringing it back, just for you, <3
+Pony: "%Pickle% %Random_Pony%" #Sorry not sorry pickle, but i'm bringing it back, just for you, <3
 Discord: "&bCome &3join &bour &3discord &bat &3https://discordapp.com/invite/nY5yFhs"
 Near: "The closest player to you is, %target%, at %distance% blocks"
 WalkSpeed: "Your walkspeed has been set to, %amount%"

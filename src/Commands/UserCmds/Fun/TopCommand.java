@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
@@ -16,15 +17,17 @@ public class TopCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("Top"))) {
-                int locX = player.getLocation().getBlockY();
+                int locX = player.getLocation().getBlockX();
                 int locZ = player.getLocation().getBlockZ();
-                int locY = player.getWorld().getHighestBlockYAt(locX, locZ);
+                double locY = player.getWorld().getHighestBlockYAt(locX, locZ) + 1.5;
                 Location top = new Location(player.getWorld(), locX, locY, locZ);
                 player.teleport(top);
                 return true;
             } else {
-                player.sendMessage(messages.getString("NoPerms"));
+                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
             }
+        } else {
+            sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
         }
         return false;
     }
