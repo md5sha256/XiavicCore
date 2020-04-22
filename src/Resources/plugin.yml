@@ -102,3 +102,18 @@ commands:
   near:
     usage:
     description:
+  discord:
+    usage:
+    description:
+  forums:
+    usage:
+    description:
+  twitter:
+    usage:
+    description:
+  website:
+    usage:
+    description:
+  youtube:
+    usage:
+    description:

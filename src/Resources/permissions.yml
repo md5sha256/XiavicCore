@@ -39,6 +39,11 @@ SpawnOthers: "Xiavic.staff.spawnothers"
 # Fun
 Argh: "Xiavic.fun.argh"
 Pony: "Xiavic.pony"
+Website: "Xiavic.links.website"
+Forums: "Xiavic.links.forums"
+Discord: "Xiavic.links.discord"
+Twitter: "Xiavic.links.twitter"
+Youtube: "Xiavic.links.youtube"
 
 # Cheats
 CheatExp: "Xiavic.cheat.exp"

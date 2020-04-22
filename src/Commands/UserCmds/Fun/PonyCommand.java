@@ -61,7 +61,7 @@ public class PonyCommand implements CommandExecutor {
 
         Player player = (Player) sender;
         if (player.hasPermission(permissions.getString("Pony"))) {
-            player.sendMessage(Utils.chat(messages.getString("Pony")).replace("%Random_Pony%", ponies[r.nextInt(ponies.length)]).replace("%Pickle%", rainbowizeString("PickleGodLord says:")));
+            player.sendMessage(Utils.chat(rainbowizeString(messages.getString("Pony")).replace("%Random_Pony%", ponies[r.nextInt(ponies.length)])));
         } else {
             player.sendMessage(Utils.chat(messages.getString("NoPerms")));
         }

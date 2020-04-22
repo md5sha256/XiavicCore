@@ -8,6 +8,7 @@ import Commands.UserCmds.Essential.Tpa.TpaCommand;
 import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.*;
+import Commands.UserCmds.Fun.Links.*;
 import Listeners.JoinQuit;
 import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;
@@ -82,6 +83,10 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("tphere").setExecutor(new TPhereCommand());
         getCommand("top").setExecutor(new TopCommand());
         getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
+        getCommand("website").setExecutor(new WebsiteCommand());
+        getCommand("forums").setExecutor(new ForumsCommand());
+        getCommand("twitter").setExecutor(new TwitterCommand());
+        getCommand("youtube").setExecutor(new YoutubeCommand());
     }
 
     private void registerListeners() {
