@@ -16,10 +16,10 @@ public class SpawnCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
         Player player = (Player) sender;
+        Location l = LocationUtils.getLocation("Spawn_World_Name");
         if (args.length == 1) {
             if (player.hasPermission(permissions.getString("SpawnOthers")) || player.isOp()) {
                 Player target = Bukkit.getPlayer(args[0]);
-                Location l = LocationUtils.getLocation("Spawn_World_Name");
                 if (target != null) {
                     target.teleport(l);
                     return true;
@@ -30,7 +30,6 @@ public class SpawnCommand implements CommandExecutor {
             player.sendMessage(messages.getString("NoPerms"));
         } else {
             if (player.hasPermission(permissions.getString("Spawn")) || player.isOp()) {
-                Location l = LocationUtils.getLocation("Spawn_World_Name");
                 player.teleport(l);
                 return true;
             }

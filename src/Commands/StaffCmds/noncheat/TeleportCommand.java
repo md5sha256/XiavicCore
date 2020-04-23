@@ -24,21 +24,28 @@ public class TeleportCommand implements CommandExecutor {
                         player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                     }
                 } else if (args.length == 2) {
-                    Player target = Bukkit.getPlayer(args[0]);
-                    Player target2 = Bukkit.getPlayer(args[1]);
-                    if (target != null && target2 != null) {
-                        target.teleport(target2);
+                    if (player.hasPermission(permissions.getString("TPOthers")) || player.isOp()) {
+                        Player target = Bukkit.getPlayer(args[0]);
+                        Player target2 = Bukkit.getPlayer(args[1]);
+                        if (target != null && target2 != null) {
+                            target.teleport(target2);
+
+                        } else {
+                            player.sendMessage(Utils.chat(messages.getString("PlayerNotFound2")));
+                            return true;
+                        }
                     } else {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound2")));
+                        sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
                     }
                 } else {
                     player.sendMessage(Utils.chat(messages.getString("SpecifyTarget")));
+
                 }
                 return true;
+            } else {
+                sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
             }
-            return true;
-        } else {
-            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
+
         }
         sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
         return false;
