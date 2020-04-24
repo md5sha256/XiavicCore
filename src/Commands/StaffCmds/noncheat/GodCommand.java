@@ -16,6 +16,7 @@ public class GodCommand implements CommandExecutor {
         if (player.hasPermission(permissions.getString("GodOthers")) || player.isOp()) {
             if (args.length == 1) {
                 target.getLastDamageCause().isCancelled();
+
             }
         }
         return false;

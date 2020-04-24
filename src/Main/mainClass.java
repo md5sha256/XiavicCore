@@ -73,7 +73,6 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("info").setExecutor(new ItemInfoCommand());
         getCommand("pony").setExecutor(new PonyCommand());
         //getCommand("fireball").setExecutor(new FireBallCommand());
-        //getCommand("serverinfo").setExecutor(new ServerInfoCommand());
         getCommand("near").setExecutor(new NearCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
