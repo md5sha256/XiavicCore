@@ -14,7 +14,6 @@ import static Main.mainClass.permissions;
 public class SpawnCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-
         Player player = (Player) sender;
         Location l = LocationUtils.getLocation("Spawn_World_Name");
         if (args.length == 1) {
