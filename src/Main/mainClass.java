@@ -16,6 +16,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import utils.BackHandler;
 import utils.EquipAnything.EquipEvents;
 import utils.Files.Messages;
 import utils.Files.Permissions;
@@ -28,6 +29,7 @@ public class mainClass extends JavaPlugin implements Listener {
     public static FileConfiguration messages;
     public static FileConfiguration permissions;
     public static TpaHandler tpaHandler;
+    public static BackHandler backHandler;
     private Players cfmg;
 
     public void onEnable() {
@@ -86,6 +88,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("forums").setExecutor(new ForumsCommand());
         getCommand("twitter").setExecutor(new TwitterCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
+        getCommand("back").setExecutor(new BackCommand());
         //getCommand("god").setExecutor(new GodCommand());
     }
 
@@ -99,6 +102,7 @@ public class mainClass extends JavaPlugin implements Listener {
     // Use this function for creating new shit
     private void registerShit() {
         tpaHandler = new TpaHandler();
+        backHandler = new BackHandler();
     }
 
     private void loadshit() {

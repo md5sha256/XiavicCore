@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import utils.LocationUtils;
+import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
@@ -20,7 +21,7 @@ public class SpawnCommand implements CommandExecutor {
             if (player.hasPermission(permissions.getString("SpawnOthers")) || player.isOp()) {
                 Player target = Bukkit.getPlayer(args[0]);
                 if (target != null) {
-                    target.teleport(l);
+                    Utils.teleport(target, l);
                     return true;
                 } else {
                     player.sendMessage(messages.getString("PlayerNotFound"));
@@ -29,7 +30,7 @@ public class SpawnCommand implements CommandExecutor {
             player.sendMessage(messages.getString("NoPerms"));
         } else {
             if (player.hasPermission(permissions.getString("Spawn")) || player.isOp()) {
-                player.teleport(l);
+                Utils.teleport(player, l);
                 return true;
             }
             player.sendMessage(messages.getString("NoPerms"));
