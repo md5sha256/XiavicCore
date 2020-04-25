@@ -117,3 +117,6 @@ commands:
   youtube:
     usage:
     description:
+  god:
+    usage:
+    description:

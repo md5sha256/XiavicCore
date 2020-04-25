@@ -86,7 +86,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("forums").setExecutor(new ForumsCommand());
         getCommand("twitter").setExecutor(new TwitterCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
-        //getCommand("god").setExecutor(new GodCommand());
+        getCommand("god").setExecutor(new GodCommand());
     }
 
     private void registerListeners() {

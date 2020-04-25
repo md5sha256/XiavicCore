@@ -32,7 +32,7 @@ public class FlyCommand implements CommandExecutor {
                     player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                 }
             } else {
-                player.sendMessage(messages.getString("NoPerms"));
+                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
             }
         } else {
             if (player.hasPermission(permissions.getString("Fly")) || player.isOp()) {
@@ -45,7 +45,7 @@ public class FlyCommand implements CommandExecutor {
                 }
                 return true;
             } else {
-                player.sendMessage(messages.getString("NoPerms"));
+                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
             }
         }
         return false;
