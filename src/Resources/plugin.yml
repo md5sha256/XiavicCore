@@ -69,9 +69,6 @@ commands:
   tp:
     usage:
     description:
-  discord:
-    usage:
-    description:
   tphere:
     usage:
     description:
@@ -102,9 +99,6 @@ commands:
   near:
     usage:
     description:
-  discord:
-    usage:
-    description:
   forums:
     usage:
     description:
@@ -115,6 +109,9 @@ commands:
     usage:
     description:
   youtube:
+    usage:
+    description:
+  discord:
     usage:
     description:
   god:

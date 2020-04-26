@@ -19,7 +19,7 @@ public class TPhereCommand implements CommandExecutor {
                 if (label.equalsIgnoreCase("tphere")) {
                     if (args.length == 1) {
                         Player target = Bukkit.getPlayer(args[0]);
-                        target.teleport(player);
+                        Utils.teleport(target, player.getLocation());
                     } else {
                         player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                     }

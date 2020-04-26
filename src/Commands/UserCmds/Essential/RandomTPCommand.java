@@ -30,11 +30,12 @@ public class RandomTPCommand implements CommandExecutor {
                 double randomZ = getCoord();
                 double randomY = player.getWorld().getHighestBlockYAt((int) randomX, (int) randomZ) + 1.5;
                 Location rtp = new Location(player.getWorld(), randomX, randomY, randomZ);
-                player.teleport(rtp);
+                Utils.teleport(player, rtp);
                 Block block = rtp.getBlock().getRelative(0, -1, 0);
                 if (block.getType().equals(Material.WATER) || block.getType().equals(Material.LAVA)) {
                     block.setType(Material.DIRT);
                 }
+                // TODO doesnt this need a message sent to the player?
                 return true;
             } else {
                 player.sendMessage(Utils.chat(messages.getString("NoPerms")));

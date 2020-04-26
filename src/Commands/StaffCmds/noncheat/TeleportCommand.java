@@ -19,7 +19,7 @@ public class TeleportCommand implements CommandExecutor {
                 if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
                     if (target != null) {
-                        player.teleport(target);
+                        Utils.teleport(player, target.getLocation());
                     } else {
                         player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
                     }
@@ -28,7 +28,7 @@ public class TeleportCommand implements CommandExecutor {
                         Player target = Bukkit.getPlayer(args[0]);
                         Player target2 = Bukkit.getPlayer(args[1]);
                         if (target != null && target2 != null) {
-                            target.teleport(target2);
+                            Utils.teleport(target, target2.getLocation());
 
                         } else {
                             player.sendMessage(Utils.chat(messages.getString("PlayerNotFound2")));
