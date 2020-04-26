@@ -5,10 +5,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class FlyCommand implements CommandExecutor {
     @Override
@@ -20,32 +20,32 @@ public class FlyCommand implements CommandExecutor {
                 if (target != null) {
                     if (target.getAllowFlight()) {
                         target.setAllowFlight(false);
-                        target.sendMessage(Utils.chat(messages.getString("Fly").replace("%mode%", messages.getString("Disabled"))));
-                        player.sendMessage(Utils.chat(messages.getString("FlyOthers").replace("%target%", target.getDisplayName()).replace("%mode%", messages.getString("Disabled"))));
+                        chat(target, messages.getString("Fly").replace("%mode%", messages.getString("Disabled")));
+                        chat(player, messages.getString("FlyOthers").replace("%target%", target.getDisplayName()).replace("%mode%", messages.getString("Disabled")));
                     } else if (!target.getAllowFlight()) {
                         target.setAllowFlight(true);
-                        target.sendMessage(Utils.chat(messages.getString("Fly").replace("%mode%", messages.getString("Enabled"))));
-                        player.sendMessage(Utils.chat(messages.getString("FlyOthers").replace("%target%", target.getDisplayName()).replace("%mode%", messages.getString("Enabled"))));
+                        chat(target, messages.getString("Fly").replace("%mode%", messages.getString("Enabled")));
+                        chat(player, messages.getString("FlyOthers").replace("%target%", target.getDisplayName()).replace("%mode%", messages.getString("Enabled")));
                     }
                     return true;
                 } else {
-                    player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                    chat(player, messages.getString("PlayerNotFound"));
                 }
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                chat(player, messages.getString("NoPerms"));
             }
         } else {
             if (player.hasPermission(permissions.getString("Fly")) || player.isOp()) {
                 if (!player.getAllowFlight()) {
                     player.setAllowFlight(true);
-                    player.sendMessage(Utils.chat(messages.getString("Fly").replace("%mode%", messages.getString("Enabled"))));
+                    chat(player, messages.getString("Fly").replace("%mode%", messages.getString("Enabled")));
                 } else if (player.getAllowFlight()) {
                     player.setAllowFlight(false);
-                    player.sendMessage(Utils.chat(messages.getString("Fly").replace("%mode%", messages.getString("Disabled"))));
+                    chat(player, messages.getString("Fly").replace("%mode%", messages.getString("Disabled")));
                 }
                 return true;
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                chat(player, messages.getString("NoPerms"));
             }
         }
         return false;

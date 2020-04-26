@@ -11,6 +11,7 @@ import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class SpawnCommand implements CommandExecutor {
     @Override
@@ -24,16 +25,16 @@ public class SpawnCommand implements CommandExecutor {
                     Utils.teleport(target, l);
                     return true;
                 } else {
-                    player.sendMessage(messages.getString("PlayerNotFound"));
+                    chat(player, messages.getString("PlayerNotFound"));
                 }
             }
-            player.sendMessage(messages.getString("NoPerms"));
+            chat(player, messages.getString("NoPerms"));
         } else {
             if (player.hasPermission(permissions.getString("Spawn")) || player.isOp()) {
                 Utils.teleport(player, l);
                 return true;
             }
-            player.sendMessage(messages.getString("NoPerms"));
+            chat(player, messages.getString("NoPerms"));
         }
         return false;
     }

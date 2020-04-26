@@ -5,10 +5,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class EnderChestCommand implements CommandExecutor {
     @Override
@@ -20,22 +20,22 @@ public class EnderChestCommand implements CommandExecutor {
                     try {
                         Player target = Bukkit.getPlayer(strings[0]);
                         player.openInventory(target.getEnderChest());
-                        player.sendMessage(Utils.chat(messages.getString("EnderChestOthers").replace("%target%", target.getDisplayName())));
+                        chat(player, messages.getString("EnderChestOthers").replace("%target%", target.getDisplayName()));
                         return true;
                     } catch (Exception e) {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                        chat(player, messages.getString("PlayerNotFound"));
                         return true;
                     }
                 }
             } else {
                 if (player.hasPermission(permissions.getString("EnderChest")) || player.isOp()) {
                     player.openInventory(player.getEnderChest());
-                    player.sendMessage(Utils.chat(messages.getString("EnderChest")));
+                    chat(player, messages.getString("EnderChest"));
                     return true;
                 }
             }
         } else {
-            commandSender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
+            chat(commandSender, messages.getString("SenderNotPlayer"));
             return true;
         }
         return false;

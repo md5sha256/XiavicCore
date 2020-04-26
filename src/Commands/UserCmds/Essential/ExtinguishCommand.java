@@ -5,32 +5,40 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class ExtinguishCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        Player player = (Player) sender;
         if (sender instanceof Player) {
-            Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("Extinguish")) || player.isOp()) {
-                if (label.equalsIgnoreCase("ext")) {
-                    player.setFireTicks(0);
-                    player.sendMessage(Utils.chat(messages.getString("Extinguish")));
-                } else if (args.length == 1) {
-                    Player target = Bukkit.getPlayer(args[0]);
-                    target.setFireTicks(0);
-                    target.sendMessage(Utils.chat(messages.getString("ExtinguishTarget").replace("%sender%", player.getDisplayName())));
-                } else {
-                    player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
-                }
+                player.setFireTicks(0);
+                chat(player, messages.getString("Extinguish"));
                 return true;
+            } else {
+                chat(player, messages.getString("NoPerms"));
             }
         } else {
-            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
+            if (args.length == 1) {
+                if (player.hasPermission(permissions.getString("ExtinguishOthers"))) {
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (target.isOnline()) {
+                        target.setFireTicks(0);
+                        chat(target, messages.getString("ExtinguishTarget").replace("%sender%", player.getDisplayName()));
+                        return true;
+                    }
+                } else {
+                    chat(player, messages.getString("NoPerms"));
+                }
+            } else {
+                chat(player, messages.getString("PlayerNotFound"));
+            }
         }
         return false;
     }
 }
+

@@ -7,10 +7,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class CheatArmor implements CommandExecutor {
     @Override
@@ -53,7 +53,7 @@ public class CheatArmor implements CommandExecutor {
                     player.getInventory().addItem(chestplate);
                     player.getInventory().addItem(legs);
                     player.getInventory().addItem(boots);
-                    player.sendMessage(Utils.chat(messages.getString("CheatArmor")));
+                    chat(player, messages.getString("CheatArmor"));
 
                 }
             }

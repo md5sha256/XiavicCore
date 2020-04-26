@@ -5,10 +5,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class GodCommand implements CommandExecutor {
     @Override
@@ -20,32 +20,32 @@ public class GodCommand implements CommandExecutor {
                 if (target != null) {
                     if (!target.isInvulnerable()) {
                         target.setInvulnerable(true);
-                        target.sendMessage(Utils.chat(messages.getString("God").replace("%mode%", messages.getString("Enabled"))));
-                        player.sendMessage(Utils.chat(messages.getString("GodOthers").replace("%mode%", messages.getString("Enabled"))));
+                        chat(target, messages.getString("God").replace("%mode%", messages.getString("Enabled")));
+                        chat(player, messages.getString("GodOthers").replace("%mode%", messages.getString("Enabled").replace("%player%", target.getDisplayName())));
                     } else if (target.isInvulnerable()) {
                         target.setInvulnerable(false);
-                        target.sendMessage(Utils.chat(messages.getString("God").replace("%mode%", messages.getString("Disabled"))));
-                        player.sendMessage(Utils.chat(messages.getString("GodOthers").replace("%mode%", messages.getString("Disabled"))));
+                        chat(target, messages.getString("God").replace("%mode%", messages.getString("Disabled")));
+                        chat(player, messages.getString("GodOthers").replace("%mode%", messages.getString("Disabled").replace("%player%", target.getDisplayName())));
                     }
                     return true;
                 } else {
-                    player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                    player.sendMessage(chat(messages.getString("PlayerNotFound")));
                 }
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                player.sendMessage(chat(messages.getString("NoPerms")));
             }
         } else {
             if (player.hasPermission(permissions.getString("God")) || player.isOp()) {
                 if (!player.isInvulnerable()) {
                     player.setInvulnerable(true);
-                    player.sendMessage(Utils.chat(messages.getString("God").replace("%mode%", messages.getString("Enabled"))));
+                    chat(player, messages.getString("God").replace("%mode%", messages.getString("Enabled")));
                 } else if (player.isInvulnerable()) {
                     player.setInvulnerable(false);
-                    player.sendMessage(Utils.chat(messages.getString("God").replace("%mode%", messages.getString("Disabled"))));
+                    chat(player, messages.getString("God").replace("%mode%", messages.getString("Disabled")));
                 }
                 return true;
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                chat(player, messages.getString("NoPerms"));
             }
         }
         return false;

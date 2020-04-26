@@ -42,7 +42,10 @@ RTPDistance: 50000
 #Life
 HealCooldown: 600
 FeedCooldown: 600
+SuicideCooldown: 60
 
 #Near Max-Distance
 NearRange: 1000
+
+
 

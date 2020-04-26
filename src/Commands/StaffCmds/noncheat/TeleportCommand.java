@@ -9,6 +9,7 @@ import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class TeleportCommand implements CommandExecutor {
     @Override
@@ -21,7 +22,7 @@ public class TeleportCommand implements CommandExecutor {
                     if (target != null) {
                         Utils.teleport(player, target.getLocation());
                     } else {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                        chat(player, messages.getString("PlayerNotFound"));
                     }
                 } else if (args.length == 2) {
                     if (player.hasPermission(permissions.getString("TPOthers")) || player.isOp()) {
@@ -31,19 +32,19 @@ public class TeleportCommand implements CommandExecutor {
                             Utils.teleport(target, target2.getLocation());
 
                         } else {
-                            player.sendMessage(Utils.chat(messages.getString("PlayerNotFound2")));
+                            chat(player, messages.getString("PlayerNotFound2"));
                             return true;
                         }
                     } else {
-                        sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                        chat(player, messages.getString("NoPerms"));
                     }
                 } else {
-                    player.sendMessage(Utils.chat(messages.getString("SpecifyTarget")));
+                    chat(player, messages.getString("SpecifyTarget"));
 
                 }
                 return true;
             } else {
-                sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                chat(sender, messages.getString("NoPerms"));
             }
 
         }

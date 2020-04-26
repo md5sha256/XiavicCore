@@ -90,6 +90,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("youtube").setExecutor(new YoutubeCommand());
         getCommand("back").setExecutor(new BackCommand());
         getCommand("god").setExecutor(new GodCommand());
+        getCommand("suicide").setExecutor(new SuicideCommand());
     }
 
     private void registerListeners() {

@@ -12,6 +12,7 @@ import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class RandomTPCommand implements CommandExecutor {
 
@@ -38,10 +39,10 @@ public class RandomTPCommand implements CommandExecutor {
                 // TODO doesnt this need a message sent to the player?
                 return true;
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                chat(player, messages.getString("NoPerms"));
             }
         } else {
-            sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
+            chat(sender, messages.getString("SenderNotPlayer"));
         }
         return false;
     }

@@ -8,6 +8,7 @@ import utils.Utils;
 
 import static Main.mainClass.backHandler;
 import static Main.mainClass.messages;
+import static utils.Utils.chat;
 
 public class BackCommand implements CommandExecutor {
 
@@ -15,17 +16,17 @@ public class BackCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            // TODO I dont now what permission this should have
+            // TODO I dont know what permission this should have
             if (true) {
                 try {
                     Utils.teleport(player, backHandler.getLastLocation(player));
                 } catch (Exception e) {
-                    Utils.chat(player, "You do not have a recent location to go back to");
+                    chat(player, "You do not have a recent location to go back to");
                 }
                 return true;
             }
         }
-        Utils.chat(commandSender, messages.getString("SenderNotPlayer"));
+        chat(commandSender, messages.getString("SenderNotPlayer"));
         return false;
     }
 }

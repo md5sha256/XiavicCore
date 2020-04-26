@@ -120,3 +120,6 @@ commands:
   back:
     usage:
     description:
+  suicide:
+    usage:
+    description:

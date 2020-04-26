@@ -4,10 +4,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class CheatEXP implements CommandExecutor {
     @Override
@@ -17,7 +17,7 @@ public class CheatEXP implements CommandExecutor {
             if (player.hasPermission(permissions.getString("CheatExp")) || player.isOp()) {
                 if (command.getName().equalsIgnoreCase("cheatexp")) {
                     player.setLevel(9999);
-                    player.sendMessage(Utils.chat(messages.getString("CheatExp")));
+                    chat(player, messages.getString("CheatExp"));
                 }
                 return true;
             }
