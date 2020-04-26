@@ -114,3 +114,6 @@ commands:
   discord:
     usage:
     description:
+  god:
+    usage:
+    description:

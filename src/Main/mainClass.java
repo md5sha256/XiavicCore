@@ -89,7 +89,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("twitter").setExecutor(new TwitterCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
         getCommand("back").setExecutor(new BackCommand());
-        //getCommand("god").setExecutor(new GodCommand());
+        getCommand("god").setExecutor(new GodCommand());
     }
 
     private void registerListeners() {
