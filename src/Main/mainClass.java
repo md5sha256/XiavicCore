@@ -40,9 +40,9 @@ public class mainClass extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage("Xiavic Network's Amazing Core");
         Bukkit.getConsoleSender().sendMessage("     In Development by the Xiavic Owners ");
         Bukkit.getConsoleSender().sendMessage(" ");
+        registerShit();
         registerListeners();
         registerCommands();
-        registerShit();
 
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
@@ -98,6 +98,7 @@ public class mainClass extends JavaPlugin implements Listener {
         pm.registerEvents(new JoinQuit(), this);
         pm.registerEvents(new EquipEvents(), this);
         pm.registerEvents(new RespawnEvent(), this);
+        pm.registerEvents(backHandler, this);
     }
 
     // Use this function for creating new shit
