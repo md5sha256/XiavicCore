@@ -20,34 +20,34 @@ public class CheatArmor implements CommandExecutor {
             if (player.hasPermission(permissions.getString("CheatArmor")) || player.isOp()) {
                 if (command.getName().equalsIgnoreCase("cheatarmor")) {
                     ItemStack helmet = new ItemStack(Material.DIAMOND_HELMET);
-                    helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-                    helmet.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 4);
-                    helmet.addEnchantment(Enchantment.PROTECTION_FIRE, 4);
-                    helmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
-                    helmet.addEnchantment(Enchantment.WATER_WORKER, 1);
-                    helmet.addEnchantment(Enchantment.OXYGEN, 3);
-                    helmet.addEnchantment(Enchantment.DURABILITY, 3);
+                    helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10); // Default - 4
+                    helmet.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10); // Default - 4
+                    helmet.addEnchantment(Enchantment.PROTECTION_FIRE, 10); // Default - 4
+                    helmet.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 10); // Default - 4
+                    helmet.addEnchantment(Enchantment.WATER_WORKER, 10);  // Default - 1
+                    helmet.addEnchantment(Enchantment.OXYGEN, 10);  // Default - 3
+                    helmet.addEnchantment(Enchantment.DURABILITY, 10);  // Default - 3
                     ItemStack chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
-                    chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-                    chestplate.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 4);
-                    chestplate.addEnchantment(Enchantment.PROTECTION_FIRE, 4);
-                    chestplate.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
-                    chestplate.addEnchantment(Enchantment.THORNS, 3);
-                    chestplate.addEnchantment(Enchantment.DURABILITY, 3);
+                    chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10); // Default - 4
+                    chestplate.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10); // Default - 4
+                    chestplate.addEnchantment(Enchantment.PROTECTION_FIRE, 10); // Default - 4
+                    chestplate.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 10); // Default - 4
+                    chestplate.addEnchantment(Enchantment.THORNS, 10);  // Default - 3
+                    chestplate.addEnchantment(Enchantment.DURABILITY, 10);  // Default - 3
                     ItemStack legs = new ItemStack(Material.DIAMOND_LEGGINGS);
-                    legs.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-                    legs.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 4);
-                    legs.addEnchantment(Enchantment.PROTECTION_FIRE, 4);
-                    legs.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
-                    legs.addEnchantment(Enchantment.THORNS, 3);
-                    legs.addEnchantment(Enchantment.DURABILITY, 3);
+                    legs.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10); // Default - 4
+                    legs.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10); // Default - 4
+                    legs.addEnchantment(Enchantment.PROTECTION_FIRE, 10); // Default - 4
+                    legs.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 10); // Default - 4
+                    legs.addEnchantment(Enchantment.THORNS, 10);  // Default - 3
+                    legs.addEnchantment(Enchantment.DURABILITY, 10);  // Default - 3
                     ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
-                    boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 4);
-                    boots.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 4);
-                    boots.addEnchantment(Enchantment.PROTECTION_FIRE, 4);
-                    boots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 4);
-                    boots.addEnchantment(Enchantment.DURABILITY, 3);
-                    boots.addEnchantment(Enchantment.PROTECTION_FALL, 4);
+                    boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10); // Default - 4
+                    boots.addEnchantment(Enchantment.PROTECTION_EXPLOSIONS, 10); // Default - 4
+                    boots.addEnchantment(Enchantment.PROTECTION_FIRE, 10); // Default - 4
+                    boots.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 10); // Default - 4
+                    boots.addEnchantment(Enchantment.DURABILITY, 10);  // Default - 3
+                    boots.addEnchantment(Enchantment.PROTECTION_FALL, 10); // Default - 4
 
                     player.getInventory().addItem(helmet);
                     player.getInventory().addItem(chestplate);

@@ -5,10 +5,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
+import static utils.Utils.chat;
 
 public class ClearAllCommand implements CommandExecutor {
 
@@ -21,10 +21,10 @@ public class ClearAllCommand implements CommandExecutor {
                     try {
                         Player target = Bukkit.getPlayer(strings[0]);
                         clear(target);
-                        player.sendMessage(Utils.chat(messages.getString("ClearInventoryOther").replace("%target%", target.getDisplayName())));
+                        chat(player, messages.getString("ClearInventoryOther").replace("%target%", target.getDisplayName()));
                         return true;
                     } catch (Exception e) {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                        chat(player, messages.getString("PlayerNotFound"));
                         return true;
                     }
                 }
@@ -32,7 +32,7 @@ public class ClearAllCommand implements CommandExecutor {
                 if (player.hasPermission(permissions.getString("Clear")) || player.isOp()) {
                     clear(player);
                 } else {
-                    player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                    chat(player, messages.getString("NoPerms"));
                 }
                 return true;
             }
@@ -41,10 +41,10 @@ public class ClearAllCommand implements CommandExecutor {
                 try {
                     Player target = Bukkit.getPlayer(strings[0]);
                     clear(target);
-                    commandSender.sendMessage(Utils.chat(messages.getString("ClearInventoryOther").replace("%target%", target.getDisplayName())));
+                    chat(commandSender, messages.getString("ClearInventoryOther").replace("%target%", target.getDisplayName()));
                     return true;
                 } catch (Exception e) {
-                    commandSender.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                    chat(commandSender, messages.getString("PlayerNotFound"));
                     return true;
                 }
             } else {
@@ -56,7 +56,7 @@ public class ClearAllCommand implements CommandExecutor {
 
     private void clear(Player player) {
         player.getInventory().clear();
-        player.sendMessage(Utils.chat(messages.getString("ClearInventory")));
+        chat(player, messages.getString("ClearInventory"));
     }
 
 }
