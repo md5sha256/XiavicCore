@@ -1,4 +1,4 @@
-package Listeners;
+package utils.Listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

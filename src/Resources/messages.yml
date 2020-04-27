@@ -45,7 +45,7 @@ TpaPending: "You already have a request pending. Pendejo"
 TpToggleOff: "You have DISABLED teleport requests to you. Pathetic..."
 TpToggleOn: "You have ENABLED teleport requests to you."
 
-# Listeners
+# utils.Listeners
 Back: "Returning to your last location"
 ClearInventory: "&7Your inventory has just been cleared. Hopefully you didn't have any God-like items on you!"
 ClearInventoryOther: "%target%'s inventory has been cleared!"

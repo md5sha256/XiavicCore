@@ -1,4 +1,4 @@
-package utils;
+package utils.Listeners;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

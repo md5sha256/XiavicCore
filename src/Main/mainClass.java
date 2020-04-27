@@ -9,18 +9,18 @@ import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.*;
 import Commands.UserCmds.Fun.Links.*;
-import Listeners.JoinQuit;
-import Listeners.RespawnEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import utils.BackHandler;
 import utils.EquipAnything.EquipEvents;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
+import utils.Listeners.BackHandler;
+import utils.Listeners.JoinQuit;
+import utils.Listeners.RespawnEvent;
 import utils.Tpa.TpaHandler;
 
 public class mainClass extends JavaPlugin implements Listener {
