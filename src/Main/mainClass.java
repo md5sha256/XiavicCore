@@ -33,6 +33,8 @@ public class mainClass extends JavaPlugin implements Listener {
     private Players cfmg;
 
     public void onEnable() {
+
+
         loadshit();
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(" XIAVIC CORE IS ACTIVATED... ");

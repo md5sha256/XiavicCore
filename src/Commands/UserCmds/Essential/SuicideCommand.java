@@ -15,13 +15,6 @@ public class SuicideCommand implements CommandExecutor {
         Player player = (Player) sender;
         if (player.hasPermission(permissions.getString("Suicide")) || player.isOp()) {
             player.setHealth(0);
-//            boolean wasGod = false;
-//            if (player.isInvulnerable()) {
-//                wasGod = true;
-//                player.setInvulnerable(false);
-//            }
-//            player.damage(999999999, player);
-//            if (wasGod) player.setInvulnerable(true);
             return true;
         } else {
             chat(player, messages.getString("NoPerms"));

@@ -31,7 +31,6 @@ public class BackHandler implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
-        System.out.println(e.getEntity().getName() + " died......");
         lastLocations.put(e.getEntity(), e.getEntity().getLocation());
     }
 
