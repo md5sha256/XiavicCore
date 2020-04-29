@@ -32,7 +32,7 @@
             <relocations>
                 <relocation>
                     <pattern>de.leonhard.storage</pattern>
-                    <shadedPattern>Xiavic.Core.maven.lightningstorage</shadedPattern>
+                    <shadedPattern>XiavicCore.maven.lightningstorage</shadedPattern>
                 </relocation>
             </relocations>
         </configuration>
