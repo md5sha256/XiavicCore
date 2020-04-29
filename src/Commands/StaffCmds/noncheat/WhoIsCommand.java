@@ -24,6 +24,7 @@ public class WhoIsCommand implements CommandExecutor {
                     if (target != null) {
                         Location loc = target.getLocation();
                         player.sendMessage(Utils.chat("&6Name: &9" + target.getName() + "&6, Nickname: &9" + target.getDisplayName()));
+                        player.sendMessage(Utils.chat("&6Player UUID: &9" + target.getUniqueId()));
                         player.sendMessage(Utils.chat("&6IP: &9" + target.getAddress().getHostName().replace("/", "")));
                         player.sendMessage(Utils.chat("&6Exp: &9" + target.getTotalExperience() + "&6, Next Level: &9" + target.getExpToLevel()));
                         player.sendMessage(Utils.chat("&6Health: &9" + target.getHealth() + "&6, Food: &9" + target.getFoodLevel()));
