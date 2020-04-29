@@ -31,6 +31,7 @@ public class RandomTPCommand implements CommandExecutor {
                 double randomZ = getCoord();
                 double randomY = player.getWorld().getHighestBlockYAt((int) randomX, (int) randomZ) + 1.5;
                 Location rtp = new Location(player.getWorld(), randomX, randomY, randomZ);
+//                player.teleport(rtp);
                 teleport(player, rtp);
                 chat(player, messages.getString("RTP"));
                 Block block = rtp.getBlock().getRelative(0, -1, 0);

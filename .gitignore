@@ -18,5 +18,3 @@ dependency-reduced-pom.xml
 bin/
 src/test/
 todo
-# I want it
-!.idea/artifacts/XiavicCore.xml
