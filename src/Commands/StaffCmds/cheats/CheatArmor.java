@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import utils.Utils;
 
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
@@ -56,8 +57,12 @@ public class CheatArmor implements CommandExecutor {
                     chat(player, messages.getString("CheatArmor"));
 
                 }
+            } else {
+                Utils.chat(player, messages.getString("NoPerms"));
             }
             return true;
+        } else {
+            Utils.chat(sender, messages.getString("SenderNotPlayer"));
         }
         return false;
     }

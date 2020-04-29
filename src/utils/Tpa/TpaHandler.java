@@ -57,11 +57,14 @@ public class TpaHandler implements Runnable {
                     request.getOrigin().sendMessage(Utils.chat(m.getString("Tpa_Accept").replace("%target%", request.getTarget().getDisplayName()).replace("%time%", String.valueOf(teleportTime))));
                     request.getTarget().sendMessage(Utils.chat(m.getString("Tpa_Accept1").replace("%sender%", request.getOrigin().getDisplayName())));
                     this.teleports.put(request, System.currentTimeMillis());
+                    requests.clear();
+                    return;
                 } else {
                     request.getOrigin().sendMessage(Utils.chat(m.getString("Tpa_Deny").replace("%target%", request.getTarget().getDisplayName()).replace("%time%", String.valueOf(teleportTime))));
                     request.getTarget().sendMessage(Utils.chat(m.getString("Tpa_Deny1").replace("%sender%", request.getOrigin().getDisplayName())));
+                    requests.remove(request);
+                    return;
                 }
-                return;
             }
         }
         player.sendMessage(Utils.chat(m.getString("NoRequest")));
@@ -101,7 +104,8 @@ public class TpaHandler implements Runnable {
             if ((System.currentTimeMillis() - teleport.getValue()) / 1000 > this.teleportTime) {
                 System.out.println("Teleport request fulfilled");
                 TpaRequest request = teleport.getKey();
-                Utils.teleport(request.getOrigin(), request.getTarget().getLocation());
+                request.getOrigin().teleport(request.getTarget().getLocation()); //Temp while teleport code is not deprecated.
+                //Utils.teleport(request.getOrigin(), request.getTarget().getLocation());
                 this.deadTeleports.add(request);
             }
         }

@@ -21,11 +21,11 @@ public class GodCommand implements CommandExecutor {
                     if (!target.isInvulnerable()) {
                         target.setInvulnerable(true);
                         chat(target, messages.getString("God").replace("%mode%", messages.getString("Enabled")));
-                        chat(player, messages.getString("GodOthers").replace("%mode%", messages.getString("Enabled").replace("%player%", target.getDisplayName())));
+                        chat(player, messages.getString("GodOthers").replace("%mode%", messages.getString("Enabled")).replace("%player%", target.getDisplayName()));
                     } else if (target.isInvulnerable()) {
                         target.setInvulnerable(false);
                         chat(target, messages.getString("God").replace("%mode%", messages.getString("Disabled")));
-                        chat(player, messages.getString("GodOthers").replace("%mode%", messages.getString("Disabled").replace("%player%", target.getDisplayName())));
+                        chat(player, messages.getString("GodOthers").replace("%mode%", messages.getString("Disabled")).replace("%player%", target.getDisplayName()));
                     }
                     return true;
                 } else {
