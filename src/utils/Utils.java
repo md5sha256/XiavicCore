@@ -5,8 +5,8 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static Main.mainClass.teleportHandler;
 import static Main.mainClass.messages;
+import static Main.mainClass.teleportHandler;
 
 public class Utils {
 

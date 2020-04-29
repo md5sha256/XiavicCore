@@ -23,9 +23,9 @@ import utils.EquipAnything.EquipEvents;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
-import utils.Listeners.TeleportHandler;
 import utils.Listeners.JoinQuit;
 import utils.Listeners.RespawnEvent;
+import utils.Listeners.TeleportHandler;
 import utils.Tpa.TpaHandler;
 
 public class mainClass extends JavaPlugin implements Listener {
@@ -83,6 +83,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("near").setExecutor(new NearCommand());
         getCommand("pony").setExecutor(new PonyCommand());
         getCommand("rtp").setExecutor(new RandomTPCommand(this));
+        getCommand("setfirstspawn").setExecutor(new FirstSpawnSetCommand(this));
         getCommand("setspawn").setExecutor(new SpawnSetCommand(this));
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("suicide").setExecutor(new SuicideCommand());
@@ -129,7 +130,8 @@ public class mainClass extends JavaPlugin implements Listener {
     // I am using this function for updating the configs from the files inside the current
     // build of the plugin and preserves the spawn location in the mainConfig
     public void updateShit() {
-        String spawnLocation = mainConfig.getString("Spawn_World_Name");
+        String firstspawnLocation = mainConfig.getString("FirstSpawn");
+        String spawnLocation = mainConfig.getString("Spawn");
         saveResource("Resources/permissions.yml", true);
         saveResource("Resources/messages.yml", true);
         saveResource("config.yml", true);
@@ -138,7 +140,8 @@ public class mainClass extends JavaPlugin implements Listener {
         mainConfig = getConfig();
         permissions = Permissions.get();
         messages = Messages.get();
-        mainConfig.set("Spawn_World_Name", spawnLocation);
+        mainConfig.set("FirstSpawn", firstspawnLocation);
+        mainConfig.set("Spawn", spawnLocation);
         saveConfig();
     }
 

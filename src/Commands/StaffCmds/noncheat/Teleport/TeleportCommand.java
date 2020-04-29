@@ -20,7 +20,8 @@ public class TeleportCommand implements CommandExecutor {
                 if (args.length == 1) {
                     Player target = Bukkit.getPlayer(args[0]);
                     if (target != null) {
-                        Utils.teleport(player, target.getLocation());
+                        player.teleport(target); //Temp while teleport code is not deprecated.
+                        //teleport(player, target.getLocation());
                     } else {
                         chat(player, messages.getString("PlayerNotFound"));
                     }
@@ -29,7 +30,8 @@ public class TeleportCommand implements CommandExecutor {
                         Player target = Bukkit.getPlayer(args[0]);
                         Player target2 = Bukkit.getPlayer(args[1]);
                         if (target != null && target2 != null) {
-                            Utils.teleport(target, target2.getLocation());
+                            target.teleport(target2); //Temp while teleport code is not deprecated.
+                            //teleport(target, target2.getLocation());
 
                         } else {
                             chat(player, messages.getString("PlayerNotFound2"));

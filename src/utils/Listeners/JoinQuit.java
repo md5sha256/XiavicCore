@@ -16,10 +16,13 @@ public class JoinQuit implements Listener {
     private void onJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         String name = p.getDisplayName();
-        if (!(p.hasPlayedBefore())) {
+        if (!p.hasPlayedBefore()) {
             event.setJoinMessage(Utils.chat(messages.getString("FirstJoin_Message").replace("%player%", name)));
-            p.sendMessage(Utils.chat("&6Welcome " + p.getName()));
-            p.teleport(LocationUtils.getLocation("Spawn_World_Name"));
+            Utils.chat(p, "&6Welcome " + p.getName());
+            if (!p.isOp()) {
+                p.teleport(LocationUtils.getLocation("FirstSpawn"));
+                // This is setup in place for ops who are first installing the plugin, and don't want to lose their spot to Setspawn. ( They wont be teleported )
+            }
         } else {
             event.setJoinMessage(Utils.chat(messages.getString("ReJoin_Message").replace("%player%", name)));
         }

@@ -19,7 +19,6 @@
 
 # Economy
 Account: "&2Your account balance is currently &e%money%."
-Annoy: "&4&l&oANNOYANCE"
 
 # Common
 PlayerNotFound: "&cThat Player is not found or is not online!"
@@ -71,6 +70,7 @@ NoRequest: "You do not have any teleport requests..."
 Private Warps: "Here are a list of your private warps..."
 Quit_Message: "&8[&c-&8] &c%player%"
 ReJoin_Message: "&8[&6+&8] &e%player%"
+SetFirstSpawn: "&e&lThe First-join Spawn Point has been set"
 SetSpawn: "&eSpawn has been successfully set."
 Spawn: "You have been successfully teleported to spawn."
 Whatsthis: "What a terrible night for a curse..."
@@ -79,6 +79,7 @@ Wheather: "&eThe server's current weather is, &c%weather%"
 WheatherChanged: "&aYou have changed the weather to, &e%weather%"
 
 # Fun
+Annoy: "&4&l&oANNOYANCE"
 Argh: "&bArghhh, Piratey treasure awaits at yee spawn!"
 Pony: "%PonyPerson% &rsays: %Random_Pony%" #Sorry not sorry pickle, but i'm bringing it back, just for you, <3
 PonyPerson: "PickleGodLord"

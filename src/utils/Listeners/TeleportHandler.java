@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static Main.mainClass.messages;
-import static Main.mainClass.teleportHandler;
 import static utils.Utils.chat;
 
 public class TeleportHandler implements Listener {
@@ -45,7 +44,6 @@ public class TeleportHandler implements Listener {
     private void teleport(Player p1, Player p2) {
         processPlayerTeleport(p1);
     }
-
 
 
     public Location getLastLocation(Player player) throws Exception {

@@ -17,7 +17,7 @@ public class SpawnCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player player = (Player) sender;
-        Location l = LocationUtils.getLocation("Spawn_World_Name");
+        Location l = LocationUtils.getLocation("Spawn");
         if (args.length == 1) {
             if (player.hasPermission(permissions.getString("SpawnOthers")) || player.isOp()) {
                 Player target = Bukkit.getPlayer(args[0]);

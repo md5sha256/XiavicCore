@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="XiavicCore">
-    <output-path>$PROJECT_DIR$/out/artifacts/XiavicCore</output-path>
-    <root id="archive" name="XiavicCore.jar">
-      <element id="module-output" name="XiavicCore" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/Resources/plugin.yml" />
-    </root>
-  </artifact>
-</component>

@@ -18,7 +18,8 @@
 ##############################
 
 #Spawn | world name, X, Y, Z, Yaw, Pitch
-Spawn_World_Name: world,100,100,100,100,100
+FirstSpawn: world,100,100,100,100
+Spawn: world,100,100,100,100,100
 
 
 #Economy
@@ -46,6 +47,9 @@ SuicideCooldown: 60
 
 #Near Max-Distance
 NearRange: 1000
+
+#Fun
+ZapDistance: 4
 
 
 
