@@ -50,7 +50,6 @@ public class mainClass extends JavaPlugin implements Listener {
         registerShit();
         registerListeners();
         registerCommands();
-
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
