@@ -57,14 +57,12 @@ public class TpaHandler implements Runnable {
                     request.getOrigin().sendMessage(Utils.chat(m.getString("Tpa_Accept").replace("%target%", request.getTarget().getDisplayName()).replace("%time%", String.valueOf(teleportTime))));
                     request.getTarget().sendMessage(Utils.chat(m.getString("Tpa_Accept1").replace("%sender%", request.getOrigin().getDisplayName())));
                     this.teleports.put(request, System.currentTimeMillis());
-                    requests.remove(request);
-                    return;
                 } else {
                     request.getOrigin().sendMessage(Utils.chat(m.getString("Tpa_Deny").replace("%target%", request.getTarget().getDisplayName()).replace("%time%", String.valueOf(teleportTime))));
                     request.getTarget().sendMessage(Utils.chat(m.getString("Tpa_Deny1").replace("%sender%", request.getOrigin().getDisplayName())));
-                    requests.remove(request);
-                    return;
                 }
+                requests.remove(request);
+                return;
             }
         }
         player.sendMessage(Utils.chat(m.getString("NoRequest")));

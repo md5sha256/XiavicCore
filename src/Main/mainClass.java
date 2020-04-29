@@ -51,7 +51,6 @@ public class mainClass extends JavaPlugin implements Listener {
         registerShit();
         registerListeners();
         registerCommands();
-        Yaml test = new Yaml("test", "plugins/XiavicCore/Resources");
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
