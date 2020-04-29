@@ -104,8 +104,7 @@ public class TpaHandler implements Runnable {
             if ((System.currentTimeMillis() - teleport.getValue()) / 1000 > this.teleportTime) {
                 System.out.println("Teleport request fulfilled");
                 TpaRequest request = teleport.getKey();
-                request.getOrigin().teleport(request.getTarget().getLocation()); //Temp while teleport code is not deprecated.
-                //Utils.teleport(request.getOrigin(), request.getTarget().getLocation());
+                Utils.teleport(request.getOrigin(), request.getTarget().getLocation());
                 this.deadTeleports.add(request);
             }
         }

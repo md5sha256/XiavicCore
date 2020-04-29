@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
 import static utils.Utils.chat;
+import static utils.Utils.teleport;
 
 public class TPhereCommand implements CommandExecutor {
     @Override
@@ -19,8 +20,7 @@ public class TPhereCommand implements CommandExecutor {
                 if (label.equalsIgnoreCase("tphere")) {
                     if (args.length == 1) {
                         Player target = Bukkit.getPlayer(args[0]);
-                        target.teleport(player); //Temp while teleport code is not deprecated.
-                        //teleport(target, player.getLocation());
+                        teleport(target, player.getLocation());
                     } else {
                         player.sendMessage(chat(messages.getString("PlayerNotFound")));
                     }

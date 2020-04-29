@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
 import static utils.Utils.chat;
+import static utils.Utils.teleport;
 
 public class TpallCommand implements CommandExecutor {
 
@@ -25,8 +26,7 @@ public class TpallCommand implements CommandExecutor {
                         chat(player, "Teleporting all players to %target%, I'm sure they'll be happy about it".replace("%target%", target1.getDisplayName()));
                         for (Player target : Bukkit.getOnlinePlayers()) {
                             if (target != target1) {
-                                target.teleport(player); //Temp while teleport code is not deprecated.
-                                //teleport(target, player.getLocation());
+                                teleport(target, player.getLocation());
                                 chat(target, "You are being teleported!");
                             }
                         }
@@ -35,8 +35,7 @@ public class TpallCommand implements CommandExecutor {
                     chat(player, "Teleporting all players to you, I'm sure they'll be happy about it");
                     for (Player target : Bukkit.getOnlinePlayers()) {
                         if (target != player) {
-                            target.teleport(player); //Temp while teleport code is not deprecated.
-                            //teleport(target, player.getLocation());
+                            teleport(target, player.getLocation());
                             chat(target, "You are being teleported!");
                         }
                     }

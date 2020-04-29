@@ -17,12 +17,8 @@ public class TopCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("Top"))) {
-                int locX = player.getLocation().getBlockX();
-                int locZ = player.getLocation().getBlockZ();
-                double locY = player.getWorld().getHighestBlockYAt(locX, locZ) + 1.5;
-                Location top = new Location(player.getWorld(), locX, locY, locZ);
-                player.teleport(top);
-                //Utils.teleport(player, top);
+                Location top = player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0);
+                Utils.teleport(player, top);
                 return true;
             } else {
                 player.sendMessage(Utils.chat(messages.getString("NoPerms")));
@@ -33,3 +29,4 @@ public class TopCommand implements CommandExecutor {
         return false;
     }
 }
+//Found an easier way to do the command, Thanks to @Lokka30! <3
