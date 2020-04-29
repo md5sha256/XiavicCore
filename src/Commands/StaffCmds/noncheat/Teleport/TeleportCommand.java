@@ -1,4 +1,4 @@
-package Commands.StaffCmds.noncheat;
+package Commands.StaffCmds.noncheat.Teleport;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

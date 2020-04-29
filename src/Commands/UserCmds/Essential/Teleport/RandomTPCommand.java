@@ -1,4 +1,4 @@
-package Commands.UserCmds.Essential;
+package Commands.UserCmds.Essential.Teleport;
 
 import Main.mainClass;
 import org.bukkit.Location;
@@ -10,9 +10,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import utils.Utils;
 
-import static Main.mainClass.messages;
-import static Main.mainClass.permissions;
+import static Main.mainClass.*;
 import static utils.Utils.chat;
+import static utils.Utils.teleport;
 
 public class RandomTPCommand implements CommandExecutor {
 
@@ -31,12 +31,12 @@ public class RandomTPCommand implements CommandExecutor {
                 double randomZ = getCoord();
                 double randomY = player.getWorld().getHighestBlockYAt((int) randomX, (int) randomZ) + 1.5;
                 Location rtp = new Location(player.getWorld(), randomX, randomY, randomZ);
-                Utils.teleport(player, rtp);
+                teleport(player, rtp);
+                chat(player, messages.getString("RTP"));
                 Block block = rtp.getBlock().getRelative(0, -1, 0);
                 if (block.getType().equals(Material.WATER) || block.getType().equals(Material.LAVA)) {
                     block.setType(Material.DIRT);
                 }
-                // TODO doesnt this need a message sent to the player?
                 return true;
             } else {
                 chat(player, messages.getString("NoPerms"));

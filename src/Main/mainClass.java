@@ -3,10 +3,15 @@ package Main;
 import Commands.StaffCmds.cheats.CheatArmor;
 import Commands.StaffCmds.cheats.CheatEXP;
 import Commands.StaffCmds.noncheat.*;
+import Commands.StaffCmds.noncheat.Teleport.TPPosCommand;
+import Commands.StaffCmds.noncheat.Teleport.TPhereCommand;
+import Commands.StaffCmds.noncheat.Teleport.TeleportCommand;
+import Commands.StaffCmds.noncheat.Teleport.TpallCommand;
 import Commands.UserCmds.Essential.*;
-import Commands.UserCmds.Essential.Tpa.TpaCommand;
-import Commands.UserCmds.Essential.Tpa.TpacceptCommand;
-import Commands.UserCmds.Essential.Tpa.TpdenyCommand;
+import Commands.UserCmds.Essential.Teleport.RandomTPCommand;
+import Commands.UserCmds.Essential.Teleport.Tpa.TpaCommand;
+import Commands.UserCmds.Essential.Teleport.Tpa.TpacceptCommand;
+import Commands.UserCmds.Essential.Teleport.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.*;
 import Commands.UserCmds.Fun.Links.*;
 import org.bukkit.Bukkit;
@@ -18,7 +23,7 @@ import utils.EquipAnything.EquipEvents;
 import utils.Files.Messages;
 import utils.Files.Permissions;
 import utils.Files.Players;
-import utils.Listeners.BackHandler;
+import utils.Listeners.TeleportHandler;
 import utils.Listeners.JoinQuit;
 import utils.Listeners.RespawnEvent;
 import utils.Tpa.TpaHandler;
@@ -29,7 +34,7 @@ public class mainClass extends JavaPlugin implements Listener {
     public static FileConfiguration messages;
     public static FileConfiguration permissions;
     public static TpaHandler tpaHandler;
-    public static BackHandler backHandler;
+    public static TeleportHandler teleportHandler;
     private Players cfmg;
 
     public void onEnable() {
@@ -54,45 +59,46 @@ public class mainClass extends JavaPlugin implements Listener {
     }
 
     private void registerCommands() {
+        //getCommand("fireball").setExecutor(new FireBallCommand());
+        getCommand("argh").setExecutor(new Argh());
+        getCommand("back").setExecutor(new BackCommand());
+        getCommand("cheatarmor").setExecutor(new CheatArmor());
+        getCommand("cheatexp").setExecutor(new CheatEXP());
         getCommand("clear").setExecutor(new ClearCommand());
         getCommand("clearall").setExecutor(new ClearAllCommand());
+        getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
+        getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
+        getCommand("discord").setExecutor(new DiscordCommand());
+        getCommand("dispose").setExecutor(new DisposeCommand());
         getCommand("ec").setExecutor(new EnderChestCommand());
+        getCommand("ext").setExecutor(new ExtinguishCommand());
         getCommand("feed").setExecutor(new FeedCommand());
-        getCommand("heal").setExecutor(new HealCommand());
+        getCommand("fly").setExecutor(new FlyCommand());
+        getCommand("flyspeed").setExecutor(new FlySpeedCommand());
+        getCommand("forums").setExecutor(new ForumsCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
+        getCommand("god").setExecutor(new GodCommand());
+        getCommand("heal").setExecutor(new HealCommand());
+        getCommand("info").setExecutor(new ItemInfoCommand());
+        getCommand("near").setExecutor(new NearCommand());
+        getCommand("pony").setExecutor(new PonyCommand());
+        getCommand("rtp").setExecutor(new RandomTPCommand(this));
+        getCommand("setspawn").setExecutor(new SpawnSetCommand(this));
         getCommand("spawn").setExecutor(new SpawnCommand());
+        getCommand("suicide").setExecutor(new SuicideCommand());
+        getCommand("top").setExecutor(new TopCommand());
+        getCommand("tp").setExecutor(new TeleportCommand());
         getCommand("tpa").setExecutor(new TpaCommand());
         getCommand("tpaccept").setExecutor(new TpacceptCommand());
+        getCommand("tpall").setExecutor(new TpallCommand());
         getCommand("tpdeny").setExecutor(new TpdenyCommand());
-        getCommand("argh").setExecutor(new Argh());
-        getCommand("setspawn").setExecutor(new SpawnSetCommand(this));
-        getCommand("cheatexp").setExecutor(new CheatEXP());
-        getCommand("cheatarmor").setExecutor(new CheatArmor());
-        getCommand("flyspeed").setExecutor(new FlySpeedCommand());
-        getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
-        getCommand("dispose").setExecutor(new DisposeCommand());
-        getCommand("whois").setExecutor(new WhoIsCommand());
-        getCommand("discord").setExecutor(new DiscordCommand());
-        getCommand("ext").setExecutor(new ExtinguishCommand());
-        getCommand("info").setExecutor(new ItemInfoCommand());
-        getCommand("pony").setExecutor(new PonyCommand());
-        //getCommand("fireball").setExecutor(new FireBallCommand());
-        getCommand("near").setExecutor(new NearCommand());
-        getCommand("fly").setExecutor(new FlyCommand());
-        getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
-        getCommand("rtp").setExecutor(new RandomTPCommand(this));
-        getCommand("tp").setExecutor(new TeleportCommand());
-        //getCommand("tppos").setExecutor(new TPPosCommand());
         getCommand("tphere").setExecutor(new TPhereCommand());
-        getCommand("top").setExecutor(new TopCommand());
-        getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
-        getCommand("website").setExecutor(new WebsiteCommand());
-        getCommand("forums").setExecutor(new ForumsCommand());
+        getCommand("tppos").setExecutor(new TPPosCommand());
         getCommand("twitter").setExecutor(new TwitterCommand());
+        getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
+        getCommand("website").setExecutor(new WebsiteCommand());
+        getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
-        getCommand("back").setExecutor(new BackCommand());
-        getCommand("god").setExecutor(new GodCommand());
-        getCommand("suicide").setExecutor(new SuicideCommand());
     }
 
     private void registerListeners() {
@@ -100,13 +106,13 @@ public class mainClass extends JavaPlugin implements Listener {
         pm.registerEvents(new JoinQuit(), this);
         pm.registerEvents(new EquipEvents(), this);
         pm.registerEvents(new RespawnEvent(), this);
-        pm.registerEvents(backHandler, this);
+        pm.registerEvents(teleportHandler, this);
     }
 
     // Use this function for creating new shit
     private void registerShit() {
         tpaHandler = new TpaHandler();
-        backHandler = new BackHandler();
+        teleportHandler = new TeleportHandler();
     }
 
     private void loadshit() {

@@ -1,4 +1,4 @@
-package Commands.UserCmds.Essential.Tpa;
+package Commands.UserCmds.Essential.Teleport.Tpa;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,13 +8,13 @@ import utils.Utils;
 
 import static Main.mainClass.*;
 
-public class TpacceptCommand implements CommandExecutor {
+public class TpdenyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            if (player.hasPermission(permissions.getString("TpAccept")) || player.isOp()) {
-                tpaHandler.parseRequest(player, true);
+            if (player.hasPermission(permissions.getString("TpDeny")) || player.isOp()) {
+                tpaHandler.parseRequest(player, false);
             } else {
                 player.sendMessage(Utils.chat(messages.getString("NoPerms")));
             }

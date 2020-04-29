@@ -1,4 +1,4 @@
-package Commands.UserCmds.Essential.Tpa;
+package Commands.UserCmds.Essential.Teleport.Tpa;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

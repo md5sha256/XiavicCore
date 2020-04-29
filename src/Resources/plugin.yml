@@ -123,3 +123,6 @@ commands:
   suicide:
     usage:
     description:
+  tppos:
+    usage:
+    description:

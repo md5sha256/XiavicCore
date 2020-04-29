@@ -6,9 +6,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import utils.Utils;
 
-import static Main.mainClass.backHandler;
-import static Main.mainClass.messages;
+import static Main.mainClass.*;
 import static utils.Utils.chat;
+import static utils.Utils.teleport;
 
 public class BackCommand implements CommandExecutor {
 
@@ -16,15 +16,16 @@ public class BackCommand implements CommandExecutor {
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
-            // TODO I dont know what permission this should have
-            if (true) {
+            if (player.hasPermission(permissions.getString("Back")) || player.isOp()) {
                 try {
-                    Utils.teleport(player, backHandler.getLastLocation(player));
+                    teleport(player, teleportHandler.getLastLocation(player));
                 } catch (Exception e) {
-                    chat(player, "You do not have a recent location to go back to");
+                    chat(player, messages.getString("BackNone"));
                 }
-                return true;
+            } else {
+                chat(player, messages.getString("NoPerms"));
             }
+            return true;
         }
         chat(commandSender, messages.getString("SenderNotPlayer"));
         return false;

@@ -11,8 +11,6 @@ import static Main.mainClass.messages;
 
 public class CoreVersionCommand implements CommandExecutor {
 
-    // TODO fix permission in here so its not randomPerm
-
     private mainClass plugin;
 
     public CoreVersionCommand(mainClass plugin) {
@@ -23,7 +21,7 @@ public class CoreVersionCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission("randomPerm") || player.isOp()) {
+            if (player.hasPermission("Version") || player.isOp()) {
                 String version = this.plugin.getDescription().getVersion();
                 player.sendMessage(Utils.chat(messages.getString("Version").replace("%version%", version)));
                 return true;

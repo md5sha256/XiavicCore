@@ -1,4 +1,4 @@
-package Commands.StaffCmds.noncheat;
+package Commands.StaffCmds.noncheat.Teleport;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -7,8 +7,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import utils.Utils;
 
-import static Main.mainClass.messages;
-import static Main.mainClass.permissions;
+import static Main.mainClass.*;
+import static utils.Utils.chat;
+import static utils.Utils.teleport;
 
 public class TPhereCommand implements CommandExecutor {
     @Override
@@ -19,16 +20,16 @@ public class TPhereCommand implements CommandExecutor {
                 if (label.equalsIgnoreCase("tphere")) {
                     if (args.length == 1) {
                         Player target = Bukkit.getPlayer(args[0]);
-                        Utils.teleport(target, player.getLocation());
+                        teleport(target, player.getLocation());
                     } else {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                        player.sendMessage(chat(messages.getString("PlayerNotFound")));
                     }
                     return true;
                 }
                 return true;
             }
         } else {
-            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
+            sender.sendMessage(chat(messages.getString("NoPerms")));
         }
         return false;
     }

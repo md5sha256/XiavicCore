@@ -5,7 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static Main.mainClass.backHandler;
+import static Main.mainClass.teleportHandler;
 import static Main.mainClass.messages;
 
 public class Utils {
@@ -27,15 +27,17 @@ public class Utils {
         sender.sendMessage(chat(string));
     }
 
+    @Deprecated
     public static void teleport(Player player, Location location) {
-        backHandler.processPlayer(player);
+        teleportHandler.processPlayerTeleport(player);
         player.teleport(location);
     }
 
     // This teleport method lets you send a message to the player here instead of
     // having to do it where ever you called this method
+    @Deprecated
     public static void teleport(Player player, Location location, String messagePath) {
-        backHandler.processPlayer(player);
+        teleportHandler.processPlayerTeleport(player);
         player.teleport(location);
         chat(player, messages.getString(messagePath));
     }

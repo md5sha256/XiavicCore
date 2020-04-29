@@ -44,9 +44,11 @@ TpaCooldown: "You must wait %time% seconds until you can tpa again."
 TpaPending: "You already have a request pending. Pendejo"
 TpToggleOff: "You have DISABLED teleport requests to you. Pathetic..."
 TpToggleOn: "You have ENABLED teleport requests to you."
+RTP: "You have been randomly teleported. Don't have too much fun!"
 
 # utils.Listeners
 Back: "Returning to your last location"
+BackNone: "You do not have a recent location to go back to"
 ClearInventory: "&7Your inventory has just been cleared. Hopefully you didn't have any God-like items on you!"
 ClearInventoryOther: "%target%'s inventory has been cleared!"
 EnderChest: "Opening your ender chest..."
