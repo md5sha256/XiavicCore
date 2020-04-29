@@ -21,7 +21,8 @@ public class TopCommand implements CommandExecutor {
                 int locZ = player.getLocation().getBlockZ();
                 double locY = player.getWorld().getHighestBlockYAt(locX, locZ) + 1.5;
                 Location top = new Location(player.getWorld(), locX, locY, locZ);
-                Utils.teleport(player, top);
+                player.teleport(top);
+                //Utils.teleport(player, top);
                 return true;
             } else {
                 player.sendMessage(Utils.chat(messages.getString("NoPerms")));

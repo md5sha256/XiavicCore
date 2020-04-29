@@ -13,8 +13,13 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
     <dependencies>
+
         <!--This adds the Spigot API artifact to the build -->
         <dependency>
             <groupId>org.spigotmc</groupId>
@@ -23,7 +28,36 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- LightningStorage by JavaFactoryDev and Zeanon-->
+        <dependency>
+            <groupId>com.github.JavaFactoryDev</groupId>
+            <artifactId>LightningStorage</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
     </dependencies>
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                    <goal>shade</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <createDependencyReducedPom>false</createDependencyReducedPom>
+            <relocations>
+                <relocation>
+                    <pattern>de.leonhard.storage</pattern>
+                    <shadedPattern>XiavicCore</shadedPattern>
+                </relocation>
+            </relocations>
+        </configuration>
+    </plugin>
 
 </project>

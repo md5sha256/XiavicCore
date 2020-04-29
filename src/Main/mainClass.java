@@ -14,6 +14,7 @@ import Commands.UserCmds.Essential.Teleport.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Teleport.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.*;
 import Commands.UserCmds.Fun.Links.*;
+import de.leonhard.storage.Yaml;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -50,6 +51,7 @@ public class mainClass extends JavaPlugin implements Listener {
         registerShit();
         registerListeners();
         registerCommands();
+        Yaml yaml = new Yaml("test", "plugins/XiavicCore");
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
