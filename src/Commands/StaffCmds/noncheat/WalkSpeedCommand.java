@@ -47,8 +47,6 @@ public class WalkSpeedCommand implements CommandExecutor {
                 } else {
                     Utils.chat(player, messages.getString("InvalidNumber"));
                 }
-            } else {
-                Utils.chat(player, messages.getString("WalkSpeedHelp"));
             }
         } else {
             Utils.chat(sender, messages.getString("SenderNotPlayer"));

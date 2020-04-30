@@ -80,7 +80,6 @@ Wheather: "&eThe server's current weather is, &c%weather%"
 WheatherChanged: "&aYou have changed the weather to, &e%weather%"
 
 # How 2 Use Messages a.k.a. Help Text
-WalkSpeedHelp: "/walkspeed < 1 --> 10 >"
 WhoIsHelp: "/whois <player>"
 
 # Fun
