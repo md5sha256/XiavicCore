@@ -32,6 +32,8 @@ True: "Skeet skeet mudafuka"
 False: "False... usuk"
 
 # TP
+TpRemote: "%target1% has been teleported to %target2%"
+TpDisabled: "%target% has teleportation disabled!"
 Tpa: "You have sent a teleport request to %target%"
 TpSelf: "You cannot teleport to yourself."
 Tpa_Request: "%sender% has requested to teleport to you"

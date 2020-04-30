@@ -36,23 +36,51 @@ public class TeleportHandler implements Listener {
         }
     }
 
-    private void teleport(Player player, Location location) {
+    public void teleport(Player player, Location location) {
         processPlayerTeleport(player);
         player.teleport(location);
     }
 
-    private void teleport(Player p1, Player p2) {
-        processPlayerTeleport(p1);
+    // change - if true: teleport player2 to player1 else teleport player1 to player2
+    public boolean teleport(Player p1, Player p2, boolean change) {
+        if (change) {
+            if (!disabledPlayers.contains(p1)) {
+                teleport(p2, p1.getLocation());
+                return true;
+            }
+        }
+        if (!disabledPlayers.contains(p2)) {
+            teleport(p1, p2.getLocation());
+            return true;
+        }
+        return false;
     }
 
+    public boolean remoteTp(Player player, Location location) {
+        if (!disabledPlayers.contains(player)) {
+            teleport(player, location);
+            return true;
+        }
+        return true;
+    }
+
+    // 0 - teleport successful
+    // 1 - player1 disabled
+    // 2 - player2 disabled
+    public int remoteTp(Player p1, Player p2) {
+        if (disabledPlayers.contains(p1)) return 1;
+        if (disabledPlayers.contains(p2)) return 2;
+        teleport(p1, p2.getLocation());
+        return 0;
+    }
 
     public Location getLastLocation(Player player) throws Exception {
-        if (!contains(player)) throw new Exception();
+        if (!lastLocations.containsKey(player)) throw new Exception();
         return lastLocations.get(player);
     }
 
-    private boolean contains(Player player) {
-        return lastLocations.containsKey(player);
+    public boolean isDisabled(Player player) {
+        return disabledPlayers.contains(player);
     }
 
     @EventHandler

@@ -19,8 +19,7 @@ public class LocationUtils {
         float yaw = Float.parseFloat(list[4]);
         float pitch = Float.parseFloat(list[5]);
 
-        Location location = new Location(world, x, y, z, yaw, pitch);
-        return location;
+        return new Location(world, x, y, z, yaw, pitch);
     }
 
 }

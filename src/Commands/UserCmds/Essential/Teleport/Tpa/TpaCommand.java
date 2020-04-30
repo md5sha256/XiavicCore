@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import utils.Utils;
 
 import static Main.mainClass.*;
+import static utils.Utils.chat;
 
 public class TpaCommand implements CommandExecutor {
     @Override
@@ -20,25 +21,28 @@ public class TpaCommand implements CommandExecutor {
                         if (tpaHandler.canTpa(player)) {
                             try {
                                 Player target = Bukkit.getPlayer(strings[0]);
-                                tpaHandler.addRequest(player, target);
+                                int result = tpaHandler.addRequest(player, target);
+                                if (result == 2) {
+                                    chat(player, messages.getString("TpDisabled").replace("%target%", target.getDisplayName()));
+                                }
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                                player.sendMessage(chat(messages.getString("PlayerNotFound")));
                             }
                         }
                     } else {
-                        player.sendMessage(Utils.chat(messages.getString("TpSelf")));
+                        player.sendMessage(chat(messages.getString("TpSelf")));
                     }
                     return true;
                 } else {
-                    player.sendMessage(Utils.chat("You must specify a target!"));
+                    player.sendMessage(chat("You must specify a target!"));
                 }
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                player.sendMessage(chat(messages.getString("NoPerms")));
             }
             return true;
         }
-        commandSender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
+        commandSender.sendMessage(chat(messages.getString("SenderNotPlayer")));
         return false;
     }
 }

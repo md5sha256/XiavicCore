@@ -6,8 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static Main.mainClass.messages;
-import static Main.mainClass.permissions;
+import static Main.mainClass.*;
 import static utils.Utils.chat;
 import static utils.Utils.teleport;
 
@@ -23,11 +22,13 @@ public class TpallCommand implements CommandExecutor {
                 if (strings.length == 1) {
                     Player target1 = Bukkit.getPlayer(strings[0]);
                     if (target1 != null) {
-                        chat(player, "Teleporting all players to %target%, I'm sure they'll be happy about it".replace("%target%", target1.getDisplayName()));
-                        for (Player target : Bukkit.getOnlinePlayers()) {
-                            if (target != target1) {
-                                teleport(target, player.getLocation());
-                                chat(target, "You are being teleported!");
+                        if (teleportHandler.isDisabled(target1)) {
+                            chat(player, "Teleporting all players to %target%, I'm sure they'll be happy about it".replace("%target%", target1.getDisplayName()));
+                            for (Player target : Bukkit.getOnlinePlayers()) {
+                                if (target != target1) {
+                                    boolean result = teleportHandler.teleport(target1, target, true);
+                                    if (result) chat(target, "You are being teleported!");
+                                }
                             }
                         }
                     }
@@ -35,8 +36,8 @@ public class TpallCommand implements CommandExecutor {
                     chat(player, "Teleporting all players to you, I'm sure they'll be happy about it");
                     for (Player target : Bukkit.getOnlinePlayers()) {
                         if (target != player) {
-                            teleport(target, player.getLocation());
-                            chat(target, "You are being teleported!");
+                            boolean result = teleportHandler.teleport(player, target, true);
+                            if (result) chat(target, "You are being teleported!");
                         }
                     }
                 }

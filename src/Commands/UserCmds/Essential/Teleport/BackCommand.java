@@ -1,4 +1,4 @@
-package Commands.UserCmds.Essential;
+package Commands.UserCmds.Essential.Teleport;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +17,7 @@ public class BackCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if (player.hasPermission(permissions.getString("Back")) || player.isOp()) {
                 try {
-                    teleport(player, teleportHandler.getLastLocation(player));
+                    teleportHandler.teleport(player, teleportHandler.getLastLocation(player));
                 } catch (Exception e) {
                     chat(player, messages.getString("BackNone"));
                 }

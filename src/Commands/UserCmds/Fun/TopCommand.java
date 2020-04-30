@@ -6,8 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import utils.Utils;
 
-import static Main.mainClass.messages;
-import static Main.mainClass.permissions;
+import static Main.mainClass.*;
 
 public class TopCommand implements CommandExecutor {
     @Override
@@ -16,7 +15,7 @@ public class TopCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission(permissions.getString("Top"))) {
-                Utils.teleport(player, player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0));
+                teleportHandler.teleport(player, player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0));
                 return true;
             } else {
                 player.sendMessage(Utils.chat(messages.getString("NoPerms")));

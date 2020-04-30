@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static Main.mainClass.mainConfig;
-import static Main.mainClass.messages;
+import static Main.mainClass.*;
 
 public class TpaHandler implements Runnable {
 
@@ -68,15 +67,20 @@ public class TpaHandler implements Runnable {
         player.sendMessage(Utils.chat(m.getString("NoRequest")));
     }
 
-    public void addRequest(Player origin, Player target) {
+    // 0 - success
+    // 1 - tpa already pending
+    // 2 - tpa disabled
+    public int addRequest(Player origin, Player target) {
         for (TpaRequest tpr : this.requests) {
             if (tpr.getOrigin() == origin) {
                 origin.sendMessage(Utils.chat(messages.getString("TpaPending")));
-                return;
+                return 1;
             }
         }
+        if (teleportHandler.isDisabled(target)) return 2;
         this.requests.add(new TpaRequest(origin, target));
         this.startCooldown(origin);
+        return 0;
     }
 
     @Override
@@ -102,7 +106,7 @@ public class TpaHandler implements Runnable {
             if ((System.currentTimeMillis() - teleport.getValue()) / 1000 > this.teleportTime) {
                 System.out.println("Teleport request fulfilled");
                 TpaRequest request = teleport.getKey();
-                Utils.teleport(request.getOrigin(), request.getTarget().getLocation());
+                teleportHandler.teleport(request.getOrigin(), request.getTarget(), false);
                 this.deadTeleports.add(request);
             }
         }

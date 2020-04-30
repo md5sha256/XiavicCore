@@ -6,8 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import static Main.mainClass.messages;
-import static Main.mainClass.permissions;
+import static Main.mainClass.*;
 import static utils.Utils.chat;
 import static utils.Utils.teleport;
 
@@ -20,7 +19,7 @@ public class TPhereCommand implements CommandExecutor {
                 if (label.equalsIgnoreCase("tphere")) {
                     if (args.length == 1) {
                         Player target = Bukkit.getPlayer(args[0]);
-                        teleport(target, player.getLocation());
+                        teleportHandler.teleport(player, target, true);
                     } else {
                         player.sendMessage(chat(messages.getString("PlayerNotFound")));
                     }
