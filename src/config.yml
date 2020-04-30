@@ -21,7 +21,6 @@
 FirstSpawn: world,100,100,100,100
 Spawn: world,100,100,100,100,100
 
-
 #Economy
 Balance_Check: 60
 
@@ -31,9 +30,12 @@ PWCooldown: 300
 CanShare: false
 
 #Teleport
-TpaCooldown: 5 # Time before you can send another request
-Tpa_Delay: 3 # Time before actually teleporting
-Tpa_Timeout: 60 # Time before the request expires
+# Time before you can send another request
+TpaCooldown: 5
+# Time before actually teleporting
+Tpa_Delay: 3
+# Time before the request expires
+Tpa_Timeout: 60
 
 #RTP
 RTPCooldown: 600

@@ -23,27 +23,27 @@ public class WhoIsCommand implements CommandExecutor {
                     Player target = Bukkit.getPlayer(args[0]);
                     if (target != null) {
                         Location loc = target.getLocation();
-                        player.sendMessage(Utils.chat("&6Name: &9" + target.getName() + "&6, Nickname: &9" + target.getDisplayName()));
-                        player.sendMessage(Utils.chat("&6Player UUID: &9" + target.getUniqueId()));
-                        player.sendMessage(Utils.chat("&6IP: &9" + target.getAddress().getHostName().replace("/", "")));
-                        player.sendMessage(Utils.chat("&6Exp: &9" + target.getTotalExperience() + "&6, Next Level: &9" + target.getExpToLevel()));
-                        player.sendMessage(Utils.chat("&6Health: &9" + target.getHealth() + "&6, Food: &9" + target.getFoodLevel()));
-                        player.sendMessage(Utils.chat("&6Time: &9" + target.getPlayerTime()));
-                        player.sendMessage(Utils.chat("&6Location: &9" + target.getWorld().getName().toUpperCase() + " | &cX &9" + loc.getBlockX() + " | &cY &9" + loc.getBlockY() + " | &cZ &9" + loc.getBlockZ()));
-                        player.sendMessage(Utils.chat("&6Gamemode: &9" + target.getGameMode() + "&6, Can Fly: &9" + target.getAllowFlight()));
-                        player.sendMessage(Utils.chat("&6First Joined: &9" + target.getFirstPlayed() + "&6, Last Played: &9" + target.getLastPlayed()));
+                        Utils.chat(player, "&6Name: &9" + target.getName() + "&6, Nickname: &9" + target.getDisplayName());
+                        Utils.chat(player, "&6Player UUID: &9" + target.getUniqueId());
+                        Utils.chat(player, "&6IP: &9" + target.getAddress().getHostName().replace("/", ""));
+                        Utils.chat(player, "&6Exp: &9" + target.getTotalExperience() + "&6, Next Level: &9" + target.getExpToLevel());
+                        Utils.chat(player, "&6Health: &9" + target.getHealth() + "&6, Food: &9" + target.getFoodLevel());
+                        Utils.chat(player, "&6Time: &9" + target.getPlayerTime());
+                        Utils.chat(player, "&6Location: &9" + target.getWorld().getName().toUpperCase() + " | &cX &9" + loc.getBlockX() + " | &cY &9" + loc.getBlockY() + " | &cZ &9" + loc.getBlockZ());
+                        Utils.chat(player, "&6Gamemode: &9" + target.getGameMode() + "&6, Can Fly: &9" + target.getAllowFlight());
+                        Utils.chat(player, "&6First Joined: &9" + target.getFirstPlayed() + "&6, Last Played: &9" + target.getLastPlayed());
                     } else {
-                        player.sendMessage(Utils.chat(messages.getString("PlayerNotFound")));
+                        Utils.chat(player, messages.getString("PlayerNotFound"));
                     }
+                } else {
+                    Utils.chat(player, messages.getString("WhoIsHelp"));
                 }
                 return true;
             } else {
-                player.sendMessage(Utils.chat("You must specify a target!"));
+                Utils.chat(player, messages.getString("NoPerms"));
             }
-        } else {
-            sender.sendMessage(Utils.chat(messages.getString("NoPerms")));
         }
-        sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
+        Utils.chat(sender, messages.getString("SenderNotPlayer"));
         return false;
     }
 }

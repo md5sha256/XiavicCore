@@ -132,3 +132,6 @@ commands:
   tpall:
     usage:
     description:
+  more:
+    usage:
+    description:

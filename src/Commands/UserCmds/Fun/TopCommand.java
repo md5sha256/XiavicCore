@@ -18,10 +18,10 @@ public class TopCommand implements CommandExecutor {
                 teleportHandler.teleport(player, player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0));
                 return true;
             } else {
-                player.sendMessage(Utils.chat(messages.getString("NoPerms")));
+                Utils.chat(player, messages.getString("NoPerms"));
             }
         } else {
-            sender.sendMessage(Utils.chat(messages.getString("SenderNotPlayer")));
+            Utils.chat(sender, messages.getString("SenderNotPlayer"));
         }
         return false;
     }

@@ -61,7 +61,7 @@ public class mainClass extends JavaPlugin implements Listener {
 
     private void registerCommands() {
         //getCommand("fireball").setExecutor(new FireBallCommand());
-        getCommand("argh").setExecutor(new Argh());
+        getCommand("argh").setExecutor(new ArghCommand());
         getCommand("back").setExecutor(new BackCommand());
         getCommand("cheatarmor").setExecutor(new CheatArmor());
         getCommand("cheatexp").setExecutor(new CheatEXP());
@@ -81,6 +81,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("god").setExecutor(new GodCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("info").setExecutor(new ItemInfoCommand());
+        getCommand("more").setExecutor(new MoreCommand());
         getCommand("near").setExecutor(new NearCommand());
         getCommand("pony").setExecutor(new PonyCommand());
         getCommand("rtp").setExecutor(new RandomTPCommand(this));
