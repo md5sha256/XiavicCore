@@ -65,6 +65,7 @@ GodOthers: "Godmode for %player% has been %mode%"
 Heal: "&eYou have been healed."
 HealAll: "You have healed everyone!"
 HealOther: "%target% has been healed!"
+InvalidNumber: "Only whole numbers between 1-10 may be chosen."
 ItemIsAir: "&cYou are holding air, not an item..."
 NoRequest: "You do not have any teleport requests..."
 Private Warps: "Here are a list of your private warps..."
@@ -77,6 +78,10 @@ Whatsthis: "What a terrible night for a curse..."
 Whatsthis_AtTarget: "You have cursed %target%."
 Wheather: "&eThe server's current weather is, &c%weather%"
 WheatherChanged: "&aYou have changed the weather to, &e%weather%"
+
+# How 2 Use Messages a.k.a. Help Text
+WalkSpeedHelp: "/walkspeed < 1 --> 10 >"
+WhoIsHelp: "/whois <player>"
 
 # Fun
 Annoy: "&4&l&oANNOYANCE"

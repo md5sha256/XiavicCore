@@ -9,22 +9,18 @@ import utils.Utils;
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
 
-public class TopCommand implements CommandExecutor {
+public class ArghCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(permissions.getString("Top"))) {
-                Utils.teleport(player, player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0));
+            if (player.hasPermission(permissions.getString("Argh")) || player.isOp()) {
+                if (command.getName().equalsIgnoreCase("Argh")) {
+                    player.sendMessage(Utils.chat(messages.getString("Argh")));
+                }
                 return true;
-            } else {
-                Utils.chat(player, messages.getString("NoPerms"));
             }
-        } else {
-            Utils.chat(sender, messages.getString("SenderNotPlayer"));
         }
         return false;
     }
 }
-//Found an easier way to do the command, Thanks to @Lokka30! <3

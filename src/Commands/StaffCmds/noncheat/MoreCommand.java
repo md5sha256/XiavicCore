@@ -1,4 +1,4 @@
-package Commands.UserCmds.Fun;
+package Commands.StaffCmds.noncheat;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,17 +9,18 @@ import utils.Utils;
 import static Main.mainClass.messages;
 import static Main.mainClass.permissions;
 
-public class Argh implements CommandExecutor {
+public class MoreCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            if (player.hasPermission(permissions.getString("Argh")) || player.isOp()) {
-                if (command.getName().equalsIgnoreCase("Argh")) {
-                    player.sendMessage(Utils.chat(messages.getString("Argh")));
-                }
-                return true;
+            if (player.hasPermission(permissions.getString("More")) || player.isOp()) {
+                player.getInventory().getItemInMainHand().setAmount(64);
+            } else {
+                Utils.chat(player, messages.getString("NoPerms"));
             }
+        } else {
+            Utils.chat(sender, messages.getString("SenderNotPlayer"));
         }
         return false;
     }

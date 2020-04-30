@@ -18,7 +18,6 @@ public class FireBallCommand implements CommandExecutor {
 
             }
         }
-
         return false;
     }
 }

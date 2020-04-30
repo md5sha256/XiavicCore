@@ -14,7 +14,6 @@ import Commands.UserCmds.Essential.Teleport.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Teleport.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.*;
 import Commands.UserCmds.Fun.Links.*;
-import de.leonhard.storage.Yaml;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -60,7 +59,7 @@ public class mainClass extends JavaPlugin implements Listener {
 
     private void registerCommands() {
         //getCommand("fireball").setExecutor(new FireBallCommand());
-        getCommand("argh").setExecutor(new Argh());
+        getCommand("argh").setExecutor(new ArghCommand());
         getCommand("back").setExecutor(new BackCommand());
         getCommand("cheatarmor").setExecutor(new CheatArmor());
         getCommand("cheatexp").setExecutor(new CheatEXP());
@@ -80,6 +79,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("god").setExecutor(new GodCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("info").setExecutor(new ItemInfoCommand());
+        getCommand("more").setExecutor(new MoreCommand());
         getCommand("near").setExecutor(new NearCommand());
         getCommand("pony").setExecutor(new PonyCommand());
         getCommand("rtp").setExecutor(new RandomTPCommand(this));
