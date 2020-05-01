@@ -135,3 +135,19 @@ commands:
   more:
     usage:
     description:
+  workbench:
+    usage:
+    description:
+    aliases: [wb, craftingtable]
+  loom:
+    usage:
+    description:
+  cartography:
+    usage:
+    description:
+  stonecutter:
+    usage:
+    description:
+  grindstone:
+    usage:
+    description:

@@ -30,6 +30,8 @@ import utils.Listeners.RespawnEvent;
 import utils.Listeners.TeleportHandler;
 import utils.Tpa.TpaHandler;
 
+//import de.leonhard.storage.Json;
+
 public class mainClass extends JavaPlugin implements Listener {
 
     public static FileConfiguration mainConfig;
@@ -52,6 +54,7 @@ public class mainClass extends JavaPlugin implements Listener {
         registerShit();
         registerListeners();
         registerCommands();
+        //Json json = new Json("Test", "plugins/XiavicCore/Resources");
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
@@ -63,10 +66,12 @@ public class mainClass extends JavaPlugin implements Listener {
         //getCommand("fireball").setExecutor(new FireBallCommand());
         getCommand("argh").setExecutor(new ArghCommand());
         getCommand("back").setExecutor(new BackCommand());
+        getCommand("cartography").setExecutor(new CartographyCommand());
         getCommand("cheatarmor").setExecutor(new CheatArmor());
         getCommand("cheatexp").setExecutor(new CheatEXP());
         getCommand("clear").setExecutor(new ClearCommand());
         getCommand("clearall").setExecutor(new ClearAllCommand());
+        //getCommand("coinflip").setExecutor(new CoinFlipCommand());
         getCommand("coreconfigupdate").setExecutor(new ConfigReloadCommand(this));
         getCommand("coreversion").setExecutor(new CoreVersionCommand(this));
         getCommand("discord").setExecutor(new DiscordCommand());
@@ -79,8 +84,10 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("forums").setExecutor(new ForumsCommand());
         getCommand("gamemode").setExecutor(new GamemodeCommand());
         getCommand("god").setExecutor(new GodCommand());
+        getCommand("grindstone").setExecutor(new GrindstoneCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("info").setExecutor(new ItemInfoCommand());
+        getCommand("loom").setExecutor(new LoomCommand());
         getCommand("more").setExecutor(new MoreCommand());
         getCommand("near").setExecutor(new NearCommand());
         getCommand("pony").setExecutor(new PonyCommand());
@@ -88,6 +95,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("setfirstspawn").setExecutor(new FirstSpawnSetCommand(this));
         getCommand("setspawn").setExecutor(new SpawnSetCommand(this));
         getCommand("spawn").setExecutor(new SpawnCommand());
+        getCommand("stonecutter").setExecutor(new StonecutterCommand());
         getCommand("suicide").setExecutor(new SuicideCommand());
         getCommand("top").setExecutor(new TopCommand());
         getCommand("tp").setExecutor(new TeleportCommand());
@@ -101,6 +109,7 @@ public class mainClass extends JavaPlugin implements Listener {
         getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
         getCommand("website").setExecutor(new WebsiteCommand());
         getCommand("whois").setExecutor(new WhoIsCommand());
+        getCommand("workbench").setExecutor(new WorkbenchCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
     }
 
