@@ -16,6 +16,7 @@ import Commands.UserCmds.Essential.Teleport.Tpa.TpacceptCommand;
 import Commands.UserCmds.Essential.Teleport.Tpa.TpdenyCommand;
 import Commands.UserCmds.Fun.*;
 import Commands.UserCmds.Fun.Links.*;
+import de.leonhard.storage.Json;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -29,8 +30,6 @@ import utils.Listeners.JoinQuit;
 import utils.Listeners.RespawnEvent;
 import utils.Listeners.TeleportHandler;
 import utils.Tpa.TpaHandler;
-
-//import de.leonhard.storage.Json;
 
 public class mainClass extends JavaPlugin implements Listener {
 
@@ -54,7 +53,7 @@ public class mainClass extends JavaPlugin implements Listener {
         registerShit();
         registerListeners();
         registerCommands();
-        //Json json = new Json("Test", "plugins/XiavicCore/Resources");
+        Json json = new Json("Test", "plugins/XiavicCore/Resources");
         Bukkit.getScheduler().runTaskTimer(this, tpaHandler, 0, 20);
     }
 
