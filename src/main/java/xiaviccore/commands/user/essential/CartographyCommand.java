@@ -1,0 +1,26 @@
+package xiaviccore.commands.user.essential;
+
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
+
+import static xiaviccore.XiavicCore.permissions;
+
+public class CartographyCommand implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] strings) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            if (player.hasPermission(permissions.getString("Cartography"))) {
+                Inventory i = Bukkit.createInventory(player, InventoryType.CARTOGRAPHY);
+                player.openInventory(i);
+                return true;
+            }
+        }
+        return false;
+    }
+}
