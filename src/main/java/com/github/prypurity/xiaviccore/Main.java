@@ -2,7 +2,6 @@ package com.github.prypurity.xiaviccore;
 
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats.CheatArmor;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats.CheatEXP;
-import com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats.SudoCommand;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat.*;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat.teleport.TPPosCommand;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat.teleport.TPhereCommand;
@@ -56,14 +55,9 @@ public final class Main extends JavaPlugin {
         return instance;
     }
 
-    private void setInstance(Main instance) {
-        Main.instance = instance;
-    }
-
     public void onEnable() {
-
+        instance = this;
         setupStorage(); // Loads or Copy Default Configuration
-
         // loadshit();
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage(" XIAVIC CORE IS ACTIVATED... ");

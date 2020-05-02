@@ -1,4 +1,4 @@
-package com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats;
+package com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat;
 
 import com.github.prypurity.xiaviccore.Utils.Utils;
 import org.bukkit.Bukkit;
@@ -24,7 +24,7 @@ public class SudoCommand implements TabExecutor {
 
     @Override //Target: /sudo <player> <command> [args]
     public boolean onCommand(@NotNull final CommandSender sender, @NotNull final Command command,
-        @NotNull final String label, @NotNull final String[] args) {
+                             @NotNull final String label, @NotNull final String[] args) {
         if (!sender.hasPermission(permissions.getString("Sudo")) || !sender.isOp()) {
             Utils.chat(sender, messages.getString("NoPerms"));
             return true;
@@ -37,17 +37,14 @@ public class SudoCommand implements TabExecutor {
             Utils.chat(sender, messages.getString("PlayerNotFound"));
             return true;
         }
-        if (args[1].equalsIgnoreCase("c:")) { //Send chat message as the player.
-            player.chat(Arrays.toString(Arrays.copyOfRange(args, 2, args.length - 1))); //TODO Needs testing
+        if (args[1].equalsIgnoreCase("s:")) { //Send chat message as the player.
+            String message = "";
+            for (int index = 2; index < args.length; ) {
+                message = message.concat(args[index++]).concat(" ");
+            }
+            player.chat(message); //TODO Needs testing
             return true;
         }
-        final Command targetCommand = Bukkit.getPluginCommand(args[1]);
-        if (targetCommand == null) {
-
-            Utils.chat(sender, messages.getString("NoSuchCommand"));
-            return true;
-        }
-        targetCommand.execute(sender, targetCommand.getLabel(), Arrays.copyOfRange(args, 1, args.length - 1));
         return true;
     }
 
@@ -59,25 +56,26 @@ public class SudoCommand implements TabExecutor {
      * - The args of the command {@link Command#tabComplete(CommandSender, String, String[])}
      * {@inheritDoc}
      */
-    @Override public @Nullable List<String> onTabComplete(@NotNull final CommandSender sender,
-        @NotNull final Command command, @NotNull final String unusedAlias,
-        @NotNull final String[] args) {
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull final CommandSender sender,
+                                                @NotNull final Command command, @NotNull final String unusedAlias,
+                                                @NotNull final String[] args) {
         if (!sender.hasPermission(permissions.getString("Sudo")) && !sender.isOp()) {
             return Collections.emptyList();
         }
         final Stream<? extends Command> commands =
-            Bukkit.getCommandAliases().keySet().parallelStream().map(Bukkit::getPluginCommand)
-                .filter(Objects::nonNull).filter((cmd) -> {
-                if (!sender.isOp()) {
-                    if (cmd.getPermission() != null) {
-                        return sender.hasPermission(cmd.getPermission());
+                Bukkit.getCommandAliases().keySet().parallelStream().map(Bukkit::getPluginCommand)
+                        .filter(Objects::nonNull).filter((cmd) -> {
+                    if (!sender.isOp()) {
+                        if (cmd.getPermission() != null) {
+                            return sender.hasPermission(cmd.getPermission());
+                        }
                     }
-                }
-                return true;
-            }); //Get all commands.
+                    return true;
+                }); //Get all commands.
 
         final Iterator<? extends Command> iterator = commands.iterator();
-        Collection<String> combined = new HashSet<>(Math.toIntExact(commands.count() * 2));
+        Collection<String> combined = new HashSet<>();
         while (iterator.hasNext()) {
             //Combine command label and aliases.
             final Command cmd = iterator.next();
@@ -90,7 +88,7 @@ public class SudoCommand implements TabExecutor {
                 ret = Bukkit.getOnlinePlayers().stream().map(Player::getName);
                 break;
             case 1: //If no args after player decleration, tab complete all commands which the player has perms for. Which means break-ing here.
-                ret = ret.filter(name -> name.startsWith(args[0]));
+                ret = Bukkit.getOnlinePlayers().stream().map(Player::getName).filter(name -> name.startsWith(args[0]) || name.equalsIgnoreCase(args[0]));
                 break;
             case 2:
                 //Start filtering commands and aliases.
@@ -98,7 +96,7 @@ public class SudoCommand implements TabExecutor {
                 if (target.isEmpty()) {
                     break;
                 }
-                if (target.equalsIgnoreCase("c:")) {
+                if (target.equalsIgnoreCase("s:")) {
                     ret = Stream.empty();
                     break;
                 }
@@ -108,14 +106,14 @@ public class SudoCommand implements TabExecutor {
             default: //If arg length > 2 then tab based off the known command.
                 final Player targetPlayer = Bukkit.getPlayer(args[0]);
                 final PluginCommand pluginCommand =
-                    Bukkit.getPluginCommand(args[1]); //args[1] is the target command.
+                        Bukkit.getPluginCommand(args[1]); //args[1] is the target command.
                 if (pluginCommand == null) {
                     return Collections.emptyList();
                 }
                 ret = targetPlayer == null ?
-                    Stream.empty() : //If player is null --> empty stream.
-                    pluginCommand.tabComplete(targetPlayer, unusedAlias,
-                        Arrays.copyOfRange(args, 2, args.length - 1)).stream();
+                        Stream.empty() : //If player is null --> empty stream.
+                        pluginCommand.tabComplete(targetPlayer, unusedAlias,
+                                Arrays.copyOfRange(args, 2, args.length - 1)).stream();
         }
         //Returns the alphabetically sorted results.
         return ret.sorted(Comparator.naturalOrder()).collect(Collectors.toList());

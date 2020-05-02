@@ -163,3 +163,6 @@ commands:
   grindstone:
     usage: a
     description: a
+  head:
+    usage: a
+    description: a
