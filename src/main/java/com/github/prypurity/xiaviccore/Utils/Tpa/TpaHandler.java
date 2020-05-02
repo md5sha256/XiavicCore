@@ -1,9 +1,9 @@
 package com.github.prypurity.xiaviccore.Utils.Tpa;
 
+import com.github.prypurity.xiaviccore.Main;
 import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
 import com.github.prypurity.xiaviccore.Utils.Utils;
 import org.bukkit.entity.Player;
-import com.github.prypurity.xiaviccore.Main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,24 +13,21 @@ public class TpaHandler implements Runnable {
 
     // private FileConfiguration m = Messages.get();
 
+    static TeleportHandler teleportHandler;
     private static ArrayList<TpaRequest> requests = new ArrayList<>();
     private static HashMap<TpaRequest, Long> teleports = new HashMap<>();
     private static HashMap<Player, Long> cooldowns = new HashMap<>();
-
     private static int requestTimeout;
     private static int teleportTime;
     private static int tpaCooldown;
-
     private static ArrayList<TpaRequest> deadTeleports = new ArrayList<>();
     private static ArrayList<TpaRequest> deadRequests = new ArrayList<>();
     private static ArrayList<Player> deadCooldowns = new ArrayList<>();
 
-    static TeleportHandler teleportHandler;
-
     public TpaHandler() {
-        requestTimeout = Integer.parseInt(Main.mainConfig.getString("Tpa_Timeout"));
-        teleportTime = Integer.parseInt(Main.mainConfig.getString("Tpa_Delay"));
-        tpaCooldown = Integer.parseInt(Main.mainConfig.getString("TpaCooldown"));
+        requestTimeout = Main.mainConfig.getInt("TpaTimeout");
+        teleportTime = Main.mainConfig.getInt("TpaDelay");
+        tpaCooldown = Main.mainConfig.getInt("TpaCooldown");
     }
 
     public static void startCooldown(Player player) {
@@ -80,13 +77,6 @@ public class TpaHandler implements Runnable {
         return 0;
     }
 
-    //@Override
-    public void run() {
-        checkRequests();
-        checkTeleports();
-        checkCooldowns();
-    }
-
     private static void checkRequests() {
         for (TpaRequest request : requests) {
             if (request.isDead(requestTimeout)) {
@@ -123,6 +113,13 @@ public class TpaHandler implements Runnable {
         for (Player player : deadCooldowns) {
             cooldowns.remove(player);
         }
+    }
+
+    //@Override
+    public void run() {
+        checkRequests();
+        checkTeleports();
+        checkCooldowns();
     }
 
 }

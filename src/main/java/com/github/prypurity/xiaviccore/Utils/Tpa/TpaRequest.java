@@ -1,9 +1,7 @@
 package com.github.prypurity.xiaviccore.Utils.Tpa;
 
 import com.github.prypurity.xiaviccore.Main;
-import com.github.prypurity.xiaviccore.Utils.Files.Messages;
 import com.github.prypurity.xiaviccore.Utils.Utils;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class TpaRequest {

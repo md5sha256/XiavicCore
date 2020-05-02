@@ -1,7 +1,7 @@
 package com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats;
 
-import com.github.prypurity.xiaviccore.Utils.Utils;
 import com.github.prypurity.xiaviccore.Main;
+import com.github.prypurity.xiaviccore.Utils.Utils;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

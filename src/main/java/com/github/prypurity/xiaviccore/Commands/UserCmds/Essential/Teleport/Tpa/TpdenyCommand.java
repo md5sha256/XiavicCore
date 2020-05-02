@@ -1,8 +1,8 @@
 package com.github.prypurity.xiaviccore.Commands.UserCmds.Essential.Teleport.Tpa;
 
+import com.github.prypurity.xiaviccore.Main;
 import com.github.prypurity.xiaviccore.Utils.Tpa.TpaHandler;
 import com.github.prypurity.xiaviccore.Utils.Utils;
-import com.github.prypurity.xiaviccore.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,7 +16,7 @@ public class TpdenyCommand implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
             if (player.hasPermission(Main.permissions.getString("TpDeny")) || player.isOp()) {
-                tpaHandler.parseRequest(player, false);
+                TpaHandler.parseRequest(player, false);
             } else {
                 Utils.chat(player, Main.messages.getString("NoPerms"));
             }

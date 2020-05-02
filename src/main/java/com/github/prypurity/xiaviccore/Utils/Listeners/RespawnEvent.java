@@ -4,6 +4,7 @@ import com.github.prypurity.xiaviccore.Utils.LocationUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
+
 public class RespawnEvent implements Listener {
 
     @EventHandler

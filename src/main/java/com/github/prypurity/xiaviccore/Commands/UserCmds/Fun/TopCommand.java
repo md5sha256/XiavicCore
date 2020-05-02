@@ -1,8 +1,8 @@
 package com.github.prypurity.xiaviccore.Commands.UserCmds.Fun;
 
+import com.github.prypurity.xiaviccore.Main;
 import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
 import com.github.prypurity.xiaviccore.Utils.Utils;
-import com.github.prypurity.xiaviccore.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +17,7 @@ public class TopCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (player.hasPermission(Main.permissions.getString("Top"))) {
-                teleportHandler.teleport(player, player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0));
+                TeleportHandler.teleport(player, player.getWorld().getHighestBlockAt(player.getLocation()).getLocation().add(0, 1.5, 0));
                 return true;
             } else {
                 Utils.chat(player, Main.messages.getString("NoPerms"));

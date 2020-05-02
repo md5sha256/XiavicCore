@@ -1,7 +1,7 @@
 package com.github.prypurity.xiaviccore.Commands.UserCmds.Essential;
 
-import com.github.prypurity.xiaviccore.Utils.Utils;
 import com.github.prypurity.xiaviccore.Main;
+import com.github.prypurity.xiaviccore.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

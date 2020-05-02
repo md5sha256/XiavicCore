@@ -1,4 +1,4 @@
-###_________________########
+###________________########
 ##/////////\\\\\\\\\########
 #//////////\\\\\\\\\\#######
 #//// Xiavic Core \\\\######
@@ -33,9 +33,9 @@ CanShare: false
 # Time before you can send another request
 TpaCooldown: 5
 # Time before actually teleporting
-Tpa_Delay: 3
+TpaDelay: 3
 # Time before the request expires
-Tpa_Timeout: 60
+TpaTimeout: 60
 
 #RTP
 RTPCooldown: 600

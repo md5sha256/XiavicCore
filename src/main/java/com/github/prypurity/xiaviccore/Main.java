@@ -32,7 +32,6 @@ import de.leonhard.storage.internal.settings.ConfigSettings;
 import de.leonhard.storage.internal.settings.DataType;
 import de.leonhard.storage.internal.settings.ReloadSettings;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -40,19 +39,26 @@ import java.io.File;
 
 
 public final class Main extends JavaPlugin {
-    private static Main instance;
 
     //public static FileConfiguration mainConfig;
     //public static FileConfiguration messages;
     //public static FileConfiguration permissions;
-
     public static Yaml permissions;
     public static Yaml messages;
     public static Yaml mainConfig;
-
-
+    public static Yaml commands;
     public static TpaHandler tpaHandler;
     public static TeleportHandler teleportHandler;
+    private static Main instance;
+
+    // Handle Instance of plugin in multiple classes.
+    public static Main getInstance() {
+        return instance;
+    }
+
+    private void setInstance(Main instance) {
+        Main.instance = instance;
+    }
 
     public void onEnable() {
 
@@ -63,7 +69,7 @@ public final class Main extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(" XIAVIC CORE IS ACTIVATED... ");
         Bukkit.getConsoleSender().sendMessage(" ");
         Bukkit.getConsoleSender().sendMessage("Xiavic Network's Amazing Core");
-        Bukkit.getConsoleSender().sendMessage("     In Development by the Xiavic Owners ");
+        Bukkit.getConsoleSender().sendMessage("     In Development by the Xiavic Dev Team ");
         Bukkit.getConsoleSender().sendMessage(" ");
         registerShit();
         registerListeners();
@@ -183,6 +189,17 @@ public final class Main extends JavaPlugin {
                 .createConfig();
 
         ////////////////
+        // commands.yml
+        ////////////////
+        mainConfig = LightningBuilder
+                .fromFile(new File("plugins/XiavicCore/commands"))
+                .addInputStreamFromResource("commands.yml")
+                .setConfigSettings(ConfigSettings.PRESERVE_COMMENTS)
+                .setReloadSettings(ReloadSettings.AUTOMATICALLY)
+                .setDataType(DataType.SORTED)
+                .createConfig();
+
+        ////////////////
         // players.json
         ////////////////
         Json players = new Json("players", Bukkit.getServer().getWorldContainer() + "/plugins/XiavicCore/Resources");
@@ -218,14 +235,6 @@ public final class Main extends JavaPlugin {
         mainConfig.set("FirstSpawn", firstspawnLocation);
         mainConfig.set("Spawn", spawnLocation);
         saveConfig();
-    }
-
-    // Handle Instance of plugin in multiple classes.
-    public static Main getInstance() {
-        return instance;
-    }
-    private void setInstance(Main instance)  {
-        Main.instance = instance;
     }
 
 }

@@ -4,8 +4,7 @@ main: com.github.prypurity.xiaviccore.Main
 api-version: 1.13
 prefix: XiavicCore
 authors: [Imhandmade, Kerlab, VottusCode]
-description: A
-website: A
+description: Yes
 commands:
   afk:
     usage: A

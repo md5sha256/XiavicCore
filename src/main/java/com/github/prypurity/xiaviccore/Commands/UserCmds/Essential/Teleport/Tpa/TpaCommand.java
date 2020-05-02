@@ -1,14 +1,13 @@
 package com.github.prypurity.xiaviccore.Commands.UserCmds.Essential.Teleport.Tpa;
 
-import com.github.prypurity.xiaviccore.Utils.Utils;
 import com.github.prypurity.xiaviccore.Main;
+import com.github.prypurity.xiaviccore.Utils.Tpa.TpaHandler;
+import com.github.prypurity.xiaviccore.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import static com.github.prypurity.xiaviccore.Main.tpaHandler;
 
 public class TpaCommand implements CommandExecutor {
     @Override
@@ -18,10 +17,10 @@ public class TpaCommand implements CommandExecutor {
             if (player.hasPermission(Main.permissions.getString("Tpa")) || player.isOp()) {
                 if (strings.length == 1) {
                     if (!strings[0].equalsIgnoreCase(player.getName())) {
-                        if (tpaHandler.canTpa(player)) {
+                        if (TpaHandler.canTpa(player)) {
                             try {
                                 Player target = Bukkit.getPlayer(strings[0]);
-                                int result = tpaHandler.addRequest(player, target);
+                                int result = TpaHandler.addRequest(player, target);
                                 if (result == 2) {
                                     Utils.chat(player, Main.messages.getString("TpDisabled").replace("%target%", target.getDisplayName()));
                                 }

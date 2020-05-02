@@ -1,9 +1,9 @@
 package com.github.prypurity.xiaviccore.Commands.UserCmds.Essential.Teleport;
 
-import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
-import com.github.prypurity.xiaviccore.Utils.Utils;
 import com.github.prypurity.xiaviccore.Main;
+import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
 import com.github.prypurity.xiaviccore.Utils.LocationUtils;
+import com.github.prypurity.xiaviccore.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;

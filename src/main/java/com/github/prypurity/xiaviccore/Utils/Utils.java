@@ -1,12 +1,11 @@
 package com.github.prypurity.xiaviccore.Utils;
 
-import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
 import com.github.prypurity.xiaviccore.Main;
+import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.jetbrains.annotations.NotNull;
