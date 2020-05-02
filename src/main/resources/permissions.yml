@@ -37,6 +37,7 @@ TpAccept: "Xiavic.player.tpaccept"
 TpDeny: "Xiavic.player.tpdeny"
 Top: "Xiavic.player.top"
 Workbench: "Xiavic.player.workbench"
+World: "Xiavic.player.world"
 
 # Staff Commands
 Clear: "Xiavic.clear"
