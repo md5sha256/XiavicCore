@@ -18,6 +18,7 @@
 ##############################
 
 # Player Commands
+Afk: "Xiavic.player.afk"
 Back: "Xiavic.player.back"
 Cartography: "Xiavic.player.cartography"
 Dispose: "Xiavic.player.dispose"
@@ -29,6 +30,7 @@ ItemInfo: "Xiavic.player.info"
 Loom: "Xiavic.player.loom"
 Near: "Xiavic.player.near"
 RandomTP: "Xiavic.player.rtp"
+Repair: "Xiavic.player.repair"
 Spawn: "Xiavic.player.spawn"
 Stonecutter: "Xiavic.player.stonecutter"
 Suicide: "Xiavic.player.suicide"
@@ -60,6 +62,7 @@ ServerInfo: "Xiavic.staff.serverinfo"
 SetFirstSpawn: "Xiavic.staff.setfirstspawn"
 SetSpawn: "Xiavic.staff.setspawn"
 SpawnOthers: "Xiavic.staff.spawnothers"
+Sudo: "Xiavic.staff.sudo"
 Version: "Xiavic.staff.version"
 TP: "Xiavic.staff.tp"
 Tpall: "Xiavic.staff.tpall"

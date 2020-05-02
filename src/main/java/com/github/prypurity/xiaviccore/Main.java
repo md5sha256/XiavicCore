@@ -2,6 +2,7 @@ package com.github.prypurity.xiaviccore;
 
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats.CheatArmor;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats.CheatEXP;
+import com.github.prypurity.xiaviccore.Commands.StaffCmds.cheats.SudoCommand;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat.*;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat.teleport.TPPosCommand;
 import com.github.prypurity.xiaviccore.Commands.StaffCmds.noncheat.teleport.TPhereCommand;
@@ -19,6 +20,7 @@ import com.github.prypurity.xiaviccore.Commands.UserCmds.Fun.Links.*;
 import com.github.prypurity.xiaviccore.Utils.EquipAnything.EquipEvents;
 import com.github.prypurity.xiaviccore.Utils.Files.Messages;
 import com.github.prypurity.xiaviccore.Utils.Files.Permissions;
+import com.github.prypurity.xiaviccore.Utils.Listeners.AFKHandler;
 import com.github.prypurity.xiaviccore.Utils.Listeners.JoinQuit;
 import com.github.prypurity.xiaviccore.Utils.Listeners.RespawnEvent;
 import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
@@ -77,6 +79,7 @@ public final class Main extends JavaPlugin {
     private void registerCommands() {
         //getCommand("fireball").setExecutor(new FireBallCommand());
         getCommand("argh").setExecutor(new ArghCommand());
+        getCommand("afk").setExecutor(new AFKCommand());
         getCommand("back").setExecutor(new BackCommand());
         getCommand("cartography").setExecutor(new CartographyCommand());
         getCommand("cheatarmor").setExecutor(new CheatArmor());
@@ -98,6 +101,7 @@ public final class Main extends JavaPlugin {
         getCommand("god").setExecutor(new GodCommand());
         getCommand("grindstone").setExecutor(new GrindstoneCommand());
         getCommand("heal").setExecutor(new HealCommand());
+        getCommand("head").setExecutor(new HeadCommand());
         getCommand("info").setExecutor(new ItemInfoCommand());
         getCommand("loom").setExecutor(new LoomCommand());
         getCommand("more").setExecutor(new MoreCommand());
@@ -108,6 +112,7 @@ public final class Main extends JavaPlugin {
         getCommand("setspawn").setExecutor(new SpawnSetCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("stonecutter").setExecutor(new StonecutterCommand());
+        getCommand("sudo").setExecutor(new SudoCommand());
         getCommand("suicide").setExecutor(new SuicideCommand());
         getCommand("top").setExecutor(new TopCommand());
         getCommand("tp").setExecutor(new TeleportCommand());
@@ -121,6 +126,7 @@ public final class Main extends JavaPlugin {
         getCommand("walkspeed").setExecutor(new WalkSpeedCommand());
         getCommand("website").setExecutor(new WebsiteCommand());
         getCommand("whois").setExecutor(new WhoIsCommand());
+        getCommand("world").setExecutor(new WorldCommand());
         getCommand("workbench").setExecutor(new WorkbenchCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
     }
@@ -131,6 +137,7 @@ public final class Main extends JavaPlugin {
         pm.registerEvents(new EquipEvents(), this);
         pm.registerEvents(new RespawnEvent(), this);
         pm.registerEvents(teleportHandler, this);
+        AFKHandler.INSTANCE.registerTicker();
     }
 
     // Use this function for creating new shit
