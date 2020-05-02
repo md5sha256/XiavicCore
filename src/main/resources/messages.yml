@@ -25,7 +25,6 @@ PlayerNotFound: "&cThat Player is not found or is not online!"
 PlayerNotFound2: "&cOne of the players are not online!"
 SenderNotPlayer: "You are not a fucking player!"
 SpecifyTarget: "You must specify the target"
-PlayerOnly: "You must be a player!"
 NoSuchWorld: "Unknown world"
 NoPerms: "&4You have no power here..."
 Enabled: "Enabled... bitch"
@@ -84,6 +83,7 @@ Whatsthis_AtTarget: "You have cursed %target%."
 Wheather: "&eThe server's current weather is, &c%weather%"
 WheatherChanged: "&aYou have changed the weather to, &e%weather%"
 World: "&bYou have been teleported to the spawn of %world%"
+
 # How 2 Use Messages a.k.a. Help Text
 WhoIsHelp: "/whois <player>"
 

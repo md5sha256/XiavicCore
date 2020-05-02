@@ -11,21 +11,23 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Represents the command for /world - to change worlds.
- */
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.github.prypurity.xiaviccore.Main.*;
+import static com.github.prypurity.xiaviccore.Main.messages;
+import static com.github.prypurity.xiaviccore.Main.permissions;
+
+/**
+ * Represents the command for /world - to change worlds.
+ */
 public class WorldCommand implements TabExecutor {
 
     private static final String permission = permissions.getString("World");
     private static final String noPermission = permissions.getString("NoPerms");
     private static final String noSuchWorld = messages.getString("NoSuchWorld");
-    private static final String mustBePlayer = messages.getString("PlayerOnly");
+    private static final String mustBePlayer = messages.getString("SenderNotPlayer");
     private static final String tpFailure = messages.getString("Tp_Failed");
 
     @Override public boolean onCommand(@NotNull final CommandSender commandSender,
