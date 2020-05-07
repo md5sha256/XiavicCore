@@ -26,7 +26,6 @@ import com.github.prypurity.xiaviccore.Utils.Listeners.TeleportHandler;
 import com.github.prypurity.xiaviccore.Utils.NMSHandler.NMS;
 import com.github.prypurity.xiaviccore.Utils.Tpa.TpaHandler;
 import com.github.prypurity.xiaviccore.Utils.Utils;
-import de.leonhard.storage.Json;
 import de.leonhard.storage.LightningBuilder;
 import de.leonhard.storage.Yaml;
 import de.leonhard.storage.internal.settings.ConfigSettings;
@@ -42,17 +41,14 @@ import java.util.logging.Level;
 
 public final class Main extends JavaPlugin {
 
-    //public static FileConfiguration mainConfig;
-    //public static FileConfiguration messages;
-    //public static FileConfiguration permissions;
     public static Yaml permissions;
     public static Yaml messages;
     public static Yaml mainConfig;
     public static Yaml commands;
     public static TpaHandler tpaHandler;
     public static TeleportHandler teleportHandler;
-    private static Main instance;
     public static NMS nmsImpl; //Should never be null after plugin init has completed.
+    private static Main instance;
 
     // Handle Instance of plugin in multiple classes.
     public static Main getInstance() {
@@ -140,6 +136,7 @@ public final class Main extends JavaPlugin {
         getCommand("world").setExecutor(new WorldCommand());
         getCommand("workbench").setExecutor(new WorkbenchCommand());
         getCommand("youtube").setExecutor(new YoutubeCommand());
+        //getCommand("hat").setExecutor(new HatCommand());
     }
 
     private void registerListeners() {
@@ -162,12 +159,12 @@ public final class Main extends JavaPlugin {
         if (Main.nmsImpl == null) {
             try {
                 final Class<?> clazz = Class.forName(
-                    "com.github.prypurity.xiaviccore" + Utils.parseNMSVersion() + ".NMSImpl");
+                        "com.github.prypurity.xiaviccore" + Utils.parseNMSVersion() + ".NMSImpl");
                 final Class<? extends NMS> nmsImplClass = clazz.asSubclass(NMS.class);
                 Main.nmsImpl = nmsImplClass.newInstance();
             } catch (final ReflectiveOperationException ex) {
                 ex.printStackTrace();
-                final String message =  messages.getString("ServerVersionUnsupported");
+                final String message = messages.getString("ServerVersionUnsupported");
                 getLogger().log(Level.SEVERE, Utils.chat(message.replace("%version%", Bukkit.getVersion())));
                 return false;
             }
@@ -211,35 +208,33 @@ public final class Main extends JavaPlugin {
                 .setDataType(DataType.SORTED)
                 .createConfig();
 
-        ////////////////
-        // commands.yml
-        ////////////////
-        mainConfig = LightningBuilder
-                .fromFile(new File("plugins/XiavicCore/commands"))
-                .addInputStreamFromResource("commands.yml")
-                .setConfigSettings(ConfigSettings.PRESERVE_COMMENTS)
-                .setReloadSettings(ReloadSettings.AUTOMATICALLY)
-                .setDataType(DataType.SORTED)
-                .createConfig();
+        //     ////////////////
+        //     // commands.yml
+        //     ////////////////
+        //     commands = LightningBuilder
+        //             .fromFile(new File("plugins/XiavicCore/Resources/commands"))
+        //             .addInputStreamFromResource("commands.yml")
+        //             .setConfigSettings(ConfigSettings.PRESERVE_COMMENTS)
+        //             .setReloadSettings(ReloadSettings.AUTOMATICALLY)
+        //             .setDataType(DataType.SORTED)
+        //             .createConfig();
 
-        ////////////////
-        // players.json
-        ////////////////
-        Json players = new Json("players", Bukkit.getServer().getWorldContainer() + "/plugins/XiavicCore/Resources");
-        players.set("players." + "NightPotato.Rank", "ThatNewGuy!");
+        //     ////////////////
+        //     // players.json
+        //     ////////////////
+        //     Json players = new Json("players", Bukkit.getServer().getWorldContainer() + "/plugins/XiavicCore/Resources");
+        //     players.set("players." + "NightPotato.Rank", "ThatNewGuy!");
 
 
     }
 
     private void loadshit() {
-        saveResource("resources/permissions.yml", false);
-        saveResource("resources/messages.yml", false);
+        saveResource("Resources/permissions.yml", false);
+        saveResource("Resources/messages.yml", false);
+        //saveResource("Resources/commands.yml", false);
         saveResource("config.yml", false);
         Permissions.setup();
         Messages.setup();
-        //mainConfig = getConfig();
-        //permissions = Permissions.get();
-        //messages = Messages.get();
     }
 
     // I am using this function for updating the configs from the files inside the current
@@ -249,12 +244,10 @@ public final class Main extends JavaPlugin {
         String spawnLocation = mainConfig.getString("Spawn");
         saveResource("Resources/permissions.yml", true);
         saveResource("Resources/messages.yml", true);
+        //saveResource("Resources/commands.yml", true);
         saveResource("config.yml", true);
         Permissions.setup();
         Messages.setup();
-        //mainConfig = getConfig();
-        //permissions = Permissions.get();
-        // messages = Messages.get();
         mainConfig.set("FirstSpawn", firstspawnLocation);
         mainConfig.set("Spawn", spawnLocation);
         saveConfig();
